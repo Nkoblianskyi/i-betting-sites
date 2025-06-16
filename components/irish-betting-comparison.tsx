@@ -34,7 +34,7 @@ export default function IrishBettingComparison() {
           <div className="flex-1 min-w-0 max-w-4xl mx-auto">
             {/* Hero Section - removed bottom margin */}
             <div>
-              <div className="relative text-white rounded-lg overflow-hidden bg-black bg-opacity-60 py-6 md:py-8">
+              <div className="relative text-white overflow-hidden bg-black bg-opacity-60 py-6 md:py-8">
                 <div className="relative z-10 w-full px-4 sm:px-6 lg:px-8 text-center">
                   <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold mb-2 sm:mb-3">
                     BEST <span className="text-green-400">IRELAND</span> BETTING SITES
@@ -116,7 +116,7 @@ export default function IrishBettingComparison() {
               </div>
             </div>
 
-            {/* Live Football Ticker - no margins, directly under hero */}
+            {/* Live Football Ticker - conditionally rendered */}
             <LiveFootballTicker />
 
             {/* Sites List */}

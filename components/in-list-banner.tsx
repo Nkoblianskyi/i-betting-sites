@@ -12,6 +12,10 @@ interface InListBannerProps {
 }
 
 export function InListBanner({ site, badgeText, badgeColor }: InListBannerProps) {
+  // Ensure consistent rendering between server and client
+  const logoSrc = site.logo || "/placeholder.svg"
+  const siteName = site.name || ""
+
   return (
     <Link href="#" className="block">
       <div className="relative bg-gradient-to-r from-gray-800 to-gray-900 rounded-lg p-3 sm:p-4 lg:p-6 border-2 border-dashed border-yellow-500 my-3 sm:my-4 lg:my-6 overflow-hidden hover:shadow-xl transition-all duration-300 hover:scale-[1.02] cursor-pointer">
@@ -35,10 +39,10 @@ export function InListBanner({ site, badgeText, badgeColor }: InListBannerProps)
             {/* Mobile: Logo and Site Name */}
             <div className="flex items-center justify-between mb-3">
               <div className="bg-white p-2 rounded-lg">
-                <img src={site.logo || "/placeholder.svg"} alt={site.name} className="h-8 w-auto" />
+                <img src={logoSrc || "/placeholder.svg"} alt={siteName} className="h-8 w-auto" />
               </div>
               <div className="text-right">
-                <div className="text-white text-lg font-bold mb-1">{site.name.toUpperCase()}</div>
+                <div className="text-white text-lg font-bold mb-1">{siteName.toUpperCase()}</div>
                 <div className="flex items-center justify-end gap-1">
                   {[...Array(5)].map((_, i) => (
                     <Star
@@ -79,7 +83,7 @@ export function InListBanner({ site, badgeText, badgeColor }: InListBannerProps)
               <div className="flex items-center gap-4 lg:gap-6">
                 {/* Logo */}
                 <div className="bg-white p-3 lg:p-4 rounded-lg">
-                  <img src={site.logo || "/placeholder.svg"} alt={site.name} className="h-8 lg:h-12 w-auto" />
+                  <img src={logoSrc || "/placeholder.svg"} alt={siteName} className="h-8 lg:h-12 w-auto" />
                 </div>
 
                 {/* Offer */}
@@ -97,7 +101,7 @@ export function InListBanner({ site, badgeText, badgeColor }: InListBannerProps)
 
               {/* Site name and rating - full width available */}
               <div className="text-right">
-                <div className="text-white text-lg lg:text-2xl font-bold mb-2">{site.name.toUpperCase()}</div>
+                <div className="text-white text-lg lg:text-2xl font-bold mb-2">{siteName.toUpperCase()}</div>
                 <div className="flex items-center justify-end gap-1">
                   {[...Array(5)].map((_, i) => (
                     <Star

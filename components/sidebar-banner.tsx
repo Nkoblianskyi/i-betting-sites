@@ -16,6 +16,10 @@ export function SidebarBanner({ position, site }: SidebarBannerProps) {
     return votes.toLocaleString("en-US") // Always use en-US for consistency
   }
 
+  // Ensure consistent rendering between server and client
+  const logoSrc = site.logo || "/placeholder.svg"
+  const siteName = site.name || ""
+
   return (
     <Link href="#" className="block">
       <div
@@ -42,20 +46,19 @@ export function SidebarBanner({ position, site }: SidebarBannerProps) {
             <div className="text-center mb-3">
               <div className="mb-1">
                 <img
-                  src={site.logo || "/placeholder.svg"}
-                  alt={site.name}
+                  src={logoSrc || "/placeholder.svg"}
+                  alt={siteName}
                   className="h-10 w-auto mx-auto object-contain bg-white rounded p-1"
                 />
               </div>
-              <div className="text-lg font-semibold mb-2">{site.name}</div>
+              <div className="text-lg font-semibold mb-2">{siteName}</div>
 
               <div className="flex items-center justify-center gap-1 mb-2">
                 {[...Array(5)].map((_, i) => (
                   <Star
                     key={i}
-                    className={`w-4 h-4 ${
-                      i < Math.floor(site.rating) ? "fill-yellow-400 text-yellow-400" : "text-gray-400"
-                    }`}
+                    className={`w-4 h-4 ${i < Math.floor(site.rating) ? "fill-yellow-400 text-yellow-400" : "text-gray-400"
+                      }`}
                   />
                 ))}
                 <span className="ml-1 text-lg font-bold">{site.userRating}</span>
