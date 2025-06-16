@@ -9,10 +9,10 @@ import { CookieBanner } from "./cookie-banner"
 import { InfoSections } from "./info-sections"
 import { AdvertiserDisclosureModal } from "./advertiser-disclosure-modal"
 import { TermsModal } from "./terms-modal"
-import { LiveFootballTicker } from "./live-football-ticker"
 import { bettingSites } from "../data/mock-data"
 import { InListBanner } from "./in-list-banner"
 import type { BettingSite } from "../types"
+import LiveFootballTicker from "./live-football-ticker"
 
 export default function IrishBettingComparison() {
   const [isAdvertiserModalOpen, setIsAdvertiserModalOpen] = useState(false)
