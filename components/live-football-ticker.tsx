@@ -24,7 +24,7 @@ export function LiveFootballTicker() {
     try {
       console.log("Fetching matches from football-data.org API...")
 
-      const response = await fetch("https://api.football-data.org/v4/matches?status=SCHEDULED,LIVE,IN_PLAY", {
+      const response = await fetch("https://api.football-data.org/v4/matches", {
         headers: {
           "X-Auth-Token": "03df4abdf8ba48fcb18241e7c39f7434",
         },
