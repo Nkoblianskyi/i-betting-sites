@@ -28,7 +28,7 @@ export function LiveTicker() {
 
       // Показуємо всі матчі без фільтрації за датою
       const allMatches = data.response
-        .slice(0, 25) // Беремо перші 15 матчів
+        .slice(0, 25) // Беремо перші 25 матчів
         .map((match: any, index: number) => {
           const [homeTeam, awayTeam] = match.title.split(" - ")
           const dateObj = new Date(match.date)
@@ -112,6 +112,30 @@ export function LiveTicker() {
           time: "18:00",
           league: "Eredivisie",
         },
+        {
+          id: "8",
+          homeTeam: "Inter Milan",
+          awayTeam: "Napoli",
+          date: "22 Jun",
+          time: "20:45",
+          league: "Serie A",
+        },
+        {
+          id: "9",
+          homeTeam: "Atletico Madrid",
+          awayTeam: "Sevilla",
+          date: "23 Jun",
+          time: "19:30",
+          league: "La Liga",
+        },
+        {
+          id: "10",
+          homeTeam: "Tottenham",
+          awayTeam: "West Ham",
+          date: "24 Jun",
+          time: "17:00",
+          league: "Premier League",
+        },
       ])
     } finally {
       setLoading(false)
@@ -125,15 +149,15 @@ export function LiveTicker() {
   }, [])
 
   if (loading) {
-    return <div className="bg-[#d3d3d3] text-black py-2 text-center">Loading...</div>
+    return <div className="bg-[#d3d3d3] text-black py-2 text-center rounded-b-lg">Loading...</div>
   }
 
   if (matches.length === 0) return null
 
   return (
-    <div className="relative overflow-hidden bg-[#d3d3d3] border-t border-black h-[40px]">
+    <div className="relative overflow-hidden bg-[#d3d3d3] border-t border-black h-[40px] rounded-b-lg">
       {/* Fixed green label */}
-      <div className="absolute left-0 top-0 bottom-0 bg-[#60c100] text-white font-bold px-4 py-2 text-sm rounded-r-full z-10 flex items-center">
+      <div className="absolute left-0 top-0 bottom-0 bg-[#60c100] text-white font-bold px-4 py-2 text-sm rounded-br-lg z-10 flex items-center">
         <div className="text-center leading-tight">
           <div className="text-xs">Live</div>
           <div className="text-xs">Fixtures</div>
@@ -143,34 +167,38 @@ export function LiveTicker() {
       {/* Scrolling content */}
       <div className="absolute left-32 top-0 bottom-0 right-0 overflow-hidden">
         <div className="ticker-track h-full flex items-center">
-          {matches.concat(matches).map((match, index) => (
-            <div
-              key={`${match.id}-${index}`}
-              className="flex-shrink-0 px-6 py-2 border-l border-gray-500 min-w-[240px] text-center whitespace-nowrap"
-            >
-              <div className="font-semibold text-sm text-black">
-                {match.homeTeam} vs {match.awayTeam}
+          {/* Повторюємо контент 3 рази для безшовної анімації */}
+          {Array(3)
+            .fill(matches)
+            .flat()
+            .map((match, index) => (
+              <div
+                key={`${match.id}-${index}`}
+                className="flex-shrink-0 px-6 py-2 border-l border-gray-500 min-w-[240px] text-center whitespace-nowrap"
+              >
+                <div className="font-semibold text-sm text-black">
+                  {match.homeTeam} vs {match.awayTeam}
+                </div>
+                <div className="text-xs text-black mt-1">
+                  {match.date} {match.time} • {match.league}
+                </div>
               </div>
-              <div className="text-xs text-black mt-1">
-                {match.date} {match.time} • {match.league}
-              </div>
-            </div>
-          ))}
+            ))}
         </div>
       </div>
 
       <style jsx>{`
         .ticker-track {
-          animation: ticker-scroll 60s linear infinite;
+          animation: ticker-scroll 120s linear infinite;
           width: max-content;
         }
         
         @keyframes ticker-scroll {
           from {
-            transform: translateX(100%);
+            transform: translateX(0);
           }
           to {
-            transform: translateX(-50%);
+            transform: translateX(-33.333%);
           }
         }
         
