@@ -11,7 +11,7 @@ export const bettingSites: BettingSite[] = [
     features: ["Live Streaming", "Cash Out", "Best Odds"],
     welcomeOffer: "Bet €10 Get €50",
     terms: "New customers only. T&Cs apply.",
-    userRating: 4.9,
+    userRating: 5.0,
     votes: 29891,
   },
   {
@@ -24,7 +24,7 @@ export const bettingSites: BettingSite[] = [
     features: ["Exchange", "Sportsbook", "Live Betting"],
     welcomeOffer: "Bet €5 Get €20",
     terms: "New customers only. T&Cs apply.",
-    userRating: 4.8,
+    userRating: 5.0,
     votes: 28456,
   },
   {
@@ -37,7 +37,7 @@ export const bettingSites: BettingSite[] = [
     features: ["Irish Focus", "Best Prices", "Mobile App"],
     welcomeOffer: "Bet €10 Get €25",
     terms: "New customers only. T&Cs apply.",
-    userRating: 4.7,
+    userRating: 4.9,
     votes: 27892,
   },
   {
