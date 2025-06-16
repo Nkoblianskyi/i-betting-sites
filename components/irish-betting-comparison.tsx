@@ -13,7 +13,7 @@ import { bettingSites } from "../data/mock-data"
 import { InListBanner } from "./in-list-banner"
 import type { BettingSite } from "../types"
 import { TableHeader } from "./table-header"
-import { LiveTicker } from "./live-football-ticker"
+import { LiveTicker } from "./live-ticker"
 
 export default function IrishBettingComparison() {
   const [isAdvertiserModalOpen, setIsAdvertiserModalOpen] = useState(false)
@@ -48,8 +48,8 @@ export default function IrishBettingComparison() {
         <div className="grid grid-cols-1 md:grid-cols-1 xl-custom:grid-cols-[200px_1fr_200px] gap-3">
           {/* Left Column - Only on screens 1182px+ */}
           <div className="hidden xl-custom:block">
-            {/* Empty space for hero height + some list items */}
-            <div style={{ height: "1200px" }}></div>
+            {/* Empty space for hero height + some list items - опущено на 400px */}
+            <div style={{ height: "1800px" }}></div>
             {/* Left Sidebar at middle of list */}
             <SidebarBanner position="left" site={bettingSites[1]} />
           </div>
