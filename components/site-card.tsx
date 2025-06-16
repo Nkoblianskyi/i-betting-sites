@@ -33,7 +33,7 @@ export function SiteCard({ site, rank }: SiteCardProps) {
         <div className="h-[130px] grid grid-cols-[150px_1fr_150px_100px_150px] gap-4 items-center px-4">
           {/* BOOKMAKER */}
           <div className="flex justify-center">
-            <img src={site.logo || "/placeholder.svg"} alt={site.name} className="h-16 w-auto object-contain" />
+            <img src={site.logo || "/placeholder.svg"} alt={site.name} className="h-32 w-[220px] object-contain" />
           </div>
 
           {/* BONUS OFFER */}
@@ -73,7 +73,7 @@ export function SiteCard({ site, rank }: SiteCardProps) {
 
         {/* Terms */}
         <div className="h-[32px] bg-gray-50 flex items-center justify-center text-xs text-gray-500 px-4">
-          {site.terms}
+          18+ | Play responsibly | GambleAware.org | Safe gaming practices apply
         </div>
       </div>
 
