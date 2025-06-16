@@ -3,7 +3,7 @@ import Image from "next/image"
 
 export function Header() {
   return (
-    <div style={{ background: "rgba(0, 0, 0, 0.70)" }}>
+    <div style={{ background: "rgba(0, 0, 0, 0.15)" }}>
       <header className="text-white h-[83px]">
         <div className="container mx-auto px-4 flex items-center justify-center h-20">
           <Link href="/" className="flex items-center gap-3">
