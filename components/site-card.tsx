@@ -15,6 +15,12 @@ export function SiteCard({ site, rank }: SiteCardProps) {
   const filledStars = Math.floor(site.rating)
   const hasHalfStar = site.rating % 1 >= 0.5
 
+  // Fix hydration issue by using consistent number formatting
+  const formatVotes = (votes: number) => {
+    // Always use the same format to avoid hydration mismatch
+    return votes.toLocaleString("en-US")
+  }
+
   return (
     <Link href="#" className="block">
       {/* Mobile Layout */}
@@ -69,7 +75,7 @@ export function SiteCard({ site, rank }: SiteCardProps) {
                   />
                 ))}
               </div>
-              <div className="text-xs text-gray-600">Votes ({site.votes.toLocaleString()})</div>
+              <div className="text-xs text-gray-600">Votes ({formatVotes(site.votes)})</div>
             </div>
 
             {/* Score Section */}
@@ -130,7 +136,7 @@ export function SiteCard({ site, rank }: SiteCardProps) {
 
           {/* Rating Section */}
           <div className="text-center px-4">
-            <div className="text-xs text-gray-600 mb-1">Rate it! ({site.votes.toLocaleString()})</div>
+            <div className="text-xs text-gray-600 mb-1">Rate it! ({formatVotes(site.votes)})</div>
             <div className="flex items-center justify-center gap-0.5 mb-1">
               {[...Array(5)].map((_, i) => (
                 <Star

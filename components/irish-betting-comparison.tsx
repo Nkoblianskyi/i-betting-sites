@@ -9,6 +9,7 @@ import { CookieBanner } from "./cookie-banner"
 import { InfoSections } from "./info-sections"
 import { AdvertiserDisclosureModal } from "./advertiser-disclosure-modal"
 import { TermsModal } from "./terms-modal"
+import { LiveFootballTicker } from "./live-football-ticker"
 import { bettingSites } from "../data/mock-data"
 import { InListBanner } from "./in-list-banner"
 import type { BettingSite } from "../types"
@@ -31,9 +32,9 @@ export default function IrishBettingComparison() {
 
           {/* Main Content Column */}
           <div className="flex-1 min-w-0 max-w-4xl mx-auto">
-            {/* Hero Section */}
-            <div className="mb-5">
-              <div className="relative text-white overflow-hidden bg-black bg-opacity-60 py-6 md:py-8">
+            {/* Hero Section - removed bottom margin */}
+            <div>
+              <div className="relative text-white rounded-lg overflow-hidden bg-black bg-opacity-60 py-6 md:py-8">
                 <div className="relative z-10 w-full px-4 sm:px-6 lg:px-8 text-center">
                   <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold mb-2 sm:mb-3">
                     BEST <span className="text-green-400">IRELAND</span> BETTING SITES
@@ -115,8 +116,11 @@ export default function IrishBettingComparison() {
               </div>
             </div>
 
+            {/* Live Football Ticker - no margins, directly under hero */}
+            <LiveFootballTicker />
+
             {/* Sites List */}
-            <div className="space-y-2">
+            <div className="space-y-2 mt-5">
               {bettingSites.map((site: BettingSite, index: number) => (
                 <div key={site.id}>
                   <SiteCard site={site} rank={index + 1} />

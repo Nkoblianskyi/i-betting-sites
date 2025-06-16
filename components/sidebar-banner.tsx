@@ -11,6 +11,11 @@ interface SidebarBannerProps {
 }
 
 export function SidebarBanner({ position, site }: SidebarBannerProps) {
+  // Fix hydration issue by using consistent number formatting
+  const formatVotes = (votes: number) => {
+    return votes.toLocaleString("en-US") // Always use en-US for consistency
+  }
+
   return (
     <Link href="#" className="block">
       <div
@@ -48,8 +53,9 @@ export function SidebarBanner({ position, site }: SidebarBannerProps) {
                 {[...Array(5)].map((_, i) => (
                   <Star
                     key={i}
-                    className={`w-4 h-4 ${i < Math.floor(site.rating) ? "fill-yellow-400 text-yellow-400" : "text-gray-400"
-                      }`}
+                    className={`w-4 h-4 ${
+                      i < Math.floor(site.rating) ? "fill-yellow-400 text-yellow-400" : "text-gray-400"
+                    }`}
                   />
                 ))}
                 <span className="ml-1 text-lg font-bold">{site.userRating}</span>
@@ -67,7 +73,7 @@ export function SidebarBanner({ position, site }: SidebarBannerProps) {
             </Button>
 
             <div className="text-xs text-center text-gray-400 mt-2">
-              ({site.votes.toLocaleString()} reviews) | 18+ | GambleAware.org | T&C Apply
+              ({formatVotes(site.votes)} reviews) | 18+ | GambleAware.org | T&C Apply
             </div>
           </div>
         </div>
