@@ -1,6 +1,6 @@
 export function TableHeader() {
   return (
-    <div className="bg-black text-white rounded-lg overflow-hidden mb-2">
+    <div className="hidden md:block bg-black text-white rounded-lg overflow-hidden mb-2">
       {/* Header Row */}
       <div className="h-[50px] grid grid-cols-[150px_1fr_150px_100px_150px] gap-4 items-center px-4">
         {/* BOOKMAKER */}
