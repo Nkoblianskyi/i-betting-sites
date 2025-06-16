@@ -19,12 +19,34 @@ export default function IrishBettingComparison() {
   const [isAdvertiserModalOpen, setIsAdvertiserModalOpen] = useState(false)
   const [isTermsModalOpen, setIsTermsModalOpen] = useState(false)
 
+  // Автоматичне оновлення дати кожного місяця
+  const getCurrentMonthYear = () => {
+    const now = new Date()
+    const monthNames = [
+      "JANUARY",
+      "FEBRUARY",
+      "MARCH",
+      "APRIL",
+      "MAY",
+      "JUNE",
+      "JULY",
+      "AUGUST",
+      "SEPTEMBER",
+      "OCTOBER",
+      "NOVEMBER",
+      "DECEMBER",
+    ]
+    const currentMonth = monthNames[now.getMonth()]
+    const currentYear = now.getFullYear()
+    return `${currentMonth} ${currentYear}`
+  }
+
   return (
     <>
       <div className="container mx-auto px-2 max-w-[1500px] relative">
         {/* Main Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-[200px_1fr_200px] gap-3">
-          {/* Left Column */}
+        <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-[200px_1fr_200px] gap-3">
+          {/* Left Column - Only on desktop */}
           <div className="hidden lg:block">
             {/* Empty space for hero height + some list items */}
             <div style={{ height: "1200px" }}></div>
@@ -36,14 +58,14 @@ export default function IrishBettingComparison() {
           <div className="px-2">
             {/* Hero Section - Desktop */}
             <div
-              className="hidden md:block h-[291px] relative overflow-hidden text-white mb-2"
+              className="hidden lg:block h-[291px] relative overflow-hidden text-white mb-2"
               style={{ background: "rgba(0, 0, 0, 0.70)" }}
             >
               <div className="h-full flex flex-col justify-center text-center px-2.5">
                 <h1 className="text-3xl font-bold mb-2">
                   BEST <span className="text-green-400">IRELAND</span> BETTING SITES
                 </h1>
-                <h2 className="text-xl font-bold mb-3">UPDATED FOR JUNE 2025</h2>
+                <h2 className="text-xl font-bold mb-3">UPDATED FOR {getCurrentMonthYear()}</h2>
                 <p className="text-sm mb-3 max-w-2xl mx-auto">
                   Finding betting sites can be hard if you don't know where to look. Fortunately, you came to the right
                   place.
@@ -82,16 +104,57 @@ export default function IrishBettingComparison() {
               </div>
             </div>
 
+            {/* Hero Section - Tablet */}
+            <div
+              className="hidden md:block lg:hidden h-[200px] relative overflow-hidden text-white mb-2"
+              style={{ background: "rgba(0, 0, 0, 0.70)" }}
+            >
+              <div className="h-full flex flex-col justify-center text-center px-4">
+                <h1 className="text-2xl font-bold mb-2">
+                  BEST <span className="text-green-400">IRELAND</span> BETTING SITES
+                </h1>
+                <h2 className="text-lg font-bold mb-3">UPDATED FOR {getCurrentMonthYear()}</h2>
+                <div className="flex justify-center gap-6 mb-3">
+                  <div className="flex items-center gap-2">
+                    <Shield className="w-5 h-5" />
+                    <span className="text-sm">100% Legal</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <div className="flex gap-1">
+                      <div className="w-3 h-2 bg-green-500"></div>
+                      <div className="w-3 h-2 bg-white"></div>
+                      <div className="w-3 h-2 bg-orange-500"></div>
+                    </div>
+                    <span className="text-sm">IE Regulated</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Clock className="w-5 h-5" />
+                    <span className="text-sm">Fast Withdrawals</span>
+                  </div>
+                </div>
+                <div className="text-xs">
+                  Play responsibly; Wagering and T&Cs apply.
+                  <button onClick={() => setIsAdvertiserModalOpen(true)} className="underline ml-1">
+                    Advertiser Disclosure
+                  </button>
+                  <span> | </span>
+                  <button onClick={() => setIsTermsModalOpen(true)} className="underline">
+                    18+ T&Cs Apply
+                  </button>
+                </div>
+              </div>
+            </div>
+
             {/* Hero Section - Mobile */}
             <div
-              className="md:hidden relative overflow-hidden text-white rounded-lg"
+              className="md:hidden relative overflow-hidden text-white rounded-lg mb-2"
               style={{ background: "rgba(0, 0, 0, 0.70)" }}
             >
               <div className="p-4 text-center">
                 <h1 className="text-xl font-bold mb-1">
                   BEST <span className="text-green-400">IRELAND</span> BETTING SITES
                 </h1>
-                <h2 className="text-sm font-bold mb-4">UPDATED FOR JUNE 2025</h2>
+                <h2 className="text-sm font-bold mb-4">UPDATED FOR {getCurrentMonthYear()}</h2>
 
                 {/* Feature badges */}
                 <div className="flex justify-center gap-4 mb-4">
@@ -155,7 +218,7 @@ export default function IrishBettingComparison() {
             <InfoSections />
           </div>
 
-          {/* Right Column */}
+          {/* Right Column - Only on desktop */}
           <div className="hidden lg:block">
             {/* Right Sidebar at hero level */}
             <SidebarBanner position="right" site={bettingSites[0]} />

@@ -8,7 +8,7 @@ import { Footer } from "../components/footer"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "IE Best Betting Sites - Top Irish Betting Sites 2025",
+  title: "IE Best Betting Sites - Top Irish Betting Sites",
   description: "Find the best betting sites in Ireland. Compare bonuses, odds, and features of top Irish bookmakers.",
 }
 

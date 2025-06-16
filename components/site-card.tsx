@@ -20,8 +20,8 @@ export function SiteCard({ site, rank }: SiteCardProps) {
 
   return (
     <Link href={site.link} target="_blank" rel="noopener noreferrer" className="block">
-      {/* Desktop Layout - Exact match to mockup */}
-      <div className="hidden md:block bg-white rounded-lg border shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] h-[162px] relative overflow-hidden cursor-pointer">
+      {/* Desktop Layout */}
+      <div className="hidden lg:block bg-white rounded-lg border shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] h-[162px] relative overflow-hidden cursor-pointer">
         {/* Badge */}
         {rank <= 3 && (
           <div className="absolute top-0 left-0 bg-green-500 text-white px-3 py-1 rounded-br-lg text-sm font-bold z-10">
@@ -33,14 +33,14 @@ export function SiteCard({ site, rank }: SiteCardProps) {
         <div className="h-[130px] grid grid-cols-[150px_1fr_150px_100px_150px] gap-4 items-center px-4">
           {/* BOOKMAKER */}
           <div className="flex justify-center">
-            <img src={site.logo || "/placeholder.svg"} alt={site.name} className="h-32 w-[220px] object-contain" />
+            <img src={site.logo || "/placeholder.svg"} alt={site.name} className="h-16 w-auto object-contain" />
           </div>
 
           {/* BONUS OFFER */}
           <div className="text-center">
             <div className="text-xs text-gray-600 mb-1">WELCOME BONUS</div>
-            <div className="text-xl font-bold text-gray-900 mb-1">{site.bonus}</div>
-            <div className="text-xl font-bold text-gray-900">{site.welcomeOffer}</div>
+            <div className="text-lg font-bold text-gray-900 mb-1">{site.bonus}</div>
+            <div className="text-sm font-semibold text-gray-700">{site.welcomeOffer}</div>
           </div>
 
           {/* USER RATING */}
@@ -50,7 +50,7 @@ export function SiteCard({ site, rank }: SiteCardProps) {
               {[...Array(5)].map((_, i) => (
                 <Star
                   key={i}
-                  className={`w-6 h-6 ${i < Math.floor(site.rating) ? "fill-yellow-400 text-yellow-400" : "text-gray-300"
+                  className={`w-5 h-5 ${i < Math.floor(site.rating) ? "fill-yellow-400 text-yellow-400" : "text-gray-300"
                     }`}
                 />
               ))}
@@ -74,6 +74,66 @@ export function SiteCard({ site, rank }: SiteCardProps) {
         {/* Terms */}
         <div className="h-[32px] bg-gray-50 flex items-center justify-center text-xs text-gray-500 px-4">
           18+ | Play responsibly | GambleAware.org | Safe gaming practices apply
+        </div>
+      </div>
+
+      {/* Tablet Layout */}
+      <div className="hidden md:block lg:hidden bg-white rounded-lg border border-gray-200 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] relative overflow-hidden cursor-pointer">
+        {/* Badge for top 3 positions */}
+        {rank <= 3 && (
+          <div className="absolute top-0 left-0 bg-green-500 text-white px-2 py-1 rounded-br-lg text-xs font-bold z-10">
+            {rank === 1 ? "TOP BRAND" : rank === 2 ? "EXCLUSIVE OFFER" : "TRENDING"}
+          </div>
+        )}
+
+        <div className="p-3 pt-6">
+          {/* Grid Layout for Tablet */}
+          <div className="grid grid-cols-[100px_1fr_120px_80px_120px] gap-3 items-center mb-3">
+            {/* Logo */}
+            <div className="flex justify-center">
+              <img src={site.logo || "/placeholder.svg"} alt={site.name} className="h-12 w-auto object-contain" />
+            </div>
+
+            {/* Bonus */}
+            <div className="text-center">
+              <div className="text-xs text-gray-600 mb-1">WELCOME BONUS</div>
+              <div className="text-sm font-bold text-gray-900 mb-1">{site.bonus}</div>
+              <div className="text-xs text-gray-700">{site.welcomeOffer}</div>
+            </div>
+
+            {/* Rating */}
+            <div className="text-center">
+              <div className="text-xs text-gray-600 mb-1">({formatVotes(site.votes)})</div>
+              <div className="flex justify-center gap-0.5 mb-1">
+                {[...Array(5)].map((_, i) => (
+                  <Star
+                    key={i}
+                    className={`w-3 h-3 ${i < filledStars || (i === filledStars && hasHalfStar)
+                        ? "fill-yellow-400 text-yellow-400"
+                        : "text-gray-300"
+                      }`}
+                  />
+                ))}
+              </div>
+            </div>
+
+            {/* Score */}
+            <div className="text-center">
+              <div className="text-3xl font-bold text-green-600">{site.rating.toFixed(1)}</div>
+            </div>
+
+            {/* Button */}
+            <div>
+              <Button className="bg-green-500 hover:bg-green-600 text-white font-bold px-3 py-2 rounded-full text-xs w-full transition-colors">
+                GET BONUS
+              </Button>
+            </div>
+          </div>
+
+          {/* Terms */}
+          <div className="pt-2 border-t border-gray-100 text-gray-500 text-xs text-center leading-3">
+            18+ | Play responsibly | GambleAware.org | Safe gaming practices apply
+          </div>
         </div>
       </div>
 
