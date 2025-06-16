@@ -117,7 +117,7 @@ export function Top3Modal({ bettingSites, casinoSites }: Top3ModalProps) {
         </div>
 
         {/* Footer */}
-        <div className="text-center">
+        <div className="text-center mt-2">
           <p className="text-white text-xs sm:text-xs lg:text-sm">
             18+. T&C's apply. <span className="underline">Begambleaware.org</span>. Play responsibly.
           </p>
