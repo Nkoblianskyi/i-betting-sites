@@ -32,7 +32,7 @@ export function Top3Modal({ bettingSites, casinoSites }: Top3ModalProps) {
         variant="ghost"
         size="sm"
         onClick={() => setIsOpen(false)}
-        className="absolute top-2 right-2 sm:top-4 sm:right-4 text-white hover:bg-white/20 z-10"
+        className="absolute top-16 right-2 sm:top-28 sm:right-4 text-white hover:bg-white/20 z-10"
       >
         <X className="w-5 h-5 sm:w-6 sm:h-6" />
       </Button>
@@ -40,7 +40,7 @@ export function Top3Modal({ bettingSites, casinoSites }: Top3ModalProps) {
       <div className="w-full flex flex-col justify-center max-w-xs sm:max-w-2xl lg:max-w-6xl mx-auto gap-2">
         {/* Header */}
         <div className="text-center">
-          <h2 className="text-lg sm:text-xl lg:text-4xl font-bold text-white">Best Betting Sites</h2>
+          <h2 className="text-lg sm:text-xl lg:text-4xl font-bold text-white mb-2">Best Betting Sites</h2>
         </div>
 
         {/* Cards - Mobile: Stack, Tablet: 2+1, Desktop: 3 in row */}
@@ -87,7 +87,7 @@ export function Top3Modal({ bettingSites, casinoSites }: Top3ModalProps) {
                 </Button>
 
                 {/* Terms - Hidden on mobile, minimal on tablet */}
-                <div className="hidden sm:block text-xs lg:text-xs text-gray-500 leading-tight">
+                <div className="hidden sm:block text-xs lg:text-xs text-gray-500 leading-tight mt-2">
                   {index === 0 && (
                     <span className="sm:hidden lg:inline">
                       18+ | Play responsibly | GambleAware.org | Safe gaming practices apply
