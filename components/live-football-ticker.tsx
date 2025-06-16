@@ -161,7 +161,7 @@ export function LiveTicker() {
 
       <style jsx>{`
         .ticker-track {
-          animation: ticker-scroll 40s linear infinite;
+          animation: ticker-scroll 60s linear infinite;
           width: max-content;
         }
         
