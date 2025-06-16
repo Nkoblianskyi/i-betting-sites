@@ -11,6 +11,7 @@ import { AdvertiserDisclosureModal } from "./components/advertiser-disclosure-mo
 import { TermsModal } from "./components/terms-modal"
 import { bettingSites, casinoSites } from "./data/mock-data"
 import { InListBanner } from "./components/in-list-banner"
+import Image from "next/image"
 
 export default function IrishBettingComparison() {
   const [activeTab, setActiveTab] = useState<"betting" | "casino">("betting")
@@ -52,7 +53,7 @@ export default function IrishBettingComparison() {
                   <span>100% Legal</span>
                 </div>
                 <div className="flex items-center gap-1 sm:gap-2">
-                  <Clock className="w-3 h-3 sm:w-4 sm:h-4" />
+                  <Image src="/flag.png" alt="Irish Flag" width={16} height={16} />
                   <span>IE Regulated</span>
                 </div>
                 <div className="flex items-center gap-1 sm:gap-2">
