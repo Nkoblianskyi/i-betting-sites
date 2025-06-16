@@ -12,7 +12,8 @@ import { TermsModal } from "./terms-modal"
 import { bettingSites } from "../data/mock-data"
 import { InListBanner } from "./in-list-banner"
 import type { BettingSite } from "../types"
-import LiveFootballTicker from "./live-football-ticker"
+import { LiveTicker } from "./live-football-ticker"
+
 
 export default function IrishBettingComparison() {
   const [isAdvertiserModalOpen, setIsAdvertiserModalOpen] = useState(false)
@@ -117,7 +118,7 @@ export default function IrishBettingComparison() {
             </div>
 
             {/* Live Football Ticker - conditionally rendered */}
-            <LiveFootballTicker />
+            <LiveTicker />
 
             {/* Sites List */}
             <div className="space-y-2 mt-5">

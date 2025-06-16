@@ -1,77 +1,134 @@
 "use client"
 
-import React, { useEffect, useState } from "react"
+import { useEffect, useState } from "react"
 
-type Match = {
-  utcDate: string
-  homeTeam: { name: string }
-  awayTeam: { name: string }
-  score: {
-    fullTime: { home: number | null; away: number | null }
-  }
+interface Match {
+  id: string
+  homeTeam: string
+  awayTeam: string
+  date: string
+  time: string
+  league: string
 }
 
-export default function LiveFootballTicker() {
+export function LiveTicker() {
   const [matches, setMatches] = useState<Match[]>([])
+  const [loading, setLoading] = useState(true)
 
-  useEffect(() => {
-    const fetchMatches = async () => {
-      try {
-        const today = new Date().toISOString().split("T")[0]
-        const res = await fetch(
-          `https://api.football-data.org/v4/matches?dateFrom=${today}&dateTo=${today}`,
-          {
-            headers: {
-              "X-Auth-Token": "03df4abdf8ba48fcb18241e7c39f7434",
-            },
+  const fetchMatches = async () => {
+    try {
+      const res = await fetch("https://www.scorebat.com/video-api/v3/")
+      const data = await res.json()
+
+      if (!data.response) return
+
+      const upcoming = data.response
+        .filter((match: any) => new Date(match.date) > new Date())
+        .slice(0, 10)
+        .map((match: any, index: number) => {
+          const [homeTeam, awayTeam] = match.title.split(" vs ")
+          const dateObj = new Date(match.date)
+
+          return {
+            id: `match-${index}`,
+            homeTeam: homeTeam?.trim() || "TBD",
+            awayTeam: awayTeam?.trim() || "TBD",
+            date: dateObj.toLocaleDateString("en-GB", {
+              day: "2-digit",
+              month: "short",
+            }),
+            time: dateObj.toLocaleTimeString("en-GB", {
+              hour: "2-digit",
+              minute: "2-digit",
+              hour12: true,
+            }),
+            league: match.competition || "Friendly",
           }
-        )
+        })
 
-        const data = await res.json()
-        const allMatches: Match[] = data.matches || []
-
-        const filtered = allMatches.filter(
-          (m) => m.homeTeam?.name && m.awayTeam?.name
-        )
-
-        const random = filtered.sort(() => 0.5 - Math.random()).slice(0, 10)
-
-        setMatches(random)
-      } catch (err) {
-        console.error("Failed to fetch matches", err)
-      }
+      setMatches(upcoming)
+    } catch (error) {
+      setMatches([
+        {
+          id: "1",
+          homeTeam: "Man United",
+          awayTeam: "Liverpool",
+          date: "15 Jun",
+          time: "08:00 pm",
+          league: "Premier League",
+        },
+        {
+          id: "2",
+          homeTeam: "Barcelona",
+          awayTeam: "Real Madrid",
+          date: "16 Jun",
+          time: "09:30 pm",
+          league: "La Liga",
+        },
+      ])
+    } finally {
+      setLoading(false)
     }
-
-    fetchMatches()
-  }, [])
-
-  if (matches.length === 0) {
-    return null
   }
 
-  return (
-    <div className="w-full bg-black text-white overflow-hidden py-2">
-      <div className="marquee whitespace-nowrap flex gap-8 animate-marquee">
-        {matches.map((match, i) => {
-          const time = new Date(match.utcDate).toLocaleTimeString("en-GB", {
-            hour: "2-digit",
-            minute: "2-digit",
-          })
+  useEffect(() => {
+    fetchMatches()
+    const interval = setInterval(fetchMatches, 5 * 60 * 1000)
+    return () => clearInterval(interval)
+  }, [])
 
-          const score = match.score.fullTime
-          const hasScore =
-            typeof score.home === "number" && typeof score.away === "number"
-
-          return (
-            <div key={i} className="inline-block">
-              <span className="text-sm">
-                {time} – {match.homeTeam.name} vs {match.awayTeam.name}
-                {hasScore && ` (${score.home}:${score.away})`}
-              </span>
-            </div>
-          )
-        })}
+  if (loading) {
+    return (
+      <div className="bg-[#d3d3d3] text-black py-2 text-center">
+        Loading...
       </div>
+    )
+  }
+
+  if (matches.length === 0) return null
+
+  const repeatedMatches = matches.concat(matches)
+
+  return (
+    <div className="relative overflow-hidden bg-[#d3d3d3] border-t border-black">
+      {/* Fixed green label */}
+      <div className="absolute left-0 top-0 bottom-0 bg-[#60c100] text-white font-bold px-4 py-2 text-sm rounded-r-full z-10 flex items-center">
+        Upcoming <br /> Fixtures
+      </div>
+
+      {/* Animated scroll container */}
+      <div className="w-full overflow-hidden pl-32">
+        <div className="inline-block whitespace-nowrap animate-scroll">
+          {repeatedMatches.map((match, index) => (
+            <div
+              key={`${match.id}-${index}`}
+              className="inline-block px-6 py-2 border-l border-gray-500 min-w-[240px] text-center align-top"
+            >
+              <div className="font-semibold text-sm text-black">
+                {match.homeTeam} vs {match.awayTeam}
+              </div>
+              <div className="text-xs text-black mt-1">
+                {match.date} {match.time}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <style jsx>{`
+        @keyframes scroll {
+          0% {
+            transform: translateX(0%);
+          }
+          100% {
+            transform: translateX(-50%);
+          }
+        }
+
+        .animate-scroll {
+          animation: scroll 20s linear infinite;
+        }
+      `}</style>
     </div>
   )
 }
