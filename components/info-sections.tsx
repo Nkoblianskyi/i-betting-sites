@@ -2,16 +2,16 @@
 
 export function InfoSections() {
   return (
-    <div className="mt-2">
+    <div className="mt-16">
       {/* Main Guide Section with Background */}
       <section
-        className="relative rounded-lg overflow-hidden items-center"
+        className="relative rounded-lg overflow-hidden"
       >
         {/* Dark overlay */}
-        <div className="absolute inset-0 bg-black/90 rounded-lg"></div>
+        <div className="absolute inset-0 bg-black/80"></div>
 
         {/* Content */}
-        <div className="relative z-10 p-8 lg:p-12 text-white">
+        <div className="relative z-10 p-8 lg:p-12 text-white flex flex-col items-center text-center">
           <h2 className="text-3xl lg:text-4xl font-bold mb-6 text-yellow-400">
             Guide to The Best Betting Sites in Ireland
           </h2>
@@ -86,7 +86,7 @@ export function InfoSections() {
           </div>
 
           {/* Footer Links */}
-          <div className="mt-12 pt-8 border-t border-gray-600">
+          <div className="mt-12 pt-8 border-t border-gray-600 w-full max-w-4xl">
             <div className="text-xs text-gray-400 leading-relaxed">
               <p className="mb-2">
                 REPRODUCTION OF THIS WEBSITE, IN WHOLE OR IN PART, IS STRICTLY PROHIBITED. THE OFFERS AND SERVICES

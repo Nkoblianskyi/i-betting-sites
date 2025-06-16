@@ -88,21 +88,12 @@ export default function IrishBettingComparison() {
                 <div key={site.id}>
                   <SiteCard site={site} rank={index + 1} />
 
-                  {/* In-list banner after 3rd place - visible on all devices */}
-                  {index === 2 && (
+                  {/* In-list banner after every 3rd element */}
+                  {(index + 1) % 3 === 0 && (
                     <InListBanner
                       site={currentSites[Math.floor(Math.random() * 3)]}
-                      badgeText="SPECIAL OFFER"
-                      badgeColor="bg-blue-600"
-                    />
-                  )}
-
-                  {/* In-list banner after 6th place - visible on all devices */}
-                  {index === 5 && (
-                    <InListBanner
-                      site={currentSites[Math.floor(Math.random() * 3)]}
-                      badgeText="EXCLUSIVE DEAL"
-                      badgeColor="bg-red-600"
+                      badgeText={index === 2 ? "SPECIAL OFFER" : "EXCLUSIVE DEAL"}
+                      badgeColor={index === 2 ? "bg-blue-600" : "bg-red-600"}
                     />
                   )}
                 </div>
