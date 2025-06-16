@@ -46,9 +46,12 @@ export function SidebarBanner({ position, site }: SidebarBannerProps) {
 
               <div className="flex items-center justify-center gap-1 mb-2">
                 {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                  <Star
+                    key={i}
+                    className={`w-4 h-4 ${i < Math.floor(site.rating) ? "fill-yellow-400 text-yellow-400" : "text-gray-400"
+                      }`}
+                  />
                 ))}
-                <Star className="w-4 h-4 text-gray-400" />
                 <span className="ml-1 text-lg font-bold">{site.userRating}</span>
               </div>
             </div>
@@ -63,7 +66,9 @@ export function SidebarBanner({ position, site }: SidebarBannerProps) {
               💎 Claim Bonus
             </Button>
 
-            <div className="text-xs text-center text-gray-400 mt-2">18+ | GambleAware.org | T&C Apply</div>
+            <div className="text-xs text-center text-gray-400 mt-2">
+              ({site.votes.toLocaleString()} reviews) | 18+ | GambleAware.org | T&C Apply
+            </div>
           </div>
         </div>
       </div>

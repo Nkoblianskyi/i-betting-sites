@@ -19,117 +19,103 @@ export default function IrishBettingComparison() {
 
   return (
     <>
-      {/* Hero Section - Mobile: transparent with stadium, Desktop: solid gray */}
-      <div className="relative text-white h-[180px] sm:h-[220px] lg:h-[290px] flex items-center">
-        {/* Mobile background with stadium image */}
-        <div
-          className="absolute inset-0 lg:hidden"
-        >
-          <div className="absolute inset-0 bg-black/30"></div>
-        </div>
-
-        {/* Desktop solid background */}
-        <div className="absolute inset-0 hidden lg:block bg-gray-900/50"></div>
-
-        <div className="relative z-10 container mx-auto px-4 text-center">
-          <h1 className="text-xl sm:text-2xl lg:text-4xl font-bold mb-1 sm:mb-2">
-            BEST <span className="text-green-400">IRELAND</span> BETTING SITES
-          </h1>
-          <h2 className="text-sm sm:text-lg lg:text-2xl font-bold mb-3 sm:mb-4 text-white lg:text-gray-200">
-            UPDATED FOR JUNE 2025
-          </h2>
-
-          {/* Desktop content - hidden on mobile */}
-          <div className="hidden lg:block max-w-4xl mx-auto mb-4">
-            <p className="text-base mb-2 leading-relaxed">
-              Finding betting sites can be hard if you don't know where to look. Fortunately, you came to the right
-              place as here we are aware of the need that punters are facing and know exactly how to help them.
-            </p>
-            <p className="text-base mb-3 leading-relaxed">
-              Starting with the most suitable new customer offers for June, specifically hand-picked by us.
-            </p>
-            <p className="text-xs text-gray-300 mb-4">
-              *Each welcome offer may come with separate terms, conditions & wagering requirements. Click "GET BONUS"
-              for full details. New Customers Only. Age 18+
-            </p>
-          </div>
-
-          {/* Feature badges - Different styles for mobile vs desktop */}
-          <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 lg:gap-6 mb-3 sm:mb-4">
-            <div className="flex items-center gap-1 sm:gap-2 lg:bg-transparent bg-black/20 backdrop-blur-sm rounded-full lg:rounded-none px-2 py-1 lg:px-0 lg:py-0">
-              <Shield className="w-3 h-3 sm:w-4 sm:h-4 lg:w-5 lg:h-5 text-white" />
-              <span className="text-xs sm:text-sm lg:text-base font-semibold">100% Legal</span>
-            </div>
-            <div className="flex items-center gap-1 sm:gap-2 lg:bg-transparent bg-black/20 backdrop-blur-sm rounded-full lg:rounded-none px-2 py-1 lg:px-0 lg:py-0">
-              <div className="w-3 h-2 sm:w-4 sm:h-3 lg:w-5 lg:h-4 bg-green-500 rounded-sm"></div>
-              <div className="w-3 h-2 sm:w-4 sm:h-3 lg:w-5 lg:h-4 bg-white rounded-sm"></div>
-              <div className="w-3 h-2 sm:w-4 sm:h-3 lg:w-5 lg:h-4 bg-orange-500 rounded-sm"></div>
-              <span className="text-xs sm:text-sm lg:text-base font-semibold ml-1">IE Regulated</span>
-            </div>
-            <div className="flex items-center gap-1 sm:gap-2 lg:bg-transparent bg-black/20 backdrop-blur-sm rounded-full lg:rounded-none px-2 py-1 lg:px-0 lg:py-0">
-              <Clock className="w-3 h-3 sm:w-4 sm:h-4 lg:w-5 lg:h-5 text-white" />
-              <span className="text-xs sm:text-sm lg:text-base font-semibold">Fast Withdrawals</span>
-            </div>
-          </div>
-
-          {/* Disclaimer - Different styles for mobile vs desktop */}
-          <div className="text-xs lg:text-sm text-white/90 lg:text-gray-300">
-            {/* Mobile version - compact with background */}
-            <div className="lg:hidden bg-black/20 backdrop-blur-sm rounded-full px-3 py-1 inline-block">
-              <div className="mb-1">Play responsibly. Wagering and T&Cs apply.</div>
-              <div>
-                <button
-                  onClick={() => setIsAdvertiserModalOpen(true)}
-                  className="underline hover:text-white transition-colors"
-                >
-                  Advertiser Disclosure
-                </button>
-                <span> | </span>
-                <button
-                  onClick={() => setIsTermsModalOpen(true)}
-                  className="underline hover:text-white transition-colors"
-                >
-                  18+ T&Cs Apply
-                </button>
-              </div>
-            </div>
-
-            {/* Desktop version - original layout */}
-            <div className="hidden lg:block">
-              <span>Play responsibly; Wagering and T&Cs apply. </span>
-              <button
-                onClick={() => setIsAdvertiserModalOpen(true)}
-                className="underline hover:text-white transition-colors"
-              >
-                Advertiser Disclosure
-              </button>
-              <span> | </span>
-              <button
-                onClick={() => setIsTermsModalOpen(true)}
-                className="underline hover:text-white transition-colors"
-              >
-                18+ T&Cs Apply
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Main Layout Container - Reduced top margin */}
-      <div className="container mx-auto px-2 sm:px-4 py-5 max-w-[1400px]">
+      {/* Main Layout Container */}
+      <div className="container mx-auto px-2 sm:px-4 max-w-[1400px] relative">
         <div className="flex gap-2 sm:gap-4">
-          {/* Left Sidebar - visible on tablets+ */}
-          <div className="hidden md:block w-48 flex-shrink-0">
-            <div className="flex flex-col justify-end h-full">
-              <div className="sticky bottom-6">
-                <SidebarBanner position="left" site={bettingSites[1]} />
-              </div>
+          {/* Left Sidebar */}
+          <div className="hidden md:block w-48 flex-shrink-0 relative">
+            <div className="sticky top-[calc(100vh-400px)]">
+              <SidebarBanner position="left" site={bettingSites[1]} />
             </div>
           </div>
 
           {/* Main Content Column */}
-          <div className="flex-1 min-w-0 max-w-4xl">
-            {/* Sites List - Reduced spacing */}
+          <div className="flex-1 min-w-0 max-w-4xl mx-auto">
+            {/* Hero Section */}
+            <div className="mb-5">
+              <div className="relative text-white overflow-hidden bg-black bg-opacity-60 py-6 md:py-8">
+                <div className="relative z-10 w-full px-4 sm:px-6 lg:px-8 text-center">
+                  <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold mb-2 sm:mb-3">
+                    BEST <span className="text-green-400">IRELAND</span> BETTING SITES
+                  </h1>
+                  <h2 className="text-sm sm:text-base lg:text-xl font-bold mb-4 sm:mb-6 text-white">
+                    UPDATED FOR JUNE 2025
+                  </h2>
+
+                  {/* Desktop content */}
+                  <div className="hidden md:block mb-6">
+                    <p className="text-sm lg:text-base mb-4 leading-relaxed max-w-4xl mx-auto">
+                      Finding betting sites can be hard if you don't know where to look. Fortunately, you came to the
+                      right place as here we are aware of the need that punters are facing and know exactly how to help
+                      them.
+                    </p>
+                    <p className="text-xs text-gray-300 mb-6">
+                      *Each welcome offer may come with separate terms, conditions & wagering requirements. Click "GET
+                      BONUS" for full details. New Customers Only. Age 18+
+                    </p>
+                  </div>
+
+                  {/* Feature badges */}
+                  <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 mb-4 sm:mb-6">
+                    <div className="flex items-center gap-2 bg-black/20 md:bg-transparent backdrop-blur-sm rounded-full md:rounded-none px-3 py-2 md:px-0 md:py-0">
+                      <Shield className="w-4 h-4 text-white" />
+                      <span className="text-sm font-semibold">100% Legal</span>
+                    </div>
+                    <div className="flex items-center gap-2 bg-black/20 md:bg-transparent backdrop-blur-sm rounded-full md:rounded-none px-3 py-2 md:px-0 md:py-0">
+                      <div className="w-4 h-3 bg-green-500 rounded-sm"></div>
+                      <div className="w-4 h-3 bg-white rounded-sm"></div>
+                      <div className="w-4 h-3 bg-orange-500 rounded-sm"></div>
+                      <span className="text-sm font-semibold ml-1">IE Regulated</span>
+                    </div>
+                    <div className="flex items-center gap-2 bg-black/20 md:bg-transparent backdrop-blur-sm rounded-full md:rounded-none px-3 py-2 md:px-0 md:py-0">
+                      <Clock className="w-4 h-4 text-white" />
+                      <span className="text-sm font-semibold">Fast Withdrawals</span>
+                    </div>
+                  </div>
+
+                  {/* Disclaimer */}
+                  <div className="text-xs text-white/90">
+                    <div className="md:hidden bg-black/20 backdrop-blur-sm rounded-full px-3 py-2 inline-block">
+                      <div className="mb-1">Play responsibly; Wagering and T&Cs apply.</div>
+                      <div>
+                        <button
+                          onClick={() => setIsAdvertiserModalOpen(true)}
+                          className="underline hover:text-white transition-colors"
+                        >
+                          Advertiser Disclosure
+                        </button>
+                        <span> | </span>
+                        <button
+                          onClick={() => setIsTermsModalOpen(true)}
+                          className="underline hover:text-white transition-colors"
+                        >
+                          18+ T&Cs Apply
+                        </button>
+                      </div>
+                    </div>
+
+                    <div className="hidden md:block">
+                      <span>Play responsibly; Wagering and T&Cs apply. </span>
+                      <button
+                        onClick={() => setIsAdvertiserModalOpen(true)}
+                        className="underline hover:text-white transition-colors"
+                      >
+                        Advertiser Disclosure
+                      </button>
+                      <span> | </span>
+                      <button
+                        onClick={() => setIsTermsModalOpen(true)}
+                        className="underline hover:text-white transition-colors"
+                      >
+                        18+ T&Cs Apply
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Sites List */}
             <div className="space-y-2">
               {bettingSites.map((site: BettingSite, index: number) => (
                 <div key={site.id}>
@@ -148,18 +134,18 @@ export default function IrishBettingComparison() {
                 </div>
               ))}
             </div>
+
+            {/* Info Sections */}
+            <InfoSections />
           </div>
 
-          {/* Right Sidebar - visible on tablets+ */}
+          {/* Right Sidebar */}
           <div className="hidden md:block w-48 flex-shrink-0">
             <div className="sticky top-6">
               <SidebarBanner position="right" site={bettingSites[0]} />
             </div>
           </div>
         </div>
-
-        {/* Info Sections */}
-        <InfoSections />
       </div>
 
       {/* Modals and Banners */}
