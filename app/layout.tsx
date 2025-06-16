@@ -128,6 +128,9 @@ export default function RootLayout({
 
                 {/* Navigation Links */}
                 <div className="flex flex-wrap justify-center gap-6 text-sm mb-6">
+                  <Link href="/about" className="text-gray-300 hover:text-white transition-colors">
+                    About Us
+                  </Link>
                   <Link href="/cookie-policy" className="text-gray-300 hover:text-white transition-colors">
                     COOKIE POLICY
                   </Link>
