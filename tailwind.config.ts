@@ -19,7 +19,7 @@ module.exports = {
 		},
 		extend: {
 			screens: {
-				"xl-custom": "1182px", // Custom breakpoint for sidebars
+				"xl-custom": "1240px", // Custom breakpoint for sidebars
 			},
 			colors: {
 				border: "hsl(var(--border))",
