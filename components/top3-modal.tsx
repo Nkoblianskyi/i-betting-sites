@@ -57,20 +57,16 @@ export function Top3Modal({ bettingSites, casinoSites }: Top3ModalProps) {
                   <img
                     src={site.logo || "/placeholder.svg"}
                     alt={site.name}
-                    className="h-8 sm:h-12 lg:h-24 w-auto mx-auto object-contain"
+                    className="h-16 sm:h-18 lg:h-24 w-auto mx-auto object-contain"
                   />
                 </div>
 
                 {/* Stars */}
-                <div className="flex justify-center gap-0.5 sm:gap-1 mb-1 sm:mb-1.5 lg:mb-3">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-2.5 h-2.5 sm:w-3 sm:h-3 lg:w-5 lg:h-5 fill-yellow-400 text-yellow-400" />
-                  ))}
-                </div>
+
 
                 {/* Site Name */}
                 <div className="mb-1 sm:mb-1.5 lg:mb-3">
-                  <h3 className="text-xs sm:text-sm lg:text-xl font-bold text-gray-800">{site.name}</h3>
+                  <h3 className="text-lg sm:text-lg lg:text-xl font-bold text-gray-800">{site.name}</h3>
                 </div>
 
                 {/* Rating and Votes */}
@@ -79,6 +75,12 @@ export function Top3Modal({ bettingSites, casinoSites }: Top3ModalProps) {
                     {site.rating}
                   </div>
                   <div className="text-xs sm:text-xs lg:text-sm text-gray-500">({site.votes.toLocaleString()})</div>
+                </div>
+
+                <div className="flex justify-center gap-0.5 sm:gap-1 mb-1 sm:mb-1.5 lg:mb-3">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="w-5 h-5 sm:w-6 sm:h-6 lg:w-6 lg:h-6 fill-yellow-400 text-yellow-400" />
+                  ))}
                 </div>
 
                 {/* Button */}
