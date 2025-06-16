@@ -78,7 +78,7 @@ export function SiteCard({ site, rank }: SiteCardProps) {
       </div>
 
       {/* Mobile Layout */}
-      <div className="md:hidden bg-white rounded-lg border border-gray-200 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] relative overflow-hidden cursor-pointer">
+      <div className="md:hidden bg-white rounded-lg border border-gray-200 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] relative overflow-hidden cursor-pointer mt-2">
         {/* Badge for top 3 positions */}
         {rank === 1 && (
           <div className="absolute top-0 left-0 bg-green-500 text-white px-3 py-1 rounded-br-lg text-xs font-bold z-10">

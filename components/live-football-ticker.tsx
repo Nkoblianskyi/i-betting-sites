@@ -28,7 +28,7 @@ export function LiveTicker() {
 
       // Показуємо всі матчі без фільтрації за датою
       const allMatches = data.response
-        .slice(0, 15) // Беремо перші 15 матчів
+        .slice(0, 25) // Беремо перші 15 матчів
         .map((match: any, index: number) => {
           const [homeTeam, awayTeam] = match.title.split(" - ")
           const dateObj = new Date(match.date)
