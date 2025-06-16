@@ -46,11 +46,11 @@ export function SiteCard({ site, rank }: SiteCardProps) {
           {/* USER RATING */}
           <div className="text-center">
             <div className="text-sm text-gray-600 mb-1">Rate it! ({formatVotes(site.votes)})</div>
-            <div className="flex justify-center gap-0.5 mb-1">
+            <div className="flex justify-center gap-1 mb-1">
               {[...Array(5)].map((_, i) => (
                 <Star
                   key={i}
-                  className={`w-4 h-4 ${i < Math.floor(site.rating) ? "fill-yellow-400 text-yellow-400" : "text-gray-300"
+                  className={`w-5 h-5 ${i < Math.floor(site.rating) ? "fill-yellow-400 text-yellow-400" : "text-gray-300"
                     }`}
                 />
               ))}
@@ -73,7 +73,7 @@ export function SiteCard({ site, rank }: SiteCardProps) {
 
         {/* Terms */}
         <div className="h-[32px] bg-gray-50 flex items-center justify-center text-xs text-gray-500 px-4">
-          18+ | Play responsibly | GambleAware.org | Safe gaming practices apply
+          {site.terms}
         </div>
       </div>
 

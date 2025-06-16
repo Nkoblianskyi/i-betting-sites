@@ -21,9 +21,6 @@ export function LiveTicker() {
       const res = await fetch("https://www.scorebat.com/video-api/v3/")
       const data = await res.json()
 
-      console.log("Raw API response:", data)
-      console.log("Number of matches in response:", data.response?.length || 0)
-
       if (!data.response) return
 
       // Показуємо всі матчі без фільтрації за датою
@@ -161,7 +158,7 @@ export function LiveTicker() {
 
       <style jsx>{`
         .ticker-track {
-          animation: ticker-scroll 60s linear infinite;
+          animation: ticker-scroll 80s linear infinite;
           width: max-content;
         }
         

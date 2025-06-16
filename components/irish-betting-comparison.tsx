@@ -36,7 +36,7 @@ export default function IrishBettingComparison() {
           <div className="px-2">
             {/* Hero Section */}
             <div
-              className="h-[291px] relative overflow-hidden text-white"
+              className="h-[291px] relative overflow-hidden text-white mb-2"
               style={{ background: "rgba(0, 0, 0, 0.70)" }}
             >
               <div className="h-full flex flex-col justify-center text-center px-2.5">
