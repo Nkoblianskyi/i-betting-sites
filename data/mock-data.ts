@@ -245,14 +245,14 @@ export const banners: Banner[] = [
     id: 1,
     title: "Featured Site",
     subtitle: "BetVictor - Bet €10 → Get €30 in Free Bets",
-    image: "/placeholder.svg?height=400&width=300&text=BetVictor+Banner",
+    image: "/lasvegas.svg",
     link: "#",
   },
   {
     id: 2,
     title: "Special Offer",
     subtitle: "Exclusive Welcome Bonus Available",
-    image: "/placeholder.svg?height=400&width=300&text=Special+Offer",
+    image: "/lucky.png",
     link: "#",
   },
 ]

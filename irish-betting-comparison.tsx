@@ -28,7 +28,7 @@ export default function IrishBettingComparison() {
           <div className="hidden md:block w-48 flex-shrink-0">
             <div className="flex flex-col justify-end h-full">
               <div className="sticky bottom-6">
-                <SidebarBanner position="left" />
+                <SidebarBanner position="left" site={bettingSites[1]} />
               </div>
             </div>
           </div>
@@ -104,7 +104,7 @@ export default function IrishBettingComparison() {
           {/* Right Sidebar - visible on tablets+ */}
           <div className="hidden md:block w-48 flex-shrink-0">
             <div className="sticky top-6">
-              <SidebarBanner position="right" />
+              <SidebarBanner position="right" site={bettingSites[0]} />
             </div>
           </div>
         </div>

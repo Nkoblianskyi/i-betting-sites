@@ -2,29 +2,14 @@
 
 import { Trophy, Star } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import type { BettingSite } from "../types"
 
 interface SidebarBannerProps {
   position: "left" | "right"
+  site: BettingSite
 }
 
-export function SidebarBanner({ position }: SidebarBannerProps) {
-  // Different content for left and right sidebars
-  const leftSideContent = {
-    siteName: "BETVICTOR",
-    displayName: "BetVictor",
-    offer: "Bet €10 → Get €30 in Free Bets",
-    rating: "4.9",
-  }
-
-  const rightSideContent = {
-    siteName: "PADDY POWER",
-    displayName: "Paddy Power",
-    offer: "Bet €10 → Get €50 in Free Bets",
-    rating: "4.8",
-  }
-
-  const content = position === "left" ? leftSideContent : rightSideContent
-
+export function SidebarBanner({ position, site }: SidebarBannerProps) {
   return (
     <div
       className="w-full text-white rounded-lg border-2 border-yellow-500 overflow-hidden shadow-2xl relative"
@@ -50,29 +35,25 @@ export function SidebarBanner({ position }: SidebarBannerProps) {
           <div className="text-center mb-3">
             <div className="mb-1">
               <img
-                src={
-                  position === "left"
-                    ? "/placeholder.svg?height=40&width=120&text=BetVictor"
-                    : "/placeholder.svg?height=40&width=120&text=Paddy+Power"
-                }
-                alt={content.displayName}
+                src={site.logo || "/placeholder.svg"}
+                alt={site.name}
                 className="h-10 w-auto mx-auto object-contain bg-white rounded p-1"
               />
             </div>
-            <div className="text-lg font-semibold mb-2">{content.displayName}</div>
+            <div className="text-lg font-semibold mb-2">{site.name}</div>
 
             <div className="flex items-center justify-center gap-1 mb-2">
               {[...Array(4)].map((_, i) => (
                 <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
               ))}
               <Star className="w-4 h-4 text-gray-400" />
-              <span className="ml-1 text-lg font-bold">{content.rating}</span>
+              <span className="ml-1 text-lg font-bold">{site.userRating}</span>
             </div>
           </div>
 
           {/* Offer */}
           <div className="bg-blue-600 text-white p-3 rounded-lg mb-3 text-center">
-            <div className="font-bold text-sm">{content.offer}</div>
+            <div className="font-bold text-sm">{site.welcomeOffer}</div>
           </div>
 
           {/* CTA */}

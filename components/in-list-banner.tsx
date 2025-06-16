@@ -25,9 +25,9 @@ export function InListBanner({ site, badgeText, badgeColor }: InListBannerProps)
       <div className="relative z-10">
         {/* Mobile Layout */}
         <div className="block sm:hidden">
-          {/* Mobile: Badge at top */}
-          <div className="flex justify-end mb-2">
-            <div className={`px-2 py-1 rounded text-white text-xs font-bold ${badgeColor}`}>{badgeText}</div>
+          {/* Mobile: Badge at top center */}
+          <div className="flex justify-center mb-3">
+            <div className={`px-3 py-1 rounded text-white text-xs font-bold ${badgeColor}`}>{badgeText}</div>
           </div>
 
           {/* Mobile: Logo and Site Name */}
@@ -66,11 +66,9 @@ export function InListBanner({ site, badgeText, badgeColor }: InListBannerProps)
 
         {/* Tablet+ Layout */}
         <div className="hidden sm:block">
-          {/* Badge positioned to not overlap content */}
-          <div
-            className={`absolute top-2 right-2 lg:top-3 lg:right-3 px-2 sm:px-3 py-1 rounded text-white text-xs sm:text-sm font-bold ${badgeColor} z-20`}
-          >
-            {badgeText}
+          {/* Badge positioned at top left to avoid any overlap */}
+          <div className="flex justify-start mb-3">
+            <div className={`px-3 py-1 rounded text-white text-sm font-bold ${badgeColor}`}>{badgeText}</div>
           </div>
 
           <div className="flex items-center justify-between">
@@ -93,8 +91,8 @@ export function InListBanner({ site, badgeText, badgeColor }: InListBannerProps)
               </div>
             </div>
 
-            {/* Site name and rating - with more padding to avoid badge overlap */}
-            <div className="text-right pr-24 lg:pr-32">
+            {/* Site name and rating - full width available */}
+            <div className="text-right">
               <div className="text-white text-lg lg:text-2xl font-bold mb-2">{site.name.toUpperCase()}</div>
               <div className="flex items-center justify-end gap-1">
                 {[...Array(5)].map((_, i) => (
