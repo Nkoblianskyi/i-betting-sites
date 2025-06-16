@@ -12,7 +12,6 @@ interface Top3ModalProps {
 
 export function Top3Modal({ bettingSites, casinoSites }: Top3ModalProps) {
   const [isOpen, setIsOpen] = useState(false)
-  const [activeTab, setActiveTab] = useState<"betting" | "casino">("betting")
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -24,8 +23,7 @@ export function Top3Modal({ bettingSites, casinoSites }: Top3ModalProps) {
 
   if (!isOpen) return null
 
-  const currentSites = activeTab === "betting" ? bettingSites : casinoSites
-  const top3Sites = currentSites.slice(0, 3)
+  const top3Sites = bettingSites.slice(0, 3)
 
   return (
     <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-1 sm:p-2 lg:p-4 overflow-hidden">
@@ -50,12 +48,11 @@ export function Top3Modal({ bettingSites, casinoSites }: Top3ModalProps) {
         {/* Cards - Mobile: Stack, Tablet: 2+1, Desktop: 3 in row */}
         <div className="flex-1 flex items-center justify-center min-h-0">
           <div className="space-y-1 sm:space-y-0 sm:grid sm:grid-cols-3 sm:gap-2 lg:gap-6 w-full max-w-5xl">
-            {top3Sites.map((site, index) => (
+            {top3Sites.map((site: BettingSite, index: number) => (
               <div
                 key={site.id}
-                className={`bg-white rounded-lg p-1.5 sm:p-2 lg:p-6 text-center relative ${
-                  index === 1 ? "border-2 sm:border-4 border-green-500 lg:transform lg:scale-105" : ""
-                }`}
+                className={`bg-white rounded-lg p-1.5 sm:p-2 lg:p-6 text-center relative ${index === 1 ? "border-2 sm:border-4 border-green-500 lg:transform lg:scale-105" : ""
+                  }`}
               >
                 {/* Logo */}
                 <div className="mb-1 sm:mb-1.5 lg:mb-4">
