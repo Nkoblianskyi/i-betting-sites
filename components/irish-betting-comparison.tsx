@@ -33,10 +33,10 @@ export default function IrishBettingComparison() {
           </div>
 
           {/* Center Column - Hero + List */}
-          <div className="space-y-6 px-2">
+          <div className="px-2">
             {/* Hero Section - Desktop */}
             <div
-              className="hidden md:block h-[291px] relative overflow-hidden text-white"
+              className="hidden md:block h-[291px] relative overflow-hidden text-white mb-2"
               style={{ background: "rgba(0, 0, 0, 0.70)" }}
             >
               <div className="h-full flex flex-col justify-center text-center px-2.5">

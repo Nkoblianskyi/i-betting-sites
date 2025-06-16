@@ -17,7 +17,7 @@ export function LiveTicker() {
 
   const fetchMatches = async () => {
     try {
-      console.log("Fetching matches from ScoreBat API...")
+
       const res = await fetch("https://www.scorebat.com/video-api/v3/")
       const data = await res.json()
 
@@ -47,10 +47,10 @@ export function LiveTicker() {
           }
         })
 
-      console.log("Processed matches:", allMatches)
+
       setMatches(allMatches)
     } catch (error) {
-      console.error("API Error:", error)
+
       // Fallback з більшою кількістю матчів
       setMatches([
         {
