@@ -151,7 +151,7 @@ export default function IrishBettingComparison() {
               style={{ background: "rgba(0, 0, 0, 0.70)" }}
             >
               <div className="p-4 text-center">
-                <h1 className="text-xl font-bold mb-1">
+                <h1 className="text-lg font-bold mb-1">
                   BEST <span className="text-green-400">IRELAND</span> BETTING SITES
                 </h1>
                 <h2 className="text-sm font-bold mb-4">UPDATED FOR {getCurrentMonthYear()}</h2>
