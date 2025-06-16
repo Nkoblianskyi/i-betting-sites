@@ -19,115 +19,50 @@ export function LiveFootballTicker() {
   const [hasData, setHasData] = useState(false)
   const [mounted, setMounted] = useState(false)
 
-  // Demo data that will be used since API has CORS issues
-  const demoMatches: Match[] = [
-    {
-      id: "1",
-      homeTeam: "Liverpool",
-      awayTeam: "Chelsea",
-      date: "16 Jun",
-      time: "17:30",
-      competition: "Premier League",
-      status: "SCHEDULED",
-      matchday: 38,
-    },
-    {
-      id: "2",
-      homeTeam: "Barcelona",
-      awayTeam: "Atletico Madrid",
-      date: "16 Jun",
-      time: "20:00",
-      competition: "La Liga",
-      status: "SCHEDULED",
-    },
-    {
-      id: "3",
-      homeTeam: "Bayern Munich",
-      awayTeam: "RB Leipzig",
-      date: "16 Jun",
-      time: "18:30",
-      competition: "Bundesliga",
-      status: "IN_PLAY",
-    },
-    {
-      id: "4",
-      homeTeam: "PSG",
-      awayTeam: "Lyon",
-      date: "16 Jun",
-      time: "21:00",
-      competition: "Ligue 1",
-      status: "SCHEDULED",
-    },
-    {
-      id: "5",
-      homeTeam: "Inter Milan",
-      awayTeam: "Juventus",
-      date: "16 Jun",
-      time: "19:45",
-      competition: "Serie A",
-      status: "SCHEDULED",
-    },
-    {
-      id: "6",
-      homeTeam: "Real Madrid",
-      awayTeam: "Sevilla",
-      date: "17 Jun",
-      time: "22:00",
-      competition: "La Liga",
-      status: "SCHEDULED",
-    },
-    {
-      id: "7",
-      homeTeam: "Man United",
-      awayTeam: "Tottenham",
-      date: "17 Jun",
-      time: "16:00",
-      competition: "Premier League",
-      status: "SCHEDULED",
-    },
-    {
-      id: "8",
-      homeTeam: "Borussia Dortmund",
-      awayTeam: "Bayer Leverkusen",
-      date: "17 Jun",
-      time: "15:30",
-      competition: "Bundesliga",
-      status: "SCHEDULED",
-    },
-    {
-      id: "9",
-      homeTeam: "AC Milan",
-      awayTeam: "Napoli",
-      date: "17 Jun",
-      time: "20:45",
-      competition: "Serie A",
-      status: "SCHEDULED",
-    },
-    {
-      id: "10",
-      homeTeam: "Arsenal",
-      awayTeam: "Manchester City",
-      date: "18 Jun",
-      time: "14:00",
-      competition: "Premier League",
-      status: "LIVE",
-    },
-  ]
-
-  // Simulate API fetch but use demo data directly due to CORS issues
+  // Реальний API запит з вашим токеном
   const fetchMatches = async () => {
     try {
-      // Skip actual API calls due to CORS issues
-      console.log("Using demo data due to CORS issues with the API")
+      console.log("Fetching matches from football-data.org API...")
 
-      // Simulate API delay
-      await new Promise((resolve) => setTimeout(resolve, 500))
+      const response = await fetch("https://api.football-data.org/v4/matches?status=SCHEDULED,LIVE,IN_PLAY", {
+        headers: {
+          "X-Auth-Token": "03df4abdf8ba48fcb18241e7c39f7434",
+        },
+      })
 
-      // Use demo data
-      setMatches(demoMatches)
-      setHasData(true)
+      console.log("API Response status:", response.status)
+
+      if (response.ok) {
+        const data = await response.json()
+        console.log("Raw API data:", data)
+
+        const formattedMatches = data.matches.slice(0, 15).map((match: any) => ({
+          id: match.id.toString(),
+          homeTeam: match.homeTeam.shortName || match.homeTeam.name,
+          awayTeam: match.awayTeam.shortName || match.awayTeam.name,
+          date: new Date(match.utcDate).toLocaleDateString("en-GB", {
+            day: "2-digit",
+            month: "short",
+          }),
+          time: new Date(match.utcDate).toLocaleTimeString("en-GB", {
+            hour: "2-digit",
+            minute: "2-digit",
+          }),
+          competition: match.competition.name,
+          status: match.status,
+          matchday: match.matchday,
+        }))
+
+        console.log("Formatted matches:", formattedMatches)
+        setMatches(formattedMatches)
+        setHasData(true)
+      } else {
+        const errorText = await response.text()
+        console.error("API Error:", response.status, response.statusText, errorText)
+        setHasData(false)
+      }
     } catch (error) {
-      console.error("Error:", error)
+      console.error("Error fetching matches:", error)
       setHasData(false)
     } finally {
       setLoading(false)
@@ -139,9 +74,11 @@ export function LiveFootballTicker() {
   }, [])
 
   useEffect(() => {
-    // Only run on client side after component is mounted
     if (mounted) {
       fetchMatches()
+      // Оновлення кожні 10 хвилин
+      const interval = setInterval(fetchMatches, 10 * 60 * 1000)
+      return () => clearInterval(interval)
     }
   }, [mounted])
 
@@ -177,13 +114,18 @@ export function LiveFootballTicker() {
     }
   }
 
-  // Don't render anything if no data or still loading on server
-  if (!mounted || (loading && !hasData)) {
-    return null
+  // Показувати завантаження
+  if (!mounted || loading) {
+    return (
+      <div className="bg-gray-100 border border-gray-200 rounded-lg overflow-hidden relative h-[45px] flex items-center justify-center">
+        <div className="text-gray-500 text-sm animate-pulse">⚽ Loading live fixtures...</div>
+      </div>
+    )
   }
 
-  // Don't render if no matches after loading
-  if (!loading && (!matches || matches.length === 0)) {
+  // Не показувати, якщо немає матчів
+  if (!hasData || !matches || matches.length === 0) {
+    console.log("No matches to display")
     return null
   }
 
@@ -192,9 +134,9 @@ export function LiveFootballTicker() {
       <div className="flex h-full">
         <div className="bg-green-600 text-white px-2 sm:px-3 lg:px-4 flex-shrink-0 flex items-center font-bold text-xs sm:text-sm z-10">
           <div className="text-center leading-tight">
-            <div className="hidden sm:block">Today's</div>
+            <div className="hidden sm:block">Live</div>
             <div className="hidden sm:block">Fixtures</div>
-            <div className="sm:hidden">Live</div>
+            <div className="sm:hidden">⚽</div>
           </div>
         </div>
 
@@ -257,7 +199,7 @@ export function LiveFootballTicker() {
         }
         
         .ticker-content {
-          animation: scroll-seamless 40s linear infinite;
+          animation: scroll-seamless 50s linear infinite;
           width: fit-content;
         }
         
