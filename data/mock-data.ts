@@ -13,6 +13,7 @@ export const bettingSites: BettingSite[] = [
     terms: "New customers only. T&Cs apply.",
     userRating: 5.0,
     votes: 29891,
+    link: "https://www.paddypower.com",
   },
   {
     id: 2,
@@ -26,6 +27,7 @@ export const bettingSites: BettingSite[] = [
     terms: "New customers only. T&Cs apply.",
     userRating: 5.0,
     votes: 28456,
+    link: "https://www.betfair.com",
   },
   {
     id: 3,
@@ -39,6 +41,7 @@ export const bettingSites: BettingSite[] = [
     terms: "New customers only. T&Cs apply.",
     userRating: 4.9,
     votes: 27892,
+    link: "https://www.boylesports.com",
   },
   {
     id: 4,
@@ -52,6 +55,7 @@ export const bettingSites: BettingSite[] = [
     terms: "New customers only. T&Cs apply.",
     userRating: 4.9,
     votes: 26543,
+    link: "https://www.ladbrokes.com",
   },
   {
     id: 5,
@@ -65,6 +69,7 @@ export const bettingSites: BettingSite[] = [
     terms: "New customers only. T&Cs apply.",
     userRating: 4.9,
     votes: 25234,
+    link: "https://www.williamhill.com",
   },
   {
     id: 6,
@@ -78,6 +83,7 @@ export const bettingSites: BettingSite[] = [
     terms: "New customers only. T&Cs apply.",
     userRating: 4.8,
     votes: 24123,
+    link: "https://www.bet365.com",
   },
   {
     id: 7,
@@ -91,6 +97,7 @@ export const bettingSites: BettingSite[] = [
     terms: "New customers only. T&Cs apply.",
     userRating: 4.8,
     votes: 23012,
+    link: "https://www.888sport.com",
   },
   {
     id: 8,
@@ -104,6 +111,7 @@ export const bettingSites: BettingSite[] = [
     terms: "New customers only. T&Cs apply.",
     userRating: 4.7,
     votes: 22901,
+    link: "https://www.unibet.com",
   },
   {
     id: 9,
@@ -117,6 +125,7 @@ export const bettingSites: BettingSite[] = [
     terms: "New customers only. T&Cs apply.",
     userRating: 4.7,
     votes: 21890,
+    link: "https://www.betway.com",
   },
 ]
 
@@ -126,13 +135,13 @@ export const banners: Banner[] = [
     title: "Featured Site",
     subtitle: "BetVictor - Bet €10 → Get €30 in Free Bets",
     image: "/placeholder.svg?height=400&width=300&text=BetVictor+Banner",
-    link: "#",
+    link: "https://www.betvictor.com",
   },
   {
     id: 2,
     title: "Special Offer",
     subtitle: "Exclusive Welcome Bonus Available",
     image: "/placeholder.svg?height=400&width=300&text=Special+Offer",
-    link: "#",
+    link: "https://www.specialoffer.com",
   },
 ]

@@ -15,7 +15,7 @@ const formatVotes = (votes: number) => {
 
 export function SidebarBanner({ position, site }: SidebarBannerProps) {
   return (
-    <Link href="#" className="block">
+    <Link href={site.link} target="_blank" rel="noopener noreferrer" className="block">
       <div className="bg-white rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-[1.05] overflow-hidden cursor-pointer">
         <div className="bg-yellow-500 text-black px-3 py-2 text-center font-bold text-sm">Featured Site</div>
         <div className="p-4 text-center">

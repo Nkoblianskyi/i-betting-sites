@@ -17,7 +17,7 @@ export function InListBanner({ site, badgeText, badgeColor }: InListBannerProps)
   const siteName = site.name || ""
 
   return (
-    <Link href="#" className="block">
+    <Link href={site.link} target="_blank" rel="noopener noreferrer" className="block">
       <div className="relative bg-gradient-to-r from-gray-800 to-gray-900 rounded-lg p-3 sm:p-4 lg:p-6 border-2 border-dashed border-yellow-500 my-3 sm:my-4 lg:my-6 overflow-hidden hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] cursor-pointer hover:border-yellow-400">
         {/* Background pattern */}
         <div className="absolute inset-0 opacity-20">

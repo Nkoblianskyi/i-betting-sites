@@ -10,6 +10,7 @@ export interface BettingSite {
   terms: string
   userRating: number
   votes: number
+  link: string
 }
 
 export interface Banner {

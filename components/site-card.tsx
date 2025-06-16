@@ -19,7 +19,7 @@ export function SiteCard({ site, rank }: SiteCardProps) {
   const hasHalfStar = site.rating % 1 !== 0
 
   return (
-    <Link href="#" className="block">
+    <Link href={site.link} target="_blank" rel="noopener noreferrer" className="block">
       {/* Desktop Layout - Exact match to mockup */}
       <div className="hidden md:block bg-white rounded-lg border shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] h-[162px] relative overflow-hidden cursor-pointer">
         {/* Badge */}
@@ -73,11 +73,11 @@ export function SiteCard({ site, rank }: SiteCardProps) {
 
         {/* Terms */}
         <div className="h-[32px] bg-gray-50 flex items-center justify-center text-xs text-gray-500 px-4">
-          "18+ | Play responsibly | GambleAware.org | Safe gaming practices apply
+          18+ | Play responsibly | GambleAware.org | Safe gaming practices apply
         </div>
       </div>
 
-      {/* Mobile Layout - unchanged */}
+      {/* Mobile Layout */}
       <div className="md:hidden bg-white rounded-lg border border-gray-200 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] relative overflow-hidden cursor-pointer">
         {/* Badge for top 3 positions */}
         {rank === 1 && (
@@ -148,7 +148,7 @@ export function SiteCard({ site, rank }: SiteCardProps) {
 
           {/* Terms */}
           <div className="mt-3 pt-3 border-t border-gray-100 text-gray-500 text-xs leading-3">
-            "18+ | Play responsibly | GambleAware.org | Safe gaming practices apply
+            18+ | Play responsibly | GambleAware.org | Safe gaming practices apply
           </div>
         </div>
       </div>
