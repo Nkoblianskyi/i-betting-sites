@@ -45,9 +45,9 @@ export default function IrishBettingComparison() {
     <>
       <div className="container mx-auto px-2 max-w-[1500px] relative">
         {/* Main Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-[200px_1fr_200px] gap-3">
-          {/* Left Column - Only on desktop */}
-          <div className="hidden lg:block">
+        <div className="grid grid-cols-1 md:grid-cols-1 xl-custom:grid-cols-[200px_1fr_200px] gap-3">
+          {/* Left Column - Only on screens 1182px+ */}
+          <div className="hidden xl-custom:block">
             {/* Empty space for hero height + some list items */}
             <div style={{ height: "1200px" }}></div>
             {/* Left Sidebar at middle of list */}
@@ -58,7 +58,7 @@ export default function IrishBettingComparison() {
           <div className="px-2">
             {/* Hero Section - Desktop */}
             <div
-              className="hidden lg:block h-[291px] relative overflow-hidden text-white mb-2"
+              className="hidden lg:block xl-custom:h-[291px] h-[200px] relative overflow-hidden text-white mb-2"
               style={{ background: "rgba(0, 0, 0, 0.70)" }}
             >
               <div className="h-full flex flex-col justify-center text-center px-2.5">
@@ -133,7 +133,7 @@ export default function IrishBettingComparison() {
                   </div>
                 </div>
                 <div className="text-xs">
-                  Play responsibly. Wagering and T&Cs apply.
+                  Play responsibly; Wagering and T&Cs apply.
                   <button onClick={() => setIsAdvertiserModalOpen(true)} className="underline ml-1">
                     Advertiser Disclosure
                   </button>
@@ -218,8 +218,8 @@ export default function IrishBettingComparison() {
             <InfoSections />
           </div>
 
-          {/* Right Column - Only on desktop */}
-          <div className="hidden lg:block">
+          {/* Right Column - Only on screens 1182px+ */}
+          <div className="hidden xl-custom:block">
             {/* Right Sidebar at hero level */}
             <SidebarBanner position="right" site={bettingSites[0]} />
           </div>
