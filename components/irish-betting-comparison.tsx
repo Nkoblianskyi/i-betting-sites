@@ -10,10 +10,10 @@ import { InfoSections } from "./info-sections"
 import { AdvertiserDisclosureModal } from "./advertiser-disclosure-modal"
 import { TermsModal } from "./terms-modal"
 import { bettingSites } from "../data/mock-data"
-import { InListBanner } from "./in-list-banner"
 import type { BettingSite } from "../types"
 import { TableHeader } from "./table-header"
 import { LiveTicker } from "./live-ticker"
+import { HorizontalBanner } from "./horizontal-banner"
 
 export default function IrishBettingComparison() {
   const [isAdvertiserModalOpen, setIsAdvertiserModalOpen] = useState(false)
@@ -204,10 +204,9 @@ export default function IrishBettingComparison() {
                   <SiteCard site={site} rank={index + 1} />
                   {(index + 1) % 3 === 0 && (
                     <div className="my-3">
-                      <InListBanner
+                      <HorizontalBanner
                         site={bettingSites[index % bettingSites.length]}
                         badgeText={index === 2 ? "SPECIAL OFFER" : "EXCLUSIVE DEAL"}
-                        badgeColor={index === 2 ? "bg-blue-600" : "bg-red-600"}
                       />
                     </div>
                   )}

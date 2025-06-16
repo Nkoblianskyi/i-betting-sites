@@ -1,6 +1,5 @@
 "use client"
 
-import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import type { BettingSite } from "../types"
 
@@ -9,25 +8,107 @@ interface SidebarBannerProps {
   site: BettingSite
 }
 
-const formatVotes = (votes: number) => {
-  return votes.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-}
-
 export function SidebarBanner({ position, site }: SidebarBannerProps) {
   return (
     <Link href={site.link} target="_blank" rel="noopener noreferrer" className="block">
-      <div className="bg-white rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-[1.05] overflow-hidden cursor-pointer">
-        <div className="bg-yellow-500 text-black px-3 py-2 text-center font-bold text-sm">Featured Site</div>
-        <div className="p-4 text-center">
-          <img src={site.logo || "/placeholder.svg"} alt={site.name} className="h-10 w-auto mx-auto mb-2" />
-          <div className="text-lg font-bold mb-1">{site.name}</div>
-          <div className="text-2xl font-bold text-green-600 mb-1">{site.userRating}</div>
-          <div className="text-xs text-gray-600 mb-3">({formatVotes(site.votes)} reviews)</div>
-          <div className="bg-blue-600 text-white p-2 rounded mb-3 text-sm font-bold">{site.welcomeOffer}</div>
-          <Button className="w-full bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-2 text-sm transition-colors">
-            Claim Bonus
-          </Button>
-          <div className="text-xs text-gray-500 mt-2">18+ | T&C Apply</div>
+      <div
+        className="relative rounded-lg overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-[1.02] cursor-pointer h-[600px] w-full"
+        style={{
+          backgroundImage: "url(sidebar-2.jpg)",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
+        {/* Dark overlay for better text readability */}
+        <div className="absolute inset-0 bg-black/20"></div>
+
+        {/* Content */}
+        <div className="relative z-10 h-full flex flex-col justify-between p-6 text-center text-white">
+          {/* Top section */}
+          <div className="">
+            {/* Site name */}
+            <div className="mb-4">
+              <h2 className="text-2xl font-bold tracking-wider text-white drop-shadow-lg">{site.name.toUpperCase()}</h2>
+            </div>
+
+            {/* Rating dots */}
+            <div className="flex justify-center gap-2">
+              {[...Array(6)].map((_, i) => (
+                <div
+                  key={i}
+                  className={`w-2 h-2 rounded-full ${i < Math.floor(site.rating) ? "bg-green-400" : "bg-green-400"}`}
+                />
+              ))}
+            </div>
+          </div>
+
+          {/* Bottom section */}
+          <div className="pb-8">
+            {/* Offer text */}
+            <div className="mb-4">
+              <div
+                className="text-white font-bold mb-1 drop-shadow-lg"
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "center",
+                  flexShrink: 0,
+                  color: "#FFF",
+                  textAlign: "center",
+                  fontFamily: "Roboto",
+                  fontSize: "22px",
+                  fontStyle: "normal",
+                  fontWeight: 700,
+                  lineHeight: "22px",
+                }}
+              >
+                {site.welcomeOffer}
+              </div>
+              <div
+                className="text-white font-bold mb-4 drop-shadow-lg"
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "center",
+                  flexShrink: 0,
+                  color: "#FFF",
+                  textAlign: "center",
+                  fontFamily: "Roboto",
+                  fontSize: "18px",
+                  fontStyle: "normal",
+                  fontWeight: 700,
+                  lineHeight: "22px",
+                }}
+              >
+                {site.bonus}
+              </div>
+            </div>
+
+            {/* CTA Button */}
+            <button
+              className="w-full hover:opacity-80 transition-opacity"
+              style={{
+                display: "flex",
+                width: "99.714px",
+                height: "24px",
+                flexDirection: "column",
+                justifyContent: "center",
+                flexShrink: 0,
+                color: "#FF5100",
+                textAlign: "center",
+                fontFamily: "Roboto",
+                fontSize: "20px",
+                fontStyle: "normal",
+                fontWeight: 700,
+                lineHeight: "20px",
+                background: "transparent",
+                border: "none",
+                margin: "0 auto",
+              }}
+            >
+              Claim now!
+            </button>
+          </div>
         </div>
       </div>
     </Link>
