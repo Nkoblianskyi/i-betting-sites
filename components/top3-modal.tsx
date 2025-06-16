@@ -37,12 +37,10 @@ export function Top3Modal({ bettingSites, casinoSites }: Top3ModalProps) {
         <X className="w-5 h-5 sm:w-6 sm:h-6" />
       </Button>
 
-      <div className="w-full h-full flex flex-col justify-center max-w-xs sm:max-w-2xl lg:max-w-6xl mx-auto">
+      <div className="w-full flex flex-col justify-center max-w-xs sm:max-w-2xl lg:max-w-6xl mx-auto gap-2">
         {/* Header */}
-        <div className="text-center mb-2 sm:mb-3 lg:mb-6">
-          <h2 className="text-lg sm:text-xl lg:text-4xl font-bold text-white mb-1 sm:mb-2 lg:mb-4">
-            Best Betting Sites
-          </h2>
+        <div className="text-center">
+          <h2 className="text-lg sm:text-xl lg:text-4xl font-bold text-white">Best Betting Sites</h2>
         </div>
 
         {/* Cards - Mobile: Stack, Tablet: 2+1, Desktop: 3 in row */}
@@ -51,9 +49,8 @@ export function Top3Modal({ bettingSites, casinoSites }: Top3ModalProps) {
             {top3Sites.map((site: BettingSite, index: number) => (
               <div
                 key={site.id}
-                className={`bg-white rounded-lg p-1.5 sm:p-2 lg:p-6 text-center relative ${
-                  index === 1 ? "border-2 sm:border-4 border-green-500 lg:transform lg:scale-105" : ""
-                }`}
+                className={`bg-white rounded-lg p-1.5 sm:p-2 lg:p-6 text-center relative ${index === 1 ? "border-2 sm:border-4 border-green-500 lg:transform lg:scale-105" : ""
+                  }`}
               >
                 {/* Logo */}
                 <div className="mb-1 sm:mb-1.5 lg:mb-4">
@@ -118,7 +115,7 @@ export function Top3Modal({ bettingSites, casinoSites }: Top3ModalProps) {
         </div>
 
         {/* Footer */}
-        <div className="text-center mt-1 sm:mt-2 lg:mt-6">
+        <div className="text-center">
           <p className="text-white text-xs sm:text-xs lg:text-sm">
             18+. T&C's apply. <span className="underline">Begambleaware.org</span>. Play responsibly.
           </p>
