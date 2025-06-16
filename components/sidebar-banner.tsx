@@ -45,7 +45,7 @@ export function SidebarBanner({ position, site }: SidebarBannerProps) {
               <div className="text-lg font-semibold mb-2">{site.name}</div>
 
               <div className="flex items-center justify-center gap-1 mb-2">
-                {[...Array(4)].map((_, i) => (
+                {[...Array(5)].map((_, i) => (
                   <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
                 ))}
                 <Star className="w-4 h-4 text-gray-400" />
