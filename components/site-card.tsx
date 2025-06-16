@@ -40,7 +40,7 @@ export function SiteCard({ site, rank }: SiteCardProps) {
           <div className="text-center">
             <div className="text-xs text-gray-600 mb-1">WELCOME BONUS</div>
             <div className="text-xl font-bold text-gray-900 mb-1">{site.bonus}</div>
-            <div className="text-lg font-bold text-gray-700">{site.welcomeOffer}</div>
+            <div className="text-xl font-bold text-gray-900">{site.welcomeOffer}</div>
           </div>
 
           {/* USER RATING */}
