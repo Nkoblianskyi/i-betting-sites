@@ -129,7 +129,7 @@ export default function IrishBettingComparison() {
                   {(index + 1) % 3 === 0 && (
                     <div className="mt-2 mb-2">
                       <InListBanner
-                        site={bettingSites[Math.floor(Math.random() * 3)]}
+                        site={bettingSites[index % bettingSites.length]} // Детермінований вибір замість Math.random()
                         badgeText={index === 2 ? "SPECIAL OFFER" : "EXCLUSIVE DEAL"}
                         badgeColor={index === 2 ? "bg-blue-600" : "bg-red-600"}
                       />

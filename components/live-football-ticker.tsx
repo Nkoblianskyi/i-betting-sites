@@ -94,6 +94,24 @@ export function LiveFootballTicker() {
       competition: "Bundesliga",
       status: "SCHEDULED",
     },
+    {
+      id: "9",
+      homeTeam: "AC Milan",
+      awayTeam: "Napoli",
+      date: "17 Jun",
+      time: "20:45",
+      competition: "Serie A",
+      status: "SCHEDULED",
+    },
+    {
+      id: "10",
+      homeTeam: "Arsenal",
+      awayTeam: "Manchester City",
+      date: "18 Jun",
+      time: "14:00",
+      competition: "Premier League",
+      status: "LIVE",
+    },
   ]
 
   // Simulate API fetch but use demo data directly due to CORS issues
@@ -172,7 +190,7 @@ export function LiveFootballTicker() {
   return (
     <div className="bg-gray-100 border border-gray-200 rounded-lg overflow-hidden relative h-[45px]">
       <div className="flex h-full">
-        <div className="bg-green-600 text-white px-2 sm:px-3 lg:px-4 flex-shrink-0 flex items-center font-bold text-xs sm:text-sm">
+        <div className="bg-green-600 text-white px-2 sm:px-3 lg:px-4 flex-shrink-0 flex items-center font-bold text-xs sm:text-sm z-10">
           <div className="text-center leading-tight">
             <div className="hidden sm:block">Today's</div>
             <div className="hidden sm:block">Fixtures</div>
@@ -181,34 +199,69 @@ export function LiveFootballTicker() {
         </div>
 
         <div className="flex-1 overflow-hidden h-full">
-          <div className="animate-scroll flex h-full">
-            {matches.concat(matches).map((match, index) => (
-              <div
-                key={`${match.id}-${index}`}
-                className="flex-shrink-0 px-3 sm:px-4 lg:px-6 border-r border-gray-200 bg-white hover:bg-gray-50 transition-colors min-w-[220px] sm:min-w-[280px] lg:min-w-[320px] h-full flex flex-col justify-center"
-              >
-                <div className="flex items-center justify-between mb-0.5">
-                  <div className="text-xs sm:text-sm font-semibold text-gray-900 truncate flex-1">
-                    {match.homeTeam} vs {match.awayTeam}
-                  </div>
-                  {getStatusText(match.status) && (
-                    <div className={`text-xs ml-2 px-1 rounded ${getStatusColor(match.status)}`}>
-                      {getStatusText(match.status)}
+          <div className="ticker-container h-full">
+            <div className="ticker-content flex h-full">
+              {/* Перший набір матчів */}
+              {matches.map((match, index) => (
+                <div
+                  key={`first-${match.id}-${index}`}
+                  className="flex-shrink-0 px-3 sm:px-4 lg:px-6 border-r border-gray-200 bg-white hover:bg-gray-50 transition-colors min-w-[220px] sm:min-w-[280px] lg:min-w-[320px] h-full flex flex-col justify-center"
+                >
+                  <div className="flex items-center justify-between mb-0.5">
+                    <div className="text-xs sm:text-sm font-semibold text-gray-900 truncate flex-1">
+                      {match.homeTeam} vs {match.awayTeam}
                     </div>
-                  )}
+                    {getStatusText(match.status) && (
+                      <div className={`text-xs ml-2 px-1 rounded ${getStatusColor(match.status)}`}>
+                        {getStatusText(match.status)}
+                      </div>
+                    )}
+                  </div>
+                  <div className="text-xs text-gray-600 truncate">
+                    {match.time} • {match.competition}
+                    {match.matchday && ` MD${match.matchday}`}
+                  </div>
                 </div>
-                <div className="text-xs text-gray-600 truncate">
-                  {match.time} • {match.competition}
-                  {match.matchday && ` MD${match.matchday}`}
+              ))}
+
+              {/* Другий набір матчів для безшовної анімації */}
+              {matches.map((match, index) => (
+                <div
+                  key={`second-${match.id}-${index}`}
+                  className="flex-shrink-0 px-3 sm:px-4 lg:px-6 border-r border-gray-200 bg-white hover:bg-gray-50 transition-colors min-w-[220px] sm:min-w-[280px] lg:min-w-[320px] h-full flex flex-col justify-center"
+                >
+                  <div className="flex items-center justify-between mb-0.5">
+                    <div className="text-xs sm:text-sm font-semibold text-gray-900 truncate flex-1">
+                      {match.homeTeam} vs {match.awayTeam}
+                    </div>
+                    {getStatusText(match.status) && (
+                      <div className={`text-xs ml-2 px-1 rounded ${getStatusColor(match.status)}`}>
+                        {getStatusText(match.status)}
+                      </div>
+                    )}
+                  </div>
+                  <div className="text-xs text-gray-600 truncate">
+                    {match.time} • {match.competition}
+                    {match.matchday && ` MD${match.matchday}`}
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </div>
 
       <style jsx>{`
-        @keyframes scroll {
+        .ticker-container {
+          overflow: hidden;
+        }
+        
+        .ticker-content {
+          animation: scroll-seamless 40s linear infinite;
+          width: fit-content;
+        }
+        
+        @keyframes scroll-seamless {
           0% {
             transform: translateX(0);
           }
@@ -217,11 +270,7 @@ export function LiveFootballTicker() {
           }
         }
         
-        .animate-scroll {
-          animation: scroll 10s linear infinite;
-        }
-        
-        .animate-scroll:hover {
+        .ticker-content:hover {
           animation-play-state: paused;
         }
       `}</style>
