@@ -39,15 +39,13 @@ export function CookieBanner() {
           </p>
         </div>
         <div className="flex gap-3">
-          <Link href="/cookie-policy">
-            <Button
-              onClick={handleDecline}
-              variant="outline"
-              className="text-black border-white hover:bg-white hover:text-gray-900"
-            >
-              Decline
-            </Button>
-          </Link>
+          <Button
+            onClick={handleDecline}
+            variant="outline"
+            className="text-black border-white hover:bg-white hover:text-gray-900"
+          >
+            Decline
+          </Button>
           <Button onClick={handleAccept} className="bg-emerald-600 hover:bg-emerald-700">
             Accept Cookies
           </Button>

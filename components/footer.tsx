@@ -56,6 +56,8 @@ export function Footer() {
           </Link>
         </div>
 
+        {/* Safety Badges */}
+        
 
         <div className="border-t border-gray-700 pt-6 text-center">
           <p className="text-gray-400 mb-1 text-sm">© 2025 IE Best Betting Sites. All rights reserved.</p>

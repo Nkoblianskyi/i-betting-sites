@@ -51,8 +51,9 @@ export function Top3Modal({ bettingSites, casinoSites }: Top3ModalProps) {
             {top3Sites.map((site: BettingSite, index: number) => (
               <div
                 key={site.id}
-                className={`bg-white rounded-lg p-1.5 sm:p-2 lg:p-6 text-center relative ${index === 1 ? "border-2 sm:border-4 border-green-500 lg:transform lg:scale-105" : ""
-                  }`}
+                className={`bg-white rounded-lg p-1.5 sm:p-2 lg:p-6 text-center relative ${
+                  index === 1 ? "border-2 sm:border-4 border-green-500 lg:transform lg:scale-105" : ""
+                }`}
               >
                 {/* Logo */}
                 <div className="mb-1 sm:mb-1.5 lg:mb-4">

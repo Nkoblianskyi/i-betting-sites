@@ -18,7 +18,7 @@ export function InListBanner({ site, badgeText, badgeColor }: InListBannerProps)
 
   return (
     <Link href="#" className="block">
-      <div className="relative bg-gradient-to-r from-gray-800 to-gray-900 rounded-lg p-3 sm:p-4 lg:p-6 border-2 border-dashed border-yellow-500 my-3 sm:my-4 lg:my-6 overflow-hidden hover:shadow-xl transition-all duration-300 hover:scale-[1.02] cursor-pointer">
+      <div className="relative bg-gradient-to-r from-gray-800 to-gray-900 rounded-lg p-3 sm:p-4 lg:p-6 border-2 border-dashed border-yellow-500 my-3 sm:my-4 lg:my-6 overflow-hidden hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] cursor-pointer hover:border-yellow-400">
         {/* Background pattern */}
         <div className="absolute inset-0 opacity-20">
           <img
@@ -61,7 +61,7 @@ export function InListBanner({ site, badgeText, badgeColor }: InListBannerProps)
                 Bet <span className="text-blue-400">€10</span> Get{" "}
                 <span className="text-blue-400">€{site.bonus.match(/€(\d+)/)?.[1] || "40"}</span>
               </div>
-              <Button className="bg-blue-600 hover:bg-blue-700 text-white font-bold px-6 py-2 rounded-full">
+              <Button className="bg-blue-600 hover:bg-blue-700 text-white font-bold px-6 py-2 rounded-full transition-colors">
                 GET BONUS
               </Button>
             </div>
@@ -82,25 +82,25 @@ export function InListBanner({ site, badgeText, badgeColor }: InListBannerProps)
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-4 lg:gap-6">
                 {/* Logo */}
-                <div className="bg-white p-3 lg:p-4 rounded-lg">
+                <div className="bg-white p-3 lg:p-4 rounded-lg flex-shrink-0">
                   <img src={logoSrc || "/placeholder.svg"} alt={siteName} className="h-8 lg:h-12 w-auto" />
-                </div>
-
-                {/* Offer */}
-                <div className="text-center">
-                  <div className="text-white text-lg lg:text-2xl font-bold mb-2">
-                    Bet <span className="text-blue-400">€10</span> Get{" "}
-                    <span className="text-blue-400">€{site.bonus.match(/€(\d+)/)?.[1] || "40"}</span>
-                  </div>
-                  <Button className="bg-blue-600 hover:bg-blue-700 text-white font-bold px-6 lg:px-8 py-2 lg:py-3 rounded-full">
-                    GET BONUS
-                  </Button>
-                  <div className="text-xs text-gray-400 mt-2">18+ GambleAware.org. New customers only. T&Cs apply.</div>
                 </div>
               </div>
 
-              {/* Site name and rating - full width available */}
-              <div className="text-right">
+              {/* Offer - Centered */}
+              <div className="flex-1 text-center px-4">
+                <div className="text-white text-lg lg:text-2xl font-bold mb-2">
+                  Bet <span className="text-blue-400">€10</span> Get{" "}
+                  <span className="text-blue-400">€{site.bonus.match(/€(\d+)/)?.[1] || "40"}</span>
+                </div>
+                <Button className="bg-blue-600 hover:bg-blue-700 text-white font-bold px-6 lg:px-8 py-2 lg:py-3 rounded-full transition-colors">
+                  GET BONUS
+                </Button>
+                <div className="text-xs text-gray-400 mt-2">18+ GambleAware.org. New customers only. T&Cs apply.</div>
+              </div>
+
+              {/* Site name and rating - Right side */}
+              <div className="text-right flex-shrink-0">
                 <div className="text-white text-lg lg:text-2xl font-bold mb-2">{siteName.toUpperCase()}</div>
                 <div className="flex items-center justify-end gap-1">
                   {[...Array(5)].map((_, i) => (

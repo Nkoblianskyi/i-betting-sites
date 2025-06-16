@@ -2,8 +2,8 @@ import type React from "react"
 import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import "./globals.css"
-import { Header } from "@/components/header"
-import { Footer } from "@/components/footer"
+import { Header } from "../components/header"
+import { Footer } from "../components/footer"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -23,24 +23,15 @@ export default function RootLayout({
         <div
           className="min-h-screen relative"
           style={{
-            backgroundImage: "url(/bg.jpg)",
+            backgroundImage: "url(/bg-3.jpg)",
             backgroundSize: "cover",
             backgroundPosition: "center",
             backgroundAttachment: "fixed",
           }}
         >
-          {/* Background overlay */}
-          <div className="absolute inset-0 bg-black/40" />
-
-          {/* Content */}
           <div className="relative z-10">
-            {/* Header */}
             <Header />
-
-            {/* Main Content */}
             <main>{children}</main>
-
-            {/* Footer */}
             <Footer />
           </div>
         </div>

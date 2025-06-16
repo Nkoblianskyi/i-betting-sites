@@ -69,6 +69,12 @@ export default function PrivacyPolicyPage() {
             <li>Object to processing</li>
             <li>Data portability</li>
           </ul>
+
+          <h2>7. Changes to This Policy</h2>
+          <p>
+            We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new
+            Privacy Policy on this page.
+          </p>
         </div>
       </div>
     </div>

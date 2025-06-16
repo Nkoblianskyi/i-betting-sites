@@ -2,11 +2,9 @@
 
 export function InfoSections() {
   return (
-    <div className="mt-2">
+    <div className="mt-16">
       {/* Main Guide Section with Background */}
-      <section
-        className="relative rounded-lg overflow-hidden"
-      >
+      <section className="relative rounded-lg overflow-hidden">
         {/* Dark overlay */}
         <div className="absolute inset-0 bg-black/80"></div>
 

@@ -12,8 +12,8 @@ import { TermsModal } from "./terms-modal"
 import { bettingSites } from "../data/mock-data"
 import { InListBanner } from "./in-list-banner"
 import type { BettingSite } from "../types"
+import { TableHeader } from "./table-header"
 import { LiveTicker } from "./live-football-ticker"
-
 
 export default function IrishBettingComparison() {
   const [isAdvertiserModalOpen, setIsAdvertiserModalOpen] = useState(false)
@@ -21,116 +21,81 @@ export default function IrishBettingComparison() {
 
   return (
     <>
-      {/* Main Layout Container */}
-      <div className="container mx-auto px-2 sm:px-4 max-w-[1400px] relative">
-        <div className="flex gap-2 sm:gap-4">
-          {/* Left Sidebar */}
-          <div className="hidden md:block w-48 flex-shrink-0 relative">
-            <div className="sticky top-[calc(100vh-400px)]">
-              <SidebarBanner position="left" site={bettingSites[1]} />
-            </div>
+      <div className="container mx-auto px-2 max-w-[1500px] relative">
+        {/* Main Layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-[200px_1fr_200px] ">
+          {/* Left Column */}
+          <div className="hidden lg:block">
+            {/* Empty space for hero height + some list items */}
+            <div style={{ height: "1200px" }}></div>
+            {/* Left Sidebar at middle of list */}
+            <SidebarBanner position="left" site={bettingSites[1]} />
           </div>
 
-          {/* Main Content Column */}
-          <div className="flex-1 min-w-0 max-w-4xl mx-auto">
-            {/* Hero Section - removed bottom margin */}
-            <div>
-              <div className="relative text-white overflow-hidden bg-black bg-opacity-60 py-6 md:py-8">
-                <div className="relative z-10 w-full px-4 sm:px-6 lg:px-8 text-center">
-                  <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold mb-2 sm:mb-3">
-                    BEST <span className="text-green-400">IRELAND</span> BETTING SITES
-                  </h1>
-                  <h2 className="text-sm sm:text-base lg:text-xl font-bold mb-4 sm:mb-6 text-white">
-                    UPDATED FOR JUNE 2025
-                  </h2>
-
-                  {/* Desktop content */}
-                  <div className="hidden md:block mb-6">
-                    <p className="text-sm lg:text-base mb-4 leading-relaxed max-w-4xl mx-auto">
-                      Finding betting sites can be hard if you don't know where to look. Fortunately, you came to the
-                      right place as here we are aware of the need that punters are facing and know exactly how to help
-                      them.
-                    </p>
-                    <p className="text-xs text-gray-300 mb-6">
-                      *Each welcome offer may come with separate terms, conditions & wagering requirements. Click "GET
-                      BONUS" for full details. New Customers Only. Age 18+
-                    </p>
+          {/* Center Column - Hero + List */}
+          <div className="px-2">
+            {/* Hero Section */}
+            <div
+              className="h-[291px] relative overflow-hidden text-white"
+              style={{ background: "rgba(0, 0, 0, 0.70)" }}
+            >
+              <div className="h-full flex flex-col justify-center text-center px-2.5">
+                <h1 className="text-3xl font-bold mb-2">
+                  BEST <span className="text-green-400">IRELAND</span> BETTING SITES
+                </h1>
+                <h2 className="text-xl font-bold mb-3">UPDATED FOR JUNE 2025</h2>
+                <p className="text-sm mb-3 max-w-2xl mx-auto">
+                  Finding betting sites can be hard if you don't know where to look. Fortunately, you came to the right
+                  place.
+                </p>
+                <p className="text-xs text-gray-300 mb-4">
+                  *Each welcome offer may come with separate terms. New Customers Only. Age 18+
+                </p>
+                <div className="flex justify-center gap-4 mb-3">
+                  <div className="flex items-center gap-2">
+                    <Shield className="w-4 h-4" />
+                    <span className="text-sm">100% Legal</span>
                   </div>
-
-                  {/* Feature badges */}
-                  <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 mb-4 sm:mb-6">
-                    <div className="flex items-center gap-2 bg-black/20 md:bg-transparent backdrop-blur-sm rounded-full md:rounded-none px-3 py-2 md:px-0 md:py-0">
-                      <Shield className="w-4 h-4 text-white" />
-                      <span className="text-sm font-semibold">100% Legal</span>
+                  <div className="flex items-center gap-2">
+                    <div className="flex gap-1">
+                      <div className="w-3 h-2 bg-green-500"></div>
+                      <div className="w-3 h-2 bg-white"></div>
+                      <div className="w-3 h-2 bg-orange-500"></div>
                     </div>
-                    <div className="flex items-center gap-2 bg-black/20 md:bg-transparent backdrop-blur-sm rounded-full md:rounded-none px-3 py-2 md:px-0 md:py-0">
-                      <div className="w-4 h-3 bg-green-500 rounded-sm"></div>
-                      <div className="w-4 h-3 bg-white rounded-sm"></div>
-                      <div className="w-4 h-3 bg-orange-500 rounded-sm"></div>
-                      <span className="text-sm font-semibold ml-1">IE Regulated</span>
-                    </div>
-                    <div className="flex items-center gap-2 bg-black/20 md:bg-transparent backdrop-blur-sm rounded-full md:rounded-none px-3 py-2 md:px-0 md:py-0">
-                      <Clock className="w-4 h-4 text-white" />
-                      <span className="text-sm font-semibold">Fast Withdrawals</span>
-                    </div>
+                    <span className="text-sm">IE Regulated</span>
                   </div>
-
-                  {/* Disclaimer */}
-                  <div className="text-xs text-white/90">
-                    <div className="md:hidden bg-black/20 backdrop-blur-sm rounded-full px-3 py-2 inline-block">
-                      <div className="mb-1">Play responsibly; Wagering and T&Cs apply.</div>
-                      <div>
-                        <button
-                          onClick={() => setIsAdvertiserModalOpen(true)}
-                          className="underline hover:text-white transition-colors"
-                        >
-                          Advertiser Disclosure
-                        </button>
-                        <span> | </span>
-                        <button
-                          onClick={() => setIsTermsModalOpen(true)}
-                          className="underline hover:text-white transition-colors"
-                        >
-                          18+ T&Cs Apply
-                        </button>
-                      </div>
-                    </div>
-
-                    <div className="hidden md:block">
-                      <span>Play responsibly; Wagering and T&Cs apply. </span>
-                      <button
-                        onClick={() => setIsAdvertiserModalOpen(true)}
-                        className="underline hover:text-white transition-colors"
-                      >
-                        Advertiser Disclosure
-                      </button>
-                      <span> | </span>
-                      <button
-                        onClick={() => setIsTermsModalOpen(true)}
-                        className="underline hover:text-white transition-colors"
-                      >
-                        18+ T&Cs Apply
-                      </button>
-                    </div>
+                  <div className="flex items-center gap-2">
+                    <Clock className="w-4 h-4" />
+                    <span className="text-sm">Fast Withdrawals</span>
                   </div>
+                </div>
+                <div className="text-xs">
+                  Play responsibly. Wagering and T&Cs apply.
+                  <button onClick={() => setIsAdvertiserModalOpen(true)} className="underline ml-1">
+                    Advertiser Disclosure
+                  </button>
+                  <span> | </span>
+                  <button onClick={() => setIsTermsModalOpen(true)} className="underline">
+                    18+ T&Cs Apply
+                  </button>
                 </div>
               </div>
             </div>
 
-            {/* Live Football Ticker - conditionally rendered */}
             <LiveTicker />
 
+            {/* Table Header */}
+            <TableHeader />
+
             {/* Sites List */}
-            <div className="space-y-2 mt-5">
+            <div className="space-y-2">
               {bettingSites.map((site: BettingSite, index: number) => (
                 <div key={site.id}>
                   <SiteCard site={site} rank={index + 1} />
-
-                  {/* In-list banner after every 3rd element */}
                   {(index + 1) % 3 === 0 && (
-                    <div className="mt-2 mb-2">
+                    <div className="my-3">
                       <InListBanner
-                        site={bettingSites[index % bettingSites.length]} // Детермінований вибір замість Math.random()
+                        site={bettingSites[index % bettingSites.length]}
                         badgeText={index === 2 ? "SPECIAL OFFER" : "EXCLUSIVE DEAL"}
                         badgeColor={index === 2 ? "bg-blue-600" : "bg-red-600"}
                       />
@@ -140,20 +105,17 @@ export default function IrishBettingComparison() {
               ))}
             </div>
 
-            {/* Info Sections */}
             <InfoSections />
           </div>
 
-          {/* Right Sidebar */}
-          <div className="hidden md:block w-48 flex-shrink-0">
-            <div className="sticky top-6">
-              <SidebarBanner position="right" site={bettingSites[0]} />
-            </div>
+          {/* Right Column */}
+          <div className="hidden lg:block">
+            {/* Right Sidebar at hero level */}
+            <SidebarBanner position="right" site={bettingSites[0]} />
           </div>
         </div>
       </div>
 
-      {/* Modals and Banners */}
       <Top3Modal bettingSites={bettingSites} casinoSites={[]} />
       <CookieBanner />
       <AdvertiserDisclosureModal isOpen={isAdvertiserModalOpen} onClose={() => setIsAdvertiserModalOpen(false)} />
