@@ -133,7 +133,7 @@ export default function IrishBettingComparison() {
                   </div>
                 </div>
                 <div className="text-xs">
-                  Play responsibly; Wagering and T&Cs apply.
+                  Play responsibly. Wagering and T&Cs apply.
                   <button onClick={() => setIsAdvertiserModalOpen(true)} className="underline ml-1">
                     Advertiser Disclosure
                   </button>
