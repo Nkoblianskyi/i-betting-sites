@@ -61,33 +61,36 @@ export default function IrishBettingComparison() {
             <div className="w-full min-w-0 px-1">
               {/* Hero Section - Desktop - РОЗТЯГНУТИЙ КОНТЕНТ */}
               <div
-                className="hidden lg:block relative overflow-hidden text-white mb-2 w-full h-[180px] lg:h-[200px] xl:h-[220px] 2xl:h-[240px]"
+                className="hidden lg:block relative overflow-hidden text-white mb-2 w-full h-[200px] lg:h-[240px] xl:h-[250px] 2xl:h-[290px]"
                 style={{ background: "rgba(0, 0, 0, 0.70)" }}
               >
-                <div className="h-full flex flex-col justify-between text-center px-4 lg:px-6 xl:px-8 py-3 lg:py-4">
+                <div className="h-full flex flex-col justify-between text-center px-4 lg:px-6 xl:px-8 py-3 lg:py-4 gap-2">
                   {/* Верхня частина */}
-                  <div className="space-y-1 lg:space-y-2">
+                  <div className="space-y-2 lg:space-y-2">
                     {/* 1. Заголовок */}
-                    <h1 className="text-lg lg:text-xl xl:text-2xl 2xl:text-3xl font-bold">
+                    <h1 className="text-lg lg:text-xl xl:text-2xl 2xl:text-3xl font-bold mb-4">
                       BEST <span className="text-green-400">IRELAND</span> BETTING SITES
                     </h1>
 
                     {/* 2. Підзаголовок з датою */}
-                    <h2 className="text-sm lg:text-base xl:text-lg 2xl:text-xl font-bold">
+                    <h2 className="text-sm lg:text-base xl:text-lg 2xl:text-lg font-bold">
                       UPDATED FOR {getCurrentMonthYear()}
                     </h2>
                   </div>
 
                   {/* Середня частина */}
-                  <div className="space-y-1 lg:space-y-2 max-w-4xl mx-auto">
+                  <div className="space-y-2 lg:space-y-2 max-w-4xl mx-auto">
                     {/* 3. Опис */}
-                    <p className="text-xs lg:text-sm xl:text-sm 2xl:text-base leading-tight">
-                      Finding betting sites can be hard if you don't know where to look. Fortunately, you came to the
-                      right place.
+                    <p className="text-xs lg:text-xs xl:text-xs 2xl:text-xs leading-tight">
+                      Finding betting sites can be hard if you don’t know where to look. Fortunately, you came to the right place as here we are aware of the need that punters are facing and know exactly how to help them.
+                    </p>
+
+                    <p className="text-xs lg:text-xs xl:text-xs 2xl:text-xs leading-tight">
+                      Starting with the most suitable new customer offers for June, specifically hand-picked by us.
                     </p>
 
                     {/* 4. Дрібний текст про терміни */}
-                    <p className="text-[10px] lg:text-xs xl:text-xs 2xl:text-sm text-gray-300">
+                    <p className="text-[10px] lg:text-xs xl:text-xs 2xl:text-xs text-gray-300">
                       *Each welcome offer may come with separate terms. New Customers Only. Age 18+
                     </p>
                   </div>
@@ -115,8 +118,8 @@ export default function IrishBettingComparison() {
                     </div>
 
                     {/* 6. Нижній текст */}
-                    <div className="text-[9px] lg:text-[10px] xl:text-xs leading-tight">
-                      Play responsibly; Wagering and T&Cs apply.
+                    <div className="text-[9px] lg:text-[10px] xl:text-xs leading-tight text-left">
+                      Play responsibly. Wagering and T&Cs apply.
                       <button
                         onClick={() => setIsAdvertiserModalOpen(true)}
                         className="underline ml-1 hover:text-green-400 transition-colors"
