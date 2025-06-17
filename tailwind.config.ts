@@ -19,7 +19,10 @@ module.exports = {
 		},
 		extend: {
 			screens: {
-				"xl-custom": "1400px", // Збільшую з 1240px до 1400px
+				"xl-custom": "1400px", // Для сайдбарів
+				"hero-md": "1100px", // Для хіро секції
+				"hero-lg": "1300px", // Для хіро секції
+				"hero-xl": "1500px", // Для хіро секції
 			},
 			colors: {
 				border: "hsl(var(--border))",
