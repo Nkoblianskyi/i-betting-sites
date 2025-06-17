@@ -47,14 +47,14 @@ export function SiteCard({ site, rank }: SiteCardProps) {
 
           {/* USER RATING */}
           <div className="text-center flex flex-col justify-center h-full">
-            <div className="text-[9px] lg:text-xs text-gray-600 mb-1 lg:mb-2 truncate">
+            <div className="text-[9px] lg:text-xs text-black mb-1 lg:mb-2 truncate">
               Rate it! ({formatVotes(site.votes)})
             </div>
             <div className="flex justify-center gap-0.5 lg:gap-1">
               {[...Array(5)].map((_, i) => (
                 <Star
                   key={i}
-                  className={`2xl:w-6 2xl:h-6 xl:w-5 xl:h-5 lg:w-4 lg:h-4 ${i < Math.floor(site.rating) ? "fill-yellow-400 text-yellow-400" : "text-gray-300"
+                  className={`2xl:w-6 2xl:h-6 xl:w-6 xl:h-6 lg:w-6 lg:h-6 ${i < Math.floor(site.rating) ? "fill-yellow-400 text-yellow-400" : "text-gray-300"
                     }`}
                 />
               ))}
@@ -63,17 +63,17 @@ export function SiteCard({ site, rank }: SiteCardProps) {
 
           {/* SCORE */}
           <div className="text-center flex flex-col justify-center h-full">
-            <div className="2xl:text-5xl xl:text-3xl lg:text-2xl font-bold text-green-600">
+            <div className="2xl:text-5xl xl:text-5xl lg:text-5xl font-bold text-green-600 mt-2">
               {site.rating.toFixed(1)}
             </div>
           </div>
 
           {/* VISIT SITE */}
-          <div className="text-center flex flex-col justify-center h-full">
-            <Button className="bg-green-500 hover:bg-green-600 text-white font-bold 2xl:px-4 xl:px-3 lg:px-2 py-1.5 lg:py-2 rounded-full 2xl:text-sm xl:text-xs lg:text-[10px] w-full mb-1 transition-colors">
+          <div className="text-center flex flex-col justify-center items-center h-full">
+            <Button className="bg-green-500 hover:bg-green-600 text-white font-bold 2xl:px-4 xl:px-3 lg:px-2 py-1.5 lg:py-2 rounded-full 2xl:text-lg xl:text-sm lg:text-[18px] w-full max-w-[140px] h-[54px] mb-1 transition-colors">
               GET BONUS
             </Button>
-            <div className="text-[9px] lg:text-xs text-gray-500 truncate">Visit {site.name}</div>
+            <div className="text-[9px] lg:text-xs text-gray-500 truncate underline">Visit {site.name}</div>
           </div>
         </div>
 
