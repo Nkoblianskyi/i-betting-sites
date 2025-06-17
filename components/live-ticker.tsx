@@ -17,7 +17,6 @@ export function LiveTicker() {
 
   const fetchMatches = async () => {
     try {
-
       const res = await fetch("https://www.scorebat.com/video-api/v3/")
       const data = await res.json()
 
@@ -25,7 +24,7 @@ export function LiveTicker() {
 
       // Показуємо всі матчі без фільтрації за датою
       const allMatches = data.response
-        .slice(0, 25) // Беремо перші 15 матчів
+        .slice(0, 15) // Беремо перші 15 матчів
         .map((match: any, index: number) => {
           const [homeTeam, awayTeam] = match.title.split(" - ")
           const dateObj = new Date(match.date)
@@ -47,10 +46,8 @@ export function LiveTicker() {
           }
         })
 
-
       setMatches(allMatches)
     } catch (error) {
-
       // Fallback з більшою кількістю матчів
       setMatches([
         {
@@ -140,34 +137,37 @@ export function LiveTicker() {
       {/* Scrolling content */}
       <div className="absolute left-32 top-0 bottom-0 right-0 overflow-hidden">
         <div className="ticker-track h-full flex items-center">
-          {matches.concat(matches).map((match, index) => (
-            <div
-              key={`${match.id}-${index}`}
-              className="flex-shrink-0 px-6 py-2 border-l border-gray-500 min-w-[240px] text-center whitespace-nowrap"
-            >
-              <div className="font-semibold text-sm text-black">
-                {match.homeTeam} vs {match.awayTeam}
+          {matches
+            .concat(matches)
+            .concat(matches)
+            .map((match, index) => (
+              <div
+                key={`${match.id}-${index}`}
+                className="flex-shrink-0 px-6 py-2 border-l border-gray-500 min-w-[280px] text-center whitespace-nowrap"
+              >
+                <div className="font-semibold text-sm text-black">
+                  {match.homeTeam} vs {match.awayTeam}
+                </div>
+                <div className="text-xs text-black mt-1">
+                  {match.date} {match.time} • {match.league}
+                </div>
               </div>
-              <div className="text-xs text-black mt-1">
-                {match.date} {match.time} • {match.league}
-              </div>
-            </div>
-          ))}
+            ))}
         </div>
       </div>
 
       <style jsx>{`
         .ticker-track {
-          animation: ticker-scroll 90s linear infinite;
+          animation: ticker-scroll 120s linear infinite;
           width: max-content;
         }
         
         @keyframes ticker-scroll {
           from {
-            transform: translateX(100%);
+            transform: translateX(0%);
           }
           to {
-            transform: translateX(-50%);
+            transform: translateX(-33.33%);
           }
         }
         
