@@ -44,7 +44,7 @@ export default function IrishBettingComparison() {
   return (
     <>
       <div className="w-full overflow-x-hidden">
-        <div className="container mx-auto px-1 max-w-[1400px] relative">
+        <div className="container mx-auto px-1 max-w-[1580px] relative">
           {/* Main Layout */}
           <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-[160px_1fr_160px] gap-1 lg:gap-2">
             {/* Left Column - Only on screens 1024px+ */}
@@ -66,9 +66,9 @@ export default function IrishBettingComparison() {
               >
                 <div className="h-full flex flex-col justify-between text-center px-4 lg:px-6 xl:px-8 py-4 lg:py-5 gap-2 mt-3">
                   {/* Верхня частина */}
-                  <div className="space-y-2 lg:space-y-5">
+                  <div className="space-y-1">
                     {/* 1. Заголовок */}
-                    <h1 className="text-lg lg:text-[40px] xl:text-[40px] 2xl:text-[40px] font-bold mb-2">
+                    <h1 className="text-lg lg:text-[40px] xl:text-[40px] 2xl:text-[40px] font-bold">
                       BEST <span className="text-green-400">IRELAND</span> BETTING SITES
                     </h1>
 
@@ -79,10 +79,12 @@ export default function IrishBettingComparison() {
                   </div>
 
                   {/* Середня частина */}
-                  <div className="space-y-2 lg:space-y-2 max-w-4xl mx-auto">
+                  <div className="space-y-2 lg:space-y-2 mx-auto">
                     {/* 3. Опис */}
                     <p className="text-xs lg:text-xs xl:text-sm 2xl:text-sm leading-tight">
-                      Finding betting sites can be hard if you don’t know where to look. Fortunately, you came to the right place as here we are aware of the need that punters are facing and know exactly how to help them.
+                      Finding betting sites can be hard if you don’t know where to look. Fortunately, you came to the
+                      right place as here we are aware of the need that punters are facing and know exactly how to help
+                      them.
                     </p>
 
                     <p className="text-xs lg:text-sm xl:text-sm 2xl:text-sm leading-tight">
@@ -212,7 +214,9 @@ export default function IrishBettingComparison() {
                         <div className="w-1.5 h-2 xs:w-2 xs:h-3 sm:w-2 sm:h-4 bg-white"></div>
                         <div className="w-1.5 h-2 xs:w-2 xs:h-3 sm:w-2 sm:h-4 bg-orange-500"></div>
                       </div>
-                      <span className="text-[8px] xs:text-[9px] sm:text-xs font-bold leading-tight mt-1.5">IE Regulated</span>
+                      <span className="text-[8px] xs:text-[9px] sm:text-xs font-bold leading-tight mt-1.5">
+                        IE Regulated
+                      </span>
                     </div>
                     <div className="flex flex-col items-center">
                       <Clock className="w-4 h-4 xs:w-5 xs:h-5 sm:w-6 sm:h-6 mb-0.5 xs:mb-1" />
