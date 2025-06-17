@@ -48,10 +48,11 @@ export function Top3Modal({ bettingSites, casinoSites }: Top3ModalProps) {
           {top3Sites.map((site: BettingSite, index: number) => (
             <div
               key={site.id}
-              className={`overflow-hidden ${index === 1
+              className={`overflow-hidden ${
+                index === 1
                   ? "w-[357px] h-[382px] border-4 border-green-500 shadow-2xl shadow-green-500/50 rounded-lg relative z-20"
                   : "w-[255px] h-[364px] border-4 border-white rounded-lg relative z-10"
-                }`}
+              }`}
             >
               {/* White header section */}
               <div
@@ -61,7 +62,7 @@ export function Top3Modal({ bettingSites, casinoSites }: Top3ModalProps) {
                   borderTopRightRadius: "calc(0.5rem - 4px)",
                 }}
               >
-                <img src={site.logo || "/placeholder.svg"} alt={site.name} className="h-12 w-auto object-contain" />
+                <img src={site.logo || "/placeholder.svg"} alt={site.name} className="h-16 w-auto object-contain" />
               </div>
 
               {/* Black content section */}
@@ -118,10 +119,11 @@ export function Top3Modal({ bettingSites, casinoSites }: Top3ModalProps) {
           {top3Sites.map((site: BettingSite, index: number) => (
             <div
               key={site.id}
-              className={`overflow-hidden ${index === 1
+              className={`overflow-hidden ${
+                index === 1
                   ? "w-[240px] h-[280px] border-3 border-green-500 shadow-2xl shadow-green-500/50 rounded-lg relative z-20"
                   : "w-[180px] h-[260px] border-3 border-white rounded-lg relative z-10"
-                }`}
+              }`}
             >
               {/* White header section */}
               <div
@@ -131,7 +133,7 @@ export function Top3Modal({ bettingSites, casinoSites }: Top3ModalProps) {
                   borderTopRightRadius: "calc(0.5rem - 3px)",
                 }}
               >
-                <img src={site.logo || "/placeholder.svg"} alt={site.name} className="h-8 w-auto object-contain" />
+                <img src={site.logo || "/placeholder.svg"} alt={site.name} className="h-12 w-auto object-contain" />
               </div>
 
               {/* Black content section */}
@@ -189,10 +191,11 @@ export function Top3Modal({ bettingSites, casinoSites }: Top3ModalProps) {
             {top3Sites.map((site: BettingSite, index: number) => (
               <div
                 key={site.id}
-                className={`overflow-hidden w-full ${index === 1
+                className={`overflow-hidden w-full ${
+                  index === 1
                     ? "h-[120px] border-2 border-green-500 shadow-lg shadow-green-500/30 rounded-lg"
                     : "h-[110px] border-2 border-white rounded-lg"
-                  }`}
+                }`}
               >
                 <div className="flex h-full">
                   {/* Logo section */}
@@ -203,7 +206,7 @@ export function Top3Modal({ bettingSites, casinoSites }: Top3ModalProps) {
                       borderBottomLeftRadius: "calc(0.5rem - 2px)",
                     }}
                   >
-                    <img src={site.logo || "/placeholder.svg"} alt={site.name} className="h-6 w-auto object-contain" />
+                    <img src={site.logo || "/placeholder.svg"} alt={site.name} className="h-10 w-auto object-contain" />
                   </div>
 
                   {/* Content section */}

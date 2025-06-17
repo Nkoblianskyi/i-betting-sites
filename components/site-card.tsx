@@ -30,17 +30,21 @@ export function SiteCard({ site, rank }: SiteCardProps) {
         )}
 
         {/* Main Content - Адаптивна сітка */}
-        <div className="h-[130px] grid lg:grid-cols-[200px_2fr_180px_120px_180px] gap-1 lg:gap-2 items-center px-2 lg:px-4">
+        <div className="h-[130px] grid lg:grid-cols-[1fr_2fr_1fr_1fr_1fr] xl:grid-cols-[200px_2fr_180px_120px_180px] gap-2 items-center px-4">
           {/* BOOKMAKER */}
           <div className="flex justify-center items-center h-full">
-            <img src={site.logo || "/placeholder.svg"} alt={site.name} className="w-[200px] h-[100px] object-contain mt-4" />
+            <img
+              src={site.logo || "/placeholder.svg"}
+              alt={site.name}
+              className="lg:w-[140px] lg:h-[80px] xl:w-[160px] xl:h-[90px] 2xl:w-[200px] 2xl:h-[100px] object-contain mt-4"
+            />
           </div>
 
           {/* BONUS OFFER */}
-          <div className="text-center flex flex-col justify-center h-full px-1 lg:px-2">
+          <div className="text-center flex flex-col justify-center h-full px-2">
             <div className="text-[10px] lg:text-xs text-gray-600 uppercase font-normal mb-1">Welcome Bonus</div>
-            <div className="2xl:text-2xl xl:text-xl lg:text-lg font-bold text-gray-900 mb-1 truncate">{site.bonus}</div>
-            <div className="2xl:text-2xl xl:text-xl lg:text-lg font-bold text-gray-800 truncate">
+            <div className="lg:text-lg xl:text-xl 2xl:text-2xl font-bold text-gray-900 mb-1 truncate">{site.bonus}</div>
+            <div className="lg:text-lg xl:text-xl 2xl:text-2xl font-bold text-gray-800 truncate">
               {site.welcomeOffer}
             </div>
           </div>
@@ -54,8 +58,9 @@ export function SiteCard({ site, rank }: SiteCardProps) {
               {[...Array(5)].map((_, i) => (
                 <Star
                   key={i}
-                  className={`2xl:w-6 2xl:h-6 xl:w-6 xl:h-6 lg:w-6 lg:h-6 ${i < Math.floor(site.rating) ? "fill-yellow-400 text-yellow-400" : "text-gray-300"
-                    }`}
+                  className={`lg:w-4 lg:h-4 xl:w-5 xl:h-5 2xl:w-6 2xl:h-6 ${
+                    i < Math.floor(site.rating) ? "fill-yellow-400 text-yellow-400" : "text-gray-300"
+                  }`}
                 />
               ))}
             </div>
@@ -63,25 +68,26 @@ export function SiteCard({ site, rank }: SiteCardProps) {
 
           {/* SCORE */}
           <div className="text-center flex flex-col justify-center h-full">
-            <div className="2xl:text-5xl xl:text-5xl lg:text-5xl font-bold text-green-600 mt-2">
+            <div className="lg:text-3xl xl:text-4xl 2xl:text-5xl font-bold text-green-600 mt-2">
               {site.rating.toFixed(1)}
             </div>
           </div>
 
           {/* VISIT SITE */}
           <div className="text-center flex flex-col justify-center items-center h-full">
-            <Button className="bg-green-500 hover:bg-green-600 text-white font-bold 2xl:px-4 xl:px-3 lg:px-2 py-1.5 lg:py-2 rounded-full 2xl:text-lg xl:text-sm lg:text-[18px] w-full max-w-[140px] h-[54px] mb-1 transition-colors">
+            <Button className="bg-green-500 hover:bg-green-600 text-white font-bold lg:px-2 xl:px-3 2xl:px-4 py-1.5 lg:py-2 rounded-full lg:text-sm xl:text-lg 2xl:text-lg w-full lg:max-w-[120px] xl:max-w-[130px] 2xl:max-w-[140px] lg:h-[45px] xl:h-[50px] 2xl:h-[54px] mb-1 transition-colors">
               GET BONUS
             </Button>
-            <div className="text-[9px] lg:text-xs text-gray-500 truncate underline">Visit {site.name}</div>
+            <div className="text-[8px] lg:text-[9px] xl:text-xs text-gray-500 truncate underline">
+              Visit {site.name}
+            </div>
           </div>
         </div>
 
         {/* Terms */}
         <div className="h-[32px] bg-gray-50 flex items-center justify-center 2xl:text-xs xl:text-[10px] lg:text-[9px] text-gray-500 px-2 lg:px-4 overflow-hidden">
           <div className="truncate text-center leading-tight">
-            {/* {site.terms || "18+ | Play responsibly | GambleAware.org | Safe gaming practices apply"} */}
-            18+ | Play responsibly | GambleAware.org | Safe gaming practices apply
+            {site.terms || "18+ | Play responsibly | GambleAware.org | Safe gaming practices apply"}
           </div>
         </div>
       </div>
@@ -103,7 +109,7 @@ export function SiteCard({ site, rank }: SiteCardProps) {
               <img
                 src={site.logo || "/placeholder.svg"}
                 alt={site.name}
-                className="w-[200px] h-[100px] object-contain flex-shrink-0 mt-4"
+                className="w-[200px] h-[100px] object-contain flex-shrink-0"
               />
             </div>
 
@@ -121,10 +127,11 @@ export function SiteCard({ site, rank }: SiteCardProps) {
                 {[...Array(5)].map((_, i) => (
                   <Star
                     key={i}
-                    className={`w-4 h-4 ${i < filledStars || (i === filledStars && hasHalfStar)
+                    className={`w-3 h-3 ${
+                      i < filledStars || (i === filledStars && hasHalfStar)
                         ? "fill-yellow-400 text-yellow-400"
                         : "text-gray-300"
-                      }`}
+                    }`}
                   />
                 ))}
               </div>
@@ -145,10 +152,9 @@ export function SiteCard({ site, rank }: SiteCardProps) {
 
           {/* Terms */}
           <div className="pt-2 border-t border-gray-100 text-gray-500 text-xs text-center leading-3">
-            {/* {site.terms && site.terms.length > 80
+            {site.terms && site.terms.length > 80
               ? `${site.terms.substring(0, 80)}...`
-              : site.terms || "18+ | Play responsibly | GambleAware.org | Safe gaming practices apply"} */}
-              18+ | Play responsibly | GambleAware.org | Safe gaming practices apply
+              : site.terms || "18+ | Play responsibly | GambleAware.org | Safe gaming practices apply"}
           </div>
         </div>
       </div>
@@ -196,10 +202,11 @@ export function SiteCard({ site, rank }: SiteCardProps) {
                 {[...Array(5)].map((_, i) => (
                   <Star
                     key={i}
-                    className={`w-4 h-4 ${i < filledStars || (i === filledStars && hasHalfStar)
+                    className={`w-3 h-3 ${
+                      i < filledStars || (i === filledStars && hasHalfStar)
                         ? "fill-yellow-400 text-yellow-400"
                         : "text-gray-300"
-                      }`}
+                    }`}
                   />
                 ))}
               </div>
@@ -222,10 +229,9 @@ export function SiteCard({ site, rank }: SiteCardProps) {
 
           {/* Terms */}
           <div className="mt-3 pt-3 border-t border-gray-100 text-gray-500 text-xs leading-3">
-            {/* {site.terms && site.terms.length > 60
+            {site.terms && site.terms.length > 60
               ? `${site.terms.substring(0, 60)}...`
-              : site.terms || "18+ | Play responsibly | GambleAware.org"} */}
-              18+ | Play responsibly | GambleAware.org
+              : site.terms || "18+ | Play responsibly | GambleAware.org"}
           </div>
         </div>
       </div>

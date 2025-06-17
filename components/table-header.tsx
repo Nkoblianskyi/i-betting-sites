@@ -2,7 +2,7 @@ export function TableHeader() {
   return (
     <div className="hidden md:block bg-black text-white rounded-lg overflow-hidden mb-2">
       {/* Header Row - using the exact same grid as SiteCard for perfect alignment */}
-      <div className="h-[40px] grid lg:grid-cols-[200px_2fr_180px_120px_180px] md:grid-cols-[100px_1fr_120px_80px_120px] gap-2 items-center px-4">
+      <div className="h-[40px] grid lg:grid-cols-[1fr_2fr_1fr_1fr_1fr] xl:grid-cols-[200px_2fr_180px_120px_180px] md:grid-cols-[100px_1fr_120px_80px_120px] gap-2 items-center px-4">
         {/* BOOKMAKER */}
         <div className="text-center">
           <span className="text-xs font-bold">BOOKMAKER</span>
