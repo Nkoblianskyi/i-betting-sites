@@ -207,12 +207,12 @@ export default function IrishBettingComparison() {
                       <span className="text-[8px] xs:text-[9px] sm:text-xs font-bold leading-tight">100% Legal</span>
                     </div>
                     <div className="flex flex-col items-center">
-                      <div className="flex gap-0.5 mb-0.5 xs:mb-1">
+                      <div className="flex gap-0.5 mb-0.5 xs:mb-2 mt-0.5">
                         <div className="w-1.5 h-2 xs:w-2 xs:h-3 sm:w-2 sm:h-4 bg-green-500"></div>
                         <div className="w-1.5 h-2 xs:w-2 xs:h-3 sm:w-2 sm:h-4 bg-white"></div>
                         <div className="w-1.5 h-2 xs:w-2 xs:h-3 sm:w-2 sm:h-4 bg-orange-500"></div>
                       </div>
-                      <span className="text-[8px] xs:text-[9px] sm:text-xs font-bold leading-tight">IE Regulated</span>
+                      <span className="text-[8px] xs:text-[9px] sm:text-xs font-bold leading-tight mt-1.5">IE Regulated</span>
                     </div>
                     <div className="flex flex-col items-center">
                       <Clock className="w-4 h-4 xs:w-5 xs:h-5 sm:w-6 sm:h-6 mb-0.5 xs:mb-1" />
