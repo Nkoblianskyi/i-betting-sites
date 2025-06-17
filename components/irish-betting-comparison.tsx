@@ -61,7 +61,7 @@ export default function IrishBettingComparison() {
             <div className="w-full min-w-0 px-1">
               {/* Hero Section - Desktop - РОЗТЯГНУТИЙ КОНТЕНТ */}
               <div
-                className="hidden lg:block relative overflow-hidden text-white mb-2 w-full h-[200px] lg:h-[220px] xl:h-[230px] 2xl:h-[270px]"
+                className="hidden lg:block relative overflow-hidden text-white mb-2 w-full h-[200px] lg:h-[250px] xl:h-[250px] 2xl:h-[260px]"
                 style={{ background: "rgba(0, 0, 0, 0.70)" }}
               >
                 <div className="h-full flex flex-col justify-between text-center px-4 lg:px-6 xl:px-8 py-3 lg:py-4 gap-2">
@@ -189,7 +189,7 @@ export default function IrishBettingComparison() {
               {/* Hero Section - Mobile - КОМПАКТНИЙ ДЛЯ 320-460px */}
               <div
                 className="md:hidden relative overflow-hidden text-white rounded-lg mb-2 w-full"
-                style={{ background: "rgba(0, 0, 0, 0.70)" }}
+                style={{ background: "rgba(0, 0, 0, 0.01)" }}
               >
                 <div className="p-2 xs:p-3 sm:p-4 text-center">
                   {/* Заголовки - компактні */}
