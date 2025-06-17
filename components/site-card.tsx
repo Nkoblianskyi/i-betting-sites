@@ -54,7 +54,7 @@ export function SiteCard({ site, rank }: SiteCardProps) {
               {[...Array(5)].map((_, i) => (
                 <Star
                   key={i}
-                  className={`2xl:w-5 2xl:h-5 xl:w-4 xl:h-4 lg:w-3 lg:h-3 ${i < Math.floor(site.rating) ? "fill-yellow-400 text-yellow-400" : "text-gray-300"
+                  className={`2xl:w-6 2xl:h-6 xl:w-5 xl:h-5 lg:w-4 lg:h-4 ${i < Math.floor(site.rating) ? "fill-yellow-400 text-yellow-400" : "text-gray-300"
                     }`}
                 />
               ))}
@@ -63,7 +63,7 @@ export function SiteCard({ site, rank }: SiteCardProps) {
 
           {/* SCORE */}
           <div className="text-center flex flex-col justify-center h-full">
-            <div className="2xl:text-4xl xl:text-3xl lg:text-2xl font-bold text-green-600">
+            <div className="2xl:text-5xl xl:text-3xl lg:text-2xl font-bold text-green-600">
               {site.rating.toFixed(1)}
             </div>
           </div>
@@ -121,7 +121,7 @@ export function SiteCard({ site, rank }: SiteCardProps) {
                 {[...Array(5)].map((_, i) => (
                   <Star
                     key={i}
-                    className={`w-3 h-3 ${i < filledStars || (i === filledStars && hasHalfStar)
+                    className={`w-4 h-34${i < filledStars || (i === filledStars && hasHalfStar)
                         ? "fill-yellow-400 text-yellow-400"
                         : "text-gray-300"
                       }`}
