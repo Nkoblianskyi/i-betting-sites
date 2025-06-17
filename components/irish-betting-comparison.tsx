@@ -61,19 +61,19 @@ export default function IrishBettingComparison() {
             <div className="w-full min-w-0 px-1">
               {/* Hero Section - Desktop - РОЗТЯГНУТИЙ КОНТЕНТ */}
               <div
-                className="hidden lg:block relative overflow-hidden text-white mb-2 w-full h-[200px] lg:h-[250px] xl:h-[270px] 2xl:h-[290px]"
+                className="hidden lg:block relative overflow-hidden text-white mb-2 w-full h-[200px] lg:h-[290px] xl:h-[290px] 2xl:h-[290px]"
                 style={{ background: "rgba(0, 0, 0, 0.70)" }}
               >
-                <div className="h-full flex flex-col justify-between text-center px-4 lg:px-6 xl:px-8 py-3 lg:py-4 gap-2">
+                <div className="h-full flex flex-col justify-between text-center px-4 lg:px-6 xl:px-8 py-4 lg:py-5 gap-2 mt-3">
                   {/* Верхня частина */}
-                  <div className="space-y-2 lg:space-y-2">
+                  <div className="space-y-2 lg:space-y-5">
                     {/* 1. Заголовок */}
-                    <h1 className="text-lg lg:text-xl xl:text-2xl 2xl:text-4xl font-bold">
+                    <h1 className="text-lg lg:text-[40px] xl:text-[40px] 2xl:text-[40px] font-bold mb-2">
                       BEST <span className="text-green-400">IRELAND</span> BETTING SITES
                     </h1>
 
                     {/* 2. Підзаголовок з датою */}
-                    <h2 className="text-xl lg:text-base xl:text-2xl 2xl:text-3xl font-bold">
+                    <h2 className="text-[32px] lg:text-[32px] xl:text-[32px] 2xl:text-[32px] font-bold">
                       UPDATED FOR {getCurrentMonthYear()}
                     </h2>
                   </div>
@@ -85,7 +85,7 @@ export default function IrishBettingComparison() {
                       Finding betting sites can be hard if you don’t know where to look. Fortunately, you came to the right place as here we are aware of the need that punters are facing and know exactly how to help them.
                     </p>
 
-                    <p className="text-xs lg:text-xs xl:text-sm 2xl:text-sm leading-tight">
+                    <p className="text-xs lg:text-sm xl:text-sm 2xl:text-sm leading-tight">
                       Starting with the most suitable new customer offers for June, specifically hand-picked by us.
                     </p>
 
