@@ -59,103 +59,118 @@ export default function IrishBettingComparison() {
 
             {/* Center Column - Hero + List */}
             <div className="w-full min-w-0 px-1">
-              {/* Hero Section - Desktop з компактним контентом */}
+              {/* Hero Section - Desktop - РОЗТЯГНУТИЙ КОНТЕНТ */}
               <div
-                className="hidden lg:block relative overflow-hidden text-white mb-2 w-full"
-                style={{
-                  background: "rgba(0, 0, 0, 0.70)",
-                  height: "clamp(180px, 15vw, 291px)", // Зменшую мінімальну висоту
-                }}
+                className="hidden lg:block relative overflow-hidden text-white mb-2 w-full h-[180px] lg:h-[200px] xl:h-[220px] 2xl:h-[240px]"
+                style={{ background: "rgba(0, 0, 0, 0.70)" }}
               >
-                <div className="h-full flex flex-col justify-center text-center px-2 lg:px-3 xl:px-4">
-                  {/* Заголовок - дуже компактний */}
-                  <h1 className="text-base lg:text-lg xl:text-xl font-bold mb-1">
-                    BEST <span className="text-green-400">IRELAND</span> BETTING SITES
-                  </h1>
+                <div className="h-full flex flex-col justify-between text-center px-4 lg:px-6 xl:px-8 py-3 lg:py-4">
+                  {/* Верхня частина */}
+                  <div className="space-y-1 lg:space-y-2">
+                    {/* 1. Заголовок */}
+                    <h1 className="text-lg lg:text-xl xl:text-2xl 2xl:text-3xl font-bold">
+                      BEST <span className="text-green-400">IRELAND</span> BETTING SITES
+                    </h1>
 
-                  {/* Підзаголовок */}
-                  <h2 className="text-sm lg:text-base font-bold mb-1">UPDATED FOR {getCurrentMonthYear()}</h2>
-
-                  {/* Опис - дуже короткий */}
-                  <p className="text-xs mb-1 max-w-md mx-auto leading-tight">
-                    Finding betting sites can be hard if you don't know where to look. Fortunately, you came to the
-                    right place.
-                  </p>
-
-                  {/* Дрібний текст */}
-                  <p className="text-xs text-gray-300 mb-1">
-                    *Each welcome offer may come with separate terms. New Customers Only. Age 18+
-                  </p>
-
-                  {/* Бейджі - мінімальні */}
-                  <div className="flex flex-wrap justify-center gap-2 lg:gap-3 mb-1">
-                    <div className="flex items-center gap-1">
-                      <Shield className="w-3 h-3" />
-                      <span className="text-xs">100% Legal</span>
-                    </div>
-                    <div className="flex items-center gap-1">
-                      <div className="flex gap-0.5">
-                        <div className="w-2 h-1.5 bg-green-500"></div>
-                        <div className="w-2 h-1.5 bg-white"></div>
-                        <div className="w-2 h-1.5 bg-orange-500"></div>
-                      </div>
-                      <span className="text-xs">IE Regulated</span>
-                    </div>
-                    <div className="flex items-center gap-1">
-                      <Clock className="w-3 h-3" />
-                      <span className="text-xs">Fast Withdrawals</span>
-                    </div>
+                    {/* 2. Підзаголовок з датою */}
+                    <h2 className="text-sm lg:text-base xl:text-lg 2xl:text-xl font-bold">
+                      UPDATED FOR {getCurrentMonthYear()}
+                    </h2>
                   </div>
 
-                  {/* Нижній текст - мінімальний */}
-                  <div className="text-xs leading-tight">
-                    Play responsibly; Wagering and T&Cs apply.
-                    <button
-                      onClick={() => setIsAdvertiserModalOpen(true)}
-                      className="underline ml-1 hover:text-green-400 transition-colors"
-                    >
-                      Advertiser Disclosure
-                    </button>
-                    <span> | </span>
-                    <button
-                      onClick={() => setIsTermsModalOpen(true)}
-                      className="underline hover:text-green-400 transition-colors"
-                    >
-                      18+ T&Cs Apply
-                    </button>
+                  {/* Середня частина */}
+                  <div className="space-y-1 lg:space-y-2 max-w-4xl mx-auto">
+                    {/* 3. Опис */}
+                    <p className="text-xs lg:text-sm xl:text-sm 2xl:text-base leading-tight">
+                      Finding betting sites can be hard if you don't know where to look. Fortunately, you came to the
+                      right place.
+                    </p>
+
+                    {/* 4. Дрібний текст про терміни */}
+                    <p className="text-[10px] lg:text-xs xl:text-xs 2xl:text-sm text-gray-300">
+                      *Each welcome offer may come with separate terms. New Customers Only. Age 18+
+                    </p>
+                  </div>
+
+                  {/* Нижня частина */}
+                  <div className="space-y-2 lg:space-y-3">
+                    {/* 5. Бейджі */}
+                    <div className="flex flex-wrap justify-center gap-3 lg:gap-4 xl:gap-6">
+                      <div className="flex items-center gap-1 lg:gap-2">
+                        <Shield className="w-3 h-3 lg:w-4 lg:h-4" />
+                        <span className="text-[10px] lg:text-xs xl:text-sm font-bold">100% Legal</span>
+                      </div>
+                      <div className="flex items-center gap-1 lg:gap-2">
+                        <div className="flex gap-0.5">
+                          <div className="w-2 h-1.5 lg:w-3 lg:h-2 bg-green-500"></div>
+                          <div className="w-2 h-1.5 lg:w-3 lg:h-2 bg-white"></div>
+                          <div className="w-2 h-1.5 lg:w-3 lg:h-2 bg-orange-500"></div>
+                        </div>
+                        <span className="text-[10px] lg:text-xs xl:text-sm font-bold">IE Regulated</span>
+                      </div>
+                      <div className="flex items-center gap-1 lg:gap-2">
+                        <Clock className="w-3 h-3 lg:w-4 lg:h-4" />
+                        <span className="text-[10px] lg:text-xs xl:text-sm font-bold">Fast Withdrawals</span>
+                      </div>
+                    </div>
+
+                    {/* 6. Нижній текст */}
+                    <div className="text-[9px] lg:text-[10px] xl:text-xs leading-tight">
+                      Play responsibly; Wagering and T&Cs apply.
+                      <button
+                        onClick={() => setIsAdvertiserModalOpen(true)}
+                        className="underline ml-1 hover:text-green-400 transition-colors"
+                      >
+                        Advertiser Disclosure
+                      </button>
+                      <span> | </span>
+                      <button
+                        onClick={() => setIsTermsModalOpen(true)}
+                        className="underline hover:text-green-400 transition-colors"
+                      >
+                        18+ T&Cs Apply
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
 
-              {/* Hero Section - Tablet */}
+              {/* Hero Section - Tablet - РОЗТЯГНУТИЙ КОНТЕНТ */}
               <div
-                className="hidden md:block lg:hidden h-[200px] relative overflow-hidden text-white mb-2 w-full"
+                className="hidden md:block lg:hidden h-[160px] md:h-[180px] relative overflow-hidden text-white mb-2 w-full"
                 style={{ background: "rgba(0, 0, 0, 0.70)" }}
               >
-                <div className="h-full flex flex-col justify-center text-center px-4">
-                  <h1 className="text-2xl font-bold mb-2">
-                    BEST <span className="text-green-400">IRELAND</span> BETTING SITES
-                  </h1>
-                  <h2 className="text-lg font-bold mb-3">UPDATED FOR {getCurrentMonthYear()}</h2>
-                  <div className="flex justify-center gap-6 mb-3">
-                    <div className="flex items-center gap-2">
-                      <Shield className="w-5 h-5" />
-                      <span className="text-sm">100% Legal</span>
+                <div className="h-full flex flex-col justify-between text-center px-4 md:px-6 py-3">
+                  {/* Верхня частина */}
+                  <div className="space-y-1">
+                    <h1 className="text-xl md:text-2xl font-bold">
+                      BEST <span className="text-green-400">IRELAND</span> BETTING SITES
+                    </h1>
+                    <h2 className="text-base md:text-lg font-bold">UPDATED FOR {getCurrentMonthYear()}</h2>
+                  </div>
+
+                  {/* Середня частина */}
+                  <div className="flex justify-center gap-4 md:gap-6">
+                    <div className="flex items-center gap-1 md:gap-2">
+                      <Shield className="w-4 h-4 md:w-5 md:h-5" />
+                      <span className="text-xs md:text-sm font-bold">100% Legal</span>
                     </div>
-                    <div className="flex items-center gap-2">
-                      <div className="flex gap-1">
-                        <div className="w-3 h-2 bg-green-500"></div>
-                        <div className="w-3 h-2 bg-white"></div>
-                        <div className="w-3 h-2 bg-orange-500"></div>
+                    <div className="flex items-center gap-1 md:gap-2">
+                      <div className="flex gap-0.5 md:gap-1">
+                        <div className="w-2 h-1.5 md:w-3 md:h-2 bg-green-500"></div>
+                        <div className="w-2 h-1.5 md:w-3 md:h-2 bg-white"></div>
+                        <div className="w-2 h-1.5 md:w-3 md:h-2 bg-orange-500"></div>
                       </div>
-                      <span className="text-sm">IE Regulated</span>
+                      <span className="text-xs md:text-sm font-bold">IE Regulated</span>
                     </div>
-                    <div className="flex items-center gap-2">
-                      <Clock className="w-5 h-5" />
-                      <span className="text-sm">Fast Withdrawals</span>
+                    <div className="flex items-center gap-1 md:gap-2">
+                      <Clock className="w-4 h-4 md:w-5 md:h-5" />
+                      <span className="text-xs md:text-sm font-bold">Fast Withdrawals</span>
                     </div>
                   </div>
-                  <div className="text-xs">
+
+                  {/* Нижня частина */}
+                  <div className="text-[10px] md:text-xs">
                     Play responsibly; Wagering and T&Cs apply.
                     <button onClick={() => setIsAdvertiserModalOpen(true)} className="underline ml-1">
                       Advertiser Disclosure
@@ -168,40 +183,45 @@ export default function IrishBettingComparison() {
                 </div>
               </div>
 
-              {/* Hero Section - Mobile */}
+              {/* Hero Section - Mobile - КОМПАКТНИЙ ДЛЯ 320-460px */}
               <div
                 className="md:hidden relative overflow-hidden text-white rounded-lg mb-2 w-full"
                 style={{ background: "rgba(0, 0, 0, 0.70)" }}
               >
-                <div className="p-4 text-center">
-                  <h1 className="text-lg font-bold mb-1">
+                <div className="p-2 xs:p-3 sm:p-4 text-center">
+                  {/* Заголовки - компактні */}
+                  <h1 className="text-sm xs:text-base sm:text-lg font-bold mb-1">
                     BEST <span className="text-green-400">IRELAND</span> BETTING SITES
                   </h1>
-                  <h2 className="text-sm font-bold mb-4">UPDATED FOR {getCurrentMonthYear()}</h2>
+                  <h2 className="text-xs xs:text-sm sm:text-base font-bold mb-2 xs:mb-3 sm:mb-4">
+                    UPDATED FOR {getCurrentMonthYear()}
+                  </h2>
 
-                  {/* Feature badges */}
-                  <div className="flex justify-center gap-4 mb-4">
+                  {/* Feature badges - компактні */}
+                  <div className="flex justify-center gap-2 xs:gap-3 sm:gap-4 mb-2 xs:mb-3 sm:mb-4">
                     <div className="flex flex-col items-center">
-                      <Shield className="w-6 h-6 mb-1" />
-                      <span className="text-xs">100% Legal</span>
+                      <Shield className="w-4 h-4 xs:w-5 xs:h-5 sm:w-6 sm:h-6 mb-0.5 xs:mb-1" />
+                      <span className="text-[8px] xs:text-[9px] sm:text-xs font-bold leading-tight">100% Legal</span>
                     </div>
                     <div className="flex flex-col items-center">
-                      <div className="flex gap-1 mb-1">
-                        <div className="w-2 h-4 bg-green-500"></div>
-                        <div className="w-2 h-4 bg-white"></div>
-                        <div className="w-2 h-4 bg-orange-500"></div>
+                      <div className="flex gap-0.5 mb-0.5 xs:mb-1">
+                        <div className="w-1.5 h-2 xs:w-2 xs:h-3 sm:w-2 sm:h-4 bg-green-500"></div>
+                        <div className="w-1.5 h-2 xs:w-2 xs:h-3 sm:w-2 sm:h-4 bg-white"></div>
+                        <div className="w-1.5 h-2 xs:w-2 xs:h-3 sm:w-2 sm:h-4 bg-orange-500"></div>
                       </div>
-                      <span className="text-xs">IE Regulated</span>
+                      <span className="text-[8px] xs:text-[9px] sm:text-xs font-bold leading-tight">IE Regulated</span>
                     </div>
                     <div className="flex flex-col items-center">
-                      <Clock className="w-6 h-6 mb-1" />
-                      <span className="text-xs">Fast Withdrawals</span>
+                      <Clock className="w-4 h-4 xs:w-5 xs:h-5 sm:w-6 sm:h-6 mb-0.5 xs:mb-1" />
+                      <span className="text-[8px] xs:text-[9px] sm:text-xs font-bold leading-tight">
+                        Fast Withdrawals
+                      </span>
                     </div>
                   </div>
 
-                  {/* Bottom text */}
-                  <div className="flex justify-between items-center text-xs">
-                    <span>Play responsibly. Wagering and T&Cs apply.</span>
+                  {/* Bottom text - дуже компактний */}
+                  <div className="text-[7px] xs:text-[8px] sm:text-[9px] leading-tight space-y-0.5 xs:space-y-1">
+                    <div>Play responsibly. Wagering and T&Cs apply.</div>
                     <div>
                       <button onClick={() => setIsAdvertiserModalOpen(true)} className="underline">
                         Advertiser Disclosure
