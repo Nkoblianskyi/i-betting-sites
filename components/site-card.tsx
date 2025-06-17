@@ -58,7 +58,7 @@ export function SiteCard({ site, rank }: SiteCardProps) {
               {[...Array(5)].map((_, i) => (
                 <Star
                   key={i}
-                  className={`2xl:w-5 2xl:h-5 xl:w-4 xl:h-4 lg:w-3 lg:h-3 ${
+                  className={`2xl:w-6 2xl:h-6 xl:w-5 xl:h-5 lg:w-4 lg:h-4 ${
                     i < Math.floor(site.rating) ? "fill-yellow-400 text-yellow-400" : "text-gray-300"
                   }`}
                 />
