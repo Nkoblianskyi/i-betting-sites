@@ -54,7 +54,7 @@ export function HorizontalBanner({ site, badgeText }: HorizontalBannerProps) {
             <div className="text-white text-sm xs:text-base sm:text-2xl lg:text-3xl font-bold mb-1 xs:mb-1.5 sm:mb-3 drop-shadow-lg text-center">
               {site.welcomeOffer}
             </div>
-            <Button className="bg-blue-500 hover:bg-blue-600 text-white font-bold px-2 xs:px-3 sm:px-6 lg:px-8 py-1 xs:py-1.5 sm:py-2 lg:py-2.5 rounded-full text-[10px] xs:text-xs sm:text-sm transition-colors shadow-xl border-2 border-blue-400 mb-1 xs:mb-1.5 sm:mb-2">
+            <Button className="bg-green-700 hover:bg-green-800 text-white font-bold px-2 xs:px-3 sm:px-6 lg:px-8 py-1 xs:py-1.5 sm:py-2 lg:py-2.5 rounded-full text-[10px] xs:text-xs sm:text-sm transition-colors shadow-xl border-2 border-blue-400 mb-1 xs:mb-1.5 sm:mb-2">
               GET BONUS
             </Button>
 
@@ -79,7 +79,7 @@ export function HorizontalBanner({ site, badgeText }: HorizontalBannerProps) {
               {[...Array(6)].map((_, i) => (
                 <div
                   key={i}
-                  className="w-1 h-1 xs:w-1.5 xs:h-1.5 sm:w-2.5 sm:h-2.5 lg:w-3 lg:h-3 rounded-full bg-green-400 shadow-lg"
+                  className="w-1 h-1 xs:w-1.5 xs:h-1.5 sm:w-2.5 sm:h-2.5 lg:w-3 lg:h-3 rounded-full bg-green-600 shadow-lg"
                 />
               ))}
             </div>

@@ -60,7 +60,7 @@ export function HorizontalBanner({ site, badgeText }: HorizontalBannerProps) {
             {/* Rating dots */}
             <div className="flex justify-end gap-1">
               {[...Array(6)].map((_, i) => (
-                <div key={i} className="w-2.5 h-2.5 rounded-full bg-green-400" />
+                <div key={i} className="w-2.5 h-2.5 rounded-full bg-green-600" />
               ))}
             </div>
           </div>

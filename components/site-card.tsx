@@ -24,7 +24,7 @@ export function SiteCard({ site, rank }: SiteCardProps) {
       <div className="hidden lg:block bg-white rounded-lg border shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] h-[162px] relative overflow-hidden cursor-pointer">
         {/* Badge */}
         {rank <= 3 && (
-          <div className="absolute top-0 left-0 bg-green-500 text-white px-2 lg:px-3 py-1 rounded-br-lg text-xs lg:text-sm font-bold z-10">
+          <div className="absolute top-0 left-0 bg-green-700 text-white px-2 lg:px-3 py-1 rounded-br-lg text-xs lg:text-sm font-bold z-10">
             {rank === 1 ? "TOP BRAND" : rank === 2 ? "EXCLUSIVE OFFER" : "TRENDING"}
           </div>
         )}
@@ -68,14 +68,14 @@ export function SiteCard({ site, rank }: SiteCardProps) {
 
           {/* SCORE */}
           <div className="text-center flex flex-col justify-center h-full">
-            <div className="lg:text-3xl xl:text-4xl 2xl:text-5xl font-bold text-green-600 mt-2">
+            <div className="lg:text-3xl xl:text-4xl 2xl:text-5xl font-bold text-green-700 mt-2">
               {site.rating.toFixed(1)}
             </div>
           </div>
 
           {/* VISIT SITE */}
           <div className="text-center flex flex-col justify-center items-center h-full">
-            <Button className="bg-green-500 hover:bg-green-600 text-white font-bold lg:px-2 xl:px-3 2xl:px-4 py-1.5 lg:py-2 rounded-full lg:text-sm xl:text-lg 2xl:text-lg w-full lg:max-w-[120px] xl:max-w-[130px] 2xl:max-w-[140px] lg:h-[45px] xl:h-[50px] 2xl:h-[54px] mb-1 transition-colors">
+            <Button className="bg-green-700 hover:bg-green-800 text-white font-bold lg:px-2 xl:px-3 2xl:px-4 py-1.5 lg:py-2 rounded-full lg:text-sm xl:text-lg 2xl:text-lg w-full lg:max-w-[120px] xl:max-w-[130px] 2xl:max-w-[140px] lg:h-[45px] xl:h-[50px] 2xl:h-[54px] mb-1 transition-colors">
               GET BONUS
             </Button>
             <div className="text-[8px] lg:text-[9px] xl:text-xs text-gray-500 truncate underline">
@@ -97,7 +97,7 @@ export function SiteCard({ site, rank }: SiteCardProps) {
       <div className="hidden md:block lg:hidden bg-white rounded-lg border border-gray-200 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] relative overflow-hidden cursor-pointer">
         {/* Badge for top 3 positions */}
         {rank <= 3 && (
-          <div className="absolute top-0 left-0 bg-green-500 text-white px-2 py-1 rounded-br-lg text-xs font-bold z-10">
+          <div className="absolute top-0 left-0 bg-green-700 text-white px-2 py-1 rounded-br-lg text-xs font-bold z-10">
             {rank === 1 ? "TOP BRAND" : rank === 2 ? "EXCLUSIVE OFFER" : "TRENDING"}
           </div>
         )}
@@ -140,12 +140,12 @@ export function SiteCard({ site, rank }: SiteCardProps) {
 
             {/* Score */}
             <div className="text-center">
-              <div className="text-3xl font-bold text-green-600">{site.rating.toFixed(1)}</div>
+              <div className="text-3xl font-bold text-green-700">{site.rating.toFixed(1)}</div>
             </div>
 
             {/* Button */}
             <div className="text-center">
-              <Button className="bg-green-500 hover:bg-green-600 text-white font-bold px-3 py-2 rounded-full text-xs w-full transition-colors">
+              <Button className="bg-green-700 hover:bg-green-800 text-white font-bold px-3 py-2 rounded-full text-xs w-full transition-colors">
                 GET BONUS
               </Button>
             </div>
@@ -165,17 +165,17 @@ export function SiteCard({ site, rank }: SiteCardProps) {
       <div className="md:hidden bg-white rounded-lg border border-gray-200 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] relative overflow-hidden cursor-pointer mt-2">
         {/* Badge for top 3 positions */}
         {rank === 1 && (
-          <div className="absolute top-0 left-0 bg-green-500 text-white px-3 py-1 rounded-br-lg text-xs font-bold z-20">
+          <div className="absolute top-0 left-0 bg-green-700 text-white px-3 py-1 rounded-br-lg text-xs font-bold z-20">
             TOP BRAND
           </div>
         )}
         {rank === 2 && (
-          <div className="absolute top-0 left-0 bg-green-500 text-white px-3 py-1 rounded-br-lg text-xs font-bold z-20">
+          <div className="absolute top-0 left-0 bg-green-700 text-white px-3 py-1 rounded-br-lg text-xs font-bold z-20">
             EXCLUSIVE OFFER
           </div>
         )}
         {rank === 3 && (
-          <div className="absolute top-0 left-0 bg-green-500 text-white px-3 py-1 rounded-br-lg text-xs font-bold z-20">
+          <div className="absolute top-0 left-0 bg-green-700 text-white px-3 py-1 rounded-br-lg text-xs font-bold z-20">
             TRENDING
           </div>
         )}
@@ -213,7 +213,7 @@ export function SiteCard({ site, rank }: SiteCardProps) {
 
               {/* Right column: Score */}
               <div className="flex flex-col items-center">
-                <div className="text-4xl font-bold text-green-600">{site.rating.toFixed(1)}</div>
+                <div className="text-4xl font-bold text-green-700">{site.rating.toFixed(1)}</div>
                 <div className="text-[10px] text-black">Our Score</div>
               </div>
             </div>
@@ -230,7 +230,7 @@ export function SiteCard({ site, rank }: SiteCardProps) {
 
             {/* Button */}
             <div className="flex justify-center">
-              <Button className="bg-green-500 hover:bg-green-600 text-white font-bold px-6 py-2 rounded-full text-lg transition-colors w-full">
+              <Button className="bg-green-700 hover:bg-green-800 text-white font-bold px-6 py-2 rounded-full text-lg transition-colors w-full">
                 GET BONUS
               </Button>
             </div>
