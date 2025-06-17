@@ -16,7 +16,7 @@ export function Top3Modal({ bettingSites, casinoSites }: Top3ModalProps) {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsOpen(true)
-    }, 8000)
+    }, 2000)
 
     return () => clearTimeout(timer)
   }, [])
@@ -26,99 +26,225 @@ export function Top3Modal({ bettingSites, casinoSites }: Top3ModalProps) {
   const top3Sites = bettingSites.slice(0, 3)
 
   return (
-    <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-1 sm:p-2 lg:p-4 overflow-hidden">
+    <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
       {/* Close button */}
       <Button
         variant="ghost"
         size="sm"
         onClick={() => setIsOpen(false)}
-        className="absolute top-16 right-2 sm:top-28 sm:right-4 text-white hover:bg-white/20 z-10"
+        className="absolute top-4 right-4 text-black hover:bg-gray-200 z-10 w-10 h-10 p-0 rounded-full bg-white/90"
       >
-        <X className="w-5 h-5 sm:w-6 sm:h-6" />
+        <X className="w-8 h-8 font-bold" />
       </Button>
 
-      <div className="w-full flex flex-col justify-center max-w-xs sm:max-w-2xl lg:max-w-6xl mx-auto gap-2">
-        {/* Header */}
-        <div className="text-center">
-          <h2 className="text-lg sm:text-xl lg:text-4xl font-bold text-white mb-2">Best Betting Sites</h2>
+      <div className="w-full max-w-6xl">
+        {/* Title */}
+        <div className="text-center mb-4 md:mb-6">
+          <h2 className="text-xl md:text-2xl lg:text-4xl font-bold text-white">Best Betting Sites</h2>
         </div>
 
-        {/* Cards - Mobile: Stack, Tablet: 2+1, Desktop: 3 in row */}
-        <div className="flex-1 flex items-center justify-center min-h-0">
-          <div className="space-y-1 sm:space-y-0 sm:grid sm:grid-cols-3 sm:gap-2 lg:gap-6 w-full max-w-5xl">
-            {top3Sites.map((site: BettingSite, index: number) => (
+        {/* Desktop Layout (1024px+) */}
+        <div className="hidden lg:flex items-center justify-center gap-0 w-full px-4">
+          {top3Sites.map((site: BettingSite, index: number) => (
+            <div
+              key={site.id}
+              className={`overflow-hidden ${index === 1
+                  ? "w-[357px] h-[382px] border-4 border-green-500 shadow-2xl shadow-green-500/50 rounded-lg relative z-20"
+                  : "w-[255px] h-[364px] border-4 border-white rounded-lg relative z-10"
+                }`}
+            >
+              {/* White header section */}
               <div
-                key={site.id}
-                className={`bg-white rounded-lg p-1.5 sm:p-2 lg:p-6 text-center relative ${index === 1 ? "border-2 sm:border-4 border-green-500 lg:transform lg:scale-105" : ""
-                  }`}
+                className={`bg-white ${index === 1 ? "h-[115px]" : "h-[109px]"} flex items-center justify-center p-4`}
+                style={{
+                  borderTopLeftRadius: "calc(0.5rem - 4px)",
+                  borderTopRightRadius: "calc(0.5rem - 4px)",
+                }}
               >
-                {/* Logo */}
-                <div className="mb-1 sm:mb-1.5 lg:mb-4">
-                  <img
-                    src={site.logo || "/placeholder.svg"}
-                    alt={site.name}
-                    className="h-16 sm:h-18 lg:h-24 w-auto mx-auto object-contain"
-                  />
-                </div>
+                <img src={site.logo || "/placeholder.svg"} alt={site.name} className="h-12 w-auto object-contain" />
+              </div>
 
+              {/* Black content section */}
+              <div
+                className={`bg-black text-white ${index === 1 ? "h-[267px]" : "h-[255px]"} flex flex-col justify-between p-4 text-center`}
+                style={{
+                  borderBottomLeftRadius: "calc(0.5rem - 4px)",
+                  borderBottomRightRadius: "calc(0.5rem - 4px)",
+                }}
+              >
                 {/* Stars */}
-
-
-                {/* Site Name */}
-                <div className="mb-1 sm:mb-1.5 lg:mb-3">
-                  <h3 className="text-lg sm:text-lg lg:text-xl font-bold text-gray-800">{site.name}</h3>
-                </div>
-
-                {/* Rating and Votes */}
-                <div className="mb-1.5 sm:mb-2 lg:mb-4">
-                  <div className="text-sm sm:text-base lg:text-2xl font-bold text-emerald-600 mb-0.5">
-                    {site.rating}
-                  </div>
-                  <div className="text-xs sm:text-xs lg:text-sm text-gray-500">({site.votes.toLocaleString()})</div>
-                </div>
-
-                <div className="flex justify-center gap-0.5 sm:gap-1 mb-1 sm:mb-1.5 lg:mb-3">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-5 h-5 sm:w-6 sm:h-6 lg:w-6 lg:h-6 fill-yellow-400 text-yellow-400" />
+                <div className="flex justify-center gap-1 mb-2">
+                  {[...Array(index === 2 ? 4 : 5)].map((_, i) => (
+                    <Star key={i} className="w-5 h-5 fill-yellow-400 text-yellow-400" />
                   ))}
                 </div>
 
+                {/* Offer text */}
+                <div className="flex-1 flex flex-col justify-center">
+                  {index === 0 && (
+                    <>
+                      <div className="text-lg font-bold mb-2">100% up to €100</div>
+                      <div className="text-base">+Up To €20 Risk-Free Bet</div>
+                    </>
+                  )}
+                  {index === 1 && (
+                    <>
+                      <div className="text-xl font-bold mb-2">Get Up To €50</div>
+                      <div className="text-lg">In Free Bets</div>
+                    </>
+                  )}
+                  {index === 2 && (
+                    <>
+                      <div className="text-lg font-bold mb-2">Bet €10 Get €20</div>
+                      <div className="text-base">+ €50 Free Spins</div>
+                    </>
+                  )}
+                </div>
+
                 {/* Button */}
-                <Button className="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-1 sm:py-1.5 lg:py-3 text-xs sm:text-xs lg:text-lg rounded-lg mb-1 sm:mb-1.5 lg:mb-3">
-                  VISIT SITE
+                <Button className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-full text-sm w-full mb-3">
+                  GET BONUS
                 </Button>
 
-                {/* Terms - Hidden on mobile, minimal on tablet */}
-                <div className="hidden sm:block text-xs lg:text-xs text-gray-500 leading-tight mt-2">
+                {/* Terms - ONE LINE */}
+                <div className="text-xs text-gray-300 truncate px-1">18+ T&Cs apply. BeGambleAware.org</div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Tablet Layout (768px - 1023px) - Same as desktop but scaled */}
+        <div className="hidden md:flex lg:hidden items-center justify-center gap-0 w-full px-2">
+          {top3Sites.map((site: BettingSite, index: number) => (
+            <div
+              key={site.id}
+              className={`overflow-hidden ${index === 1
+                  ? "w-[240px] h-[280px] border-3 border-green-500 shadow-2xl shadow-green-500/50 rounded-lg relative z-20"
+                  : "w-[180px] h-[260px] border-3 border-white rounded-lg relative z-10"
+                }`}
+            >
+              {/* White header section */}
+              <div
+                className={`bg-white ${index === 1 ? "h-[80px]" : "h-[75px]"} flex items-center justify-center p-3`}
+                style={{
+                  borderTopLeftRadius: "calc(0.5rem - 3px)",
+                  borderTopRightRadius: "calc(0.5rem - 3px)",
+                }}
+              >
+                <img src={site.logo || "/placeholder.svg"} alt={site.name} className="h-8 w-auto object-contain" />
+              </div>
+
+              {/* Black content section */}
+              <div
+                className={`bg-black text-white ${index === 1 ? "h-[197px]" : "h-[182px]"} flex flex-col justify-between p-3 text-center`}
+                style={{
+                  borderBottomLeftRadius: "calc(0.5rem - 3px)",
+                  borderBottomRightRadius: "calc(0.5rem - 3px)",
+                }}
+              >
+                {/* Stars */}
+                <div className="flex justify-center gap-0.5 mb-2">
+                  {[...Array(index === 2 ? 4 : 5)].map((_, i) => (
+                    <Star key={i} className="w-3 h-3 fill-yellow-400 text-yellow-400" />
+                  ))}
+                </div>
+
+                {/* Offer text */}
+                <div className="flex-1 flex flex-col justify-center">
                   {index === 0 && (
-                    <span className="sm:hidden lg:inline">
-                      18+ | Play responsibly | GambleAware.org | Safe gaming practices apply
-                    </span>
+                    <>
+                      <div className="text-sm font-bold mb-1">100% up to €100</div>
+                      <div className="text-xs">+Up To €20 Risk-Free Bet</div>
+                    </>
                   )}
-                  {index === 0 && <span className="sm:inline lg:hidden">18+ | Play responsibly</span>}
-
                   {index === 1 && (
-                    <span className="sm:hidden lg:inline">
-                      18+ | Gambling can be addictive | Seek help if needed | Play within your limits
-                    </span>
+                    <>
+                      <div className="text-base font-bold mb-1">Get Up To €50</div>
+                      <div className="text-sm">In Free Bets</div>
+                    </>
                   )}
-                  {index === 1 && <span className="sm:inline lg:hidden">18+ | Play responsibly</span>}
-
                   {index === 2 && (
-                    <span className="sm:hidden lg:inline">
-                      18+ | Set limits before you play | GambleAware.org | Responsible gambling
-                    </span>
+                    <>
+                      <div className="text-sm font-bold mb-1">Bet €10 Get €20</div>
+                      <div className="text-xs">+ €50 Free Spins</div>
+                    </>
                   )}
-                  {index === 2 && <span className="sm:inline lg:hidden">18+ | Play responsibly</span>}
+                </div>
+
+                {/* Button */}
+                <Button className="bg-green-500 hover:bg-green-600 text-white font-bold py-1.5 px-3 rounded-full text-xs w-full mb-2">
+                  GET BONUS
+                </Button>
+
+                {/* Terms - ONE LINE */}
+                <div className="text-[10px] text-gray-300 truncate px-1">18+ T&Cs apply</div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Mobile Layout (до 767px) - Вертикальний стек */}
+        <div className="md:hidden w-full px-3 max-h-[70vh] overflow-y-auto">
+          <div className="space-y-3">
+            {top3Sites.map((site: BettingSite, index: number) => (
+              <div
+                key={site.id}
+                className={`overflow-hidden w-full ${index === 1
+                    ? "h-[120px] border-2 border-green-500 shadow-lg shadow-green-500/30 rounded-lg"
+                    : "h-[110px] border-2 border-white rounded-lg"
+                  }`}
+              >
+                <div className="flex h-full">
+                  {/* Logo section */}
+                  <div
+                    className={`bg-white ${index === 1 ? "w-[80px]" : "w-[70px]"} flex items-center justify-center p-2`}
+                    style={{
+                      borderTopLeftRadius: "calc(0.5rem - 2px)",
+                      borderBottomLeftRadius: "calc(0.5rem - 2px)",
+                    }}
+                  >
+                    <img src={site.logo || "/placeholder.svg"} alt={site.name} className="h-6 w-auto object-contain" />
+                  </div>
+
+                  {/* Content section */}
+                  <div
+                    className="bg-black text-white flex-1 flex flex-col justify-center p-3 text-center"
+                    style={{
+                      borderTopRightRadius: "calc(0.5rem - 2px)",
+                      borderBottomRightRadius: "calc(0.5rem - 2px)",
+                    }}
+                  >
+                    {/* Stars */}
+                    <div className="flex justify-center gap-0.5 mb-1">
+                      {[...Array(index === 2 ? 4 : 5)].map((_, i) => (
+                        <Star key={i} className="w-2.5 h-2.5 fill-yellow-400 text-yellow-400" />
+                      ))}
+                    </div>
+
+                    {/* Offer text */}
+                    <div className="mb-2">
+                      {index === 0 && <div className="text-xs font-bold">100% up to €100 + €20 Risk-Free</div>}
+                      {index === 1 && <div className="text-sm font-bold">Get Up To €50 In Free Bets</div>}
+                      {index === 2 && <div className="text-xs font-bold">Bet €10 Get €20 + €50 Free Spins</div>}
+                    </div>
+
+                    {/* Button */}
+                    <Button className="bg-green-500 hover:bg-green-600 text-white font-bold py-1 px-4 rounded-full text-xs w-full mb-1">
+                      GET BONUS
+                    </Button>
+
+                    {/* Terms */}
+                    <div className="text-[9px] text-gray-300 truncate">18+ T&Cs apply</div>
+                  </div>
                 </div>
               </div>
             ))}
           </div>
         </div>
 
-        {/* Footer */}
-        <div className="text-center mt-2">
-          <p className="text-white text-xs sm:text-xs lg:text-sm">
+        {/* Footer text */}
+        <div className="text-center mt-4 md:mt-8">
+          <p className="text-white text-xs md:text-sm">
             18+. T&C's apply. <span className="underline">Begambleaware.org</span>. Play responsibly.
           </p>
         </div>
