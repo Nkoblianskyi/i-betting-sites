@@ -99,9 +99,9 @@ export function SiteCard({ site, rank }: SiteCardProps) {
           {/* Grid Layout for Tablet */}
           <div className="grid md:grid-cols-[100px_1fr_120px_80px_120px] gap-3 items-center mb-3">
             {/* Logo */}
-            <div className="flex justify-center">
-              <img src={site.logo || "/placeholder.svg"} alt={site.name} className="h-16 w-auto object-contain" />
-            </div>
+            <div className="flex justify-center items-center h-full">
+            <img src={site.logo || "/placeholder.svg"} alt={site.name} className="w-[200px] h-[100px] object-contain mt-4" />
+          </div>
 
             {/* Bonus */}
             <div className="text-center">
