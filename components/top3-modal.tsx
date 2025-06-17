@@ -16,7 +16,7 @@ export function Top3Modal({ bettingSites, casinoSites }: Top3ModalProps) {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsOpen(true)
-    }, 2000)
+    }, 8000)
 
     return () => clearTimeout(timer)
   }, [])
