@@ -1,8 +1,8 @@
 export function TableHeader() {
   return (
     <div className="hidden md:block bg-black text-white rounded-lg overflow-hidden mb-2">
-      {/* Header Row - значно зміщую USER RATING і SCORE лівіше */}
-      <div className="h-[32px] grid grid-cols-[200px_2fr_180px_120px_180px] gap-2 items-center px-4">
+      {/* Header Row - using the exact same grid as SiteCard for perfect alignment */}
+      <div className="h-[40px] grid lg:grid-cols-[200px_2fr_180px_120px_180px] md:grid-cols-[100px_1fr_120px_80px_120px] gap-2 items-center px-4">
         {/* BOOKMAKER */}
         <div className="text-center">
           <span className="text-xs">BOOKMAKER</span>
@@ -10,7 +10,7 @@ export function TableHeader() {
 
         {/* BONUS OFFER */}
         <div className="text-center">
-          <span className="text-xs ">BONUS OFFER</span>
+          <span className="text-xs">BONUS OFFER</span>
         </div>
 
         {/* USER RATING */}
