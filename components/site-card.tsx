@@ -190,15 +190,15 @@ export function SiteCard({ site, rank }: SiteCardProps) {
             </div>
 
             {/* Bottom section with stars and rating */}
-            <div className="grid grid-cols-2 gap-2 w-full">
+            <div className="grid grid-cols-2 gap-2 w-full pl-4">
               {/* Left column: Stars and Rate it */}
-              <div className="flex flex-col items-center mt-4 pl-6">
+              <div className="flex flex-col items-center justify-center mt-4">
                 {/* Stars */}
                 <div className="flex gap-0.5 mb-1">
                   {[...Array(5)].map((_, i) => (
                     <Star
                       key={i}
-                      className={`w-5 h-5 ${
+                      className={`w-4 h-4 ${
                         i < filledStars || (i === filledStars && hasHalfStar)
                           ? "fill-yellow-400 text-yellow-400"
                           : "text-gray-300"
