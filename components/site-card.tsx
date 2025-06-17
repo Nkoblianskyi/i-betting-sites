@@ -36,7 +36,7 @@ export function SiteCard({ site, rank }: SiteCardProps) {
             <img
               src={site.logo || "/placeholder.svg"}
               alt={site.name}
-              className="2xl:h-20 xl:h-16 lg:h-12 w-auto object-contain"
+              className="2xl:h-24 xl:h-20 lg:h-16 w-auto object-contain mt-6"
             />
           </div>
 
