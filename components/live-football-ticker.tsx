@@ -11,9 +11,67 @@ interface Match {
   league: string
 }
 
+const defaultMatches: Match[] = [
+  {
+    id: "1",
+    homeTeam: "Man United",
+    awayTeam: "Liverpool",
+    date: "15 Jun",
+    time: "20:00",
+    league: "Premier League",
+  },
+  {
+    id: "2",
+    homeTeam: "Barcelona",
+    awayTeam: "Real Madrid",
+    date: "16 Jun",
+    time: "21:30",
+    league: "La Liga",
+  },
+  {
+    id: "3",
+    homeTeam: "Bayern Munich",
+    awayTeam: "Dortmund",
+    date: "17 Jun",
+    time: "19:00",
+    league: "Bundesliga",
+  },
+  {
+    id: "4",
+    homeTeam: "PSG",
+    awayTeam: "Marseille",
+    date: "18 Jun",
+    time: "22:00",
+    league: "Ligue 1",
+  },
+  {
+    id: "5",
+    homeTeam: "Chelsea",
+    awayTeam: "Arsenal",
+    date: "19 Jun",
+    time: "16:00",
+    league: "Premier League",
+  },
+  {
+    id: "6",
+    homeTeam: "Juventus",
+    awayTeam: "AC Milan",
+    date: "20 Jun",
+    time: "19:15",
+    league: "Serie A",
+  },
+  {
+    id: "7",
+    homeTeam: "Ajax",
+    awayTeam: "PSV",
+    date: "21 Jun",
+    time: "18:00",
+    league: "Eredivisie",
+  },
+]
+
 export function LiveTicker() {
-  const [matches, setMatches] = useState<Match[]>([])
-  const [loading, setLoading] = useState(true)
+  const [matches, setMatches] = useState<Match[]>(defaultMatches)
 
   const fetchMatches = async () => {
     try {
@@ -46,69 +104,12 @@ export function LiveTicker() {
           }
         })
 
-      setMatches(allMatches)
+      if (allMatches.length > 0) {
+        setMatches(allMatches)
+      }
     } catch (error) {
-      // Fallback з більшою кількістю матчів
-      setMatches([
-        {
-          id: "1",
-          homeTeam: "Man United",
-          awayTeam: "Liverpool",
-          date: "15 Jun",
-          time: "20:00",
-          league: "Premier League",
-        },
-        {
-          id: "2",
-          homeTeam: "Barcelona",
-          awayTeam: "Real Madrid",
-          date: "16 Jun",
-          time: "21:30",
-          league: "La Liga",
-        },
-        {
-          id: "3",
-          homeTeam: "Bayern Munich",
-          awayTeam: "Dortmund",
-          date: "17 Jun",
-          time: "19:00",
-          league: "Bundesliga",
-        },
-        {
-          id: "4",
-          homeTeam: "PSG",
-          awayTeam: "Marseille",
-          date: "18 Jun",
-          time: "22:00",
-          league: "Ligue 1",
-        },
-        {
-          id: "5",
-          homeTeam: "Chelsea",
-          awayTeam: "Arsenal",
-          date: "19 Jun",
-          time: "16:00",
-          league: "Premier League",
-        },
-        {
-          id: "6",
-          homeTeam: "Juventus",
-          awayTeam: "AC Milan",
-          date: "20 Jun",
-          time: "19:15",
-          league: "Serie A",
-        },
-        {
-          id: "7",
-          homeTeam: "Ajax",
-          awayTeam: "PSV",
-          date: "21 Jun",
-          time: "18:00",
-          league: "Eredivisie",
-        },
-      ])
-    } finally {
-      setLoading(false)
+      // Залишаємо defaultMatches якщо помилка
+      console.log("Using default matches due to fetch error")
     }
   }
 
@@ -117,12 +118,6 @@ export function LiveTicker() {
     const interval = setInterval(fetchMatches, 5 * 60 * 1000)
     return () => clearInterval(interval)
   }, [])
-
-  if (loading) {
-    return <div className="bg-[#d3d3d3] text-black py-2 text-center">Loading...</div>
-  }
-
-  if (matches.length === 0) return null
 
   return (
     <div className="relative overflow-hidden bg-[#d3d3d3] border-t border-black h-[40px]">

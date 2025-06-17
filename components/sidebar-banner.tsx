@@ -14,7 +14,7 @@ export function SidebarBanner({ position, site }: SidebarBannerProps) {
       <div
         className="relative rounded-lg overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-[1.02] cursor-pointer h-[600px] w-full"
         style={{
-          backgroundImage: "url(sidebar-2.jpg)",
+          backgroundImage: "url(sidebar-5.jpg)",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}

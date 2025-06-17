@@ -33,7 +33,7 @@ export function SiteCard({ site, rank }: SiteCardProps) {
         <div className="h-[130px] grid lg:grid-cols-[200px_2fr_180px_120px_180px] gap-1 lg:gap-2 items-center px-2 lg:px-4">
           {/* BOOKMAKER */}
           <div className="flex justify-center items-center h-full">
-            <img src={site.logo || "/placeholder.svg"} alt={site.name} className="w-[200px] h-[100px] object-contain mt-2" />
+            <img src={site.logo || "/placeholder.svg"} alt={site.name} className="w-[200px] h-[100px] object-contain mt-4" />
           </div>
 
           {/* BONUS OFFER */}
@@ -103,7 +103,7 @@ export function SiteCard({ site, rank }: SiteCardProps) {
               <img
                 src={site.logo || "/placeholder.svg"}
                 alt={site.name}
-                className="w-[200px] h-[100px] object-contain flex-shrink-0 mt-2"
+                className="w-[200px] h-[100px] object-contain flex-shrink-0 mt-4"
               />
             </div>
 
