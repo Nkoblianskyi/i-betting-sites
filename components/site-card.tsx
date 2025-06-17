@@ -220,12 +220,12 @@ export function SiteCard({ site, rank }: SiteCardProps) {
           </div>
 
           {/* Right Column: Bonus and Button */}
-          <div className="flex flex-col justify-around space-y-4 px-3 ">
+          <div className="flex flex-col justify-between  pb-1 pt-6 px-3">
             {/* Welcome Bonus */}
             <div className="text-center mt-4">
-              <div className="text-xs text-black uppercase font-normal mb-1">WELCOME BONUS</div>
-              <div className="text-2xl font-bold text-gray-900 mb-1 leading-tight">{site.bonus}</div>
-              <div className="text-2xl font-bold text-gray-900 leading-tight">{site.welcomeOffer}</div>
+              <div className="text-[10px] text-black uppercase font-normal">WELCOME BONUS</div>
+              <div className="text-xl font-bold text-gray-900 leading-tight">{site.bonus}</div>
+              <div className="text-xl font-bold text-gray-900 leading-tight">{site.welcomeOffer}</div>
             </div>
 
             {/* Button */}
