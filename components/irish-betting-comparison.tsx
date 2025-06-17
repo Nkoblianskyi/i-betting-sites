@@ -66,14 +66,14 @@ export default function IrishBettingComparison() {
               >
                 <div className="h-full flex flex-col justify-between text-center px-4 lg:px-6 xl:px-8 py-3 lg:py-4 gap-2">
                   {/* Верхня частина */}
-                  <div className="space-y-2 lg:space-y-4">
+                  <div className="space-y-2 lg:space-y-2">
                     {/* 1. Заголовок */}
-                    <h1 className="text-lg lg:text-xl xl:text-2xl 2xl:text-3xl font-bold mb-2">
+                    <h1 className="text-lg lg:text-xl xl:text-2xl 2xl:text-4xl font-bold">
                       BEST <span className="text-green-400">IRELAND</span> BETTING SITES
                     </h1>
 
                     {/* 2. Підзаголовок з датою */}
-                    <h2 className="text-xl lg:text-base xl:text-xl 2xl:text-2xl font-bold">
+                    <h2 className="text-xl lg:text-base xl:text-2xl 2xl:text-3xl font-bold">
                       UPDATED FOR {getCurrentMonthYear()}
                     </h2>
                   </div>
