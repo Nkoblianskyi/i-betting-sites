@@ -61,7 +61,7 @@ export default function IrishBettingComparison() {
             <div className="w-full min-w-0 px-1">
               {/* Hero Section - Desktop - РОЗТЯГНУТИЙ КОНТЕНТ */}
               <div
-                className="hidden lg:block relative overflow-hidden text-white mb-2 w-full h-[200px] lg:h-[240px] xl:h-[250px] 2xl:h-[290px]"
+                className="hidden lg:block relative overflow-hidden text-white mb-2 w-full h-[200px] lg:h-[220px] xl:h-[230px] 2xl:h-[270px]"
                 style={{ background: "rgba(0, 0, 0, 0.70)" }}
               >
                 <div className="h-full flex flex-col justify-between text-center px-4 lg:px-6 xl:px-8 py-3 lg:py-4 gap-2">
@@ -73,7 +73,7 @@ export default function IrishBettingComparison() {
                     </h1>
 
                     {/* 2. Підзаголовок з датою */}
-                    <h2 className="text-sm lg:text-base xl:text-lg 2xl:text-lg font-bold">
+                    <h2 className="text-xl lg:text-base xl:text-xl 2xl:text-2xl font-bold">
                       UPDATED FOR {getCurrentMonthYear()}
                     </h2>
                   </div>
@@ -96,7 +96,7 @@ export default function IrishBettingComparison() {
                   </div>
 
                   {/* Нижня частина */}
-                  <div className="space-y-2 lg:space-y-3">
+                  <div className="space-y-2 lg:space-y-4">
                     {/* 5. Бейджі */}
                     <div className="flex flex-wrap justify-center gap-3 lg:gap-4 xl:gap-6">
                       <div className="flex items-center gap-1 lg:gap-2">
