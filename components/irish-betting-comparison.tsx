@@ -68,7 +68,7 @@ export default function IrishBettingComparison() {
                   {/* Верхня частина */}
                   <div className="space-y-2 lg:space-y-2">
                     {/* 1. Заголовок */}
-                    <h1 className="text-lg lg:text-xl xl:text-2xl 2xl:text-3xl font-bold mb-4">
+                    <h1 className="text-lg lg:text-xl xl:text-2xl 2xl:text-3xl font-bold mb-2">
                       BEST <span className="text-green-400">IRELAND</span> BETTING SITES
                     </h1>
 
@@ -96,7 +96,7 @@ export default function IrishBettingComparison() {
                   </div>
 
                   {/* Нижня частина */}
-                  <div className="space-y-2 lg:space-y-4">
+                  <div className="space-y-2 lg:space-y-4 mt-1">
                     {/* 5. Бейджі */}
                     <div className="flex flex-wrap justify-center gap-3 lg:gap-4 xl:gap-6">
                       <div className="flex items-center gap-1 lg:gap-2">
