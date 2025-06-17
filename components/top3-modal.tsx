@@ -16,7 +16,7 @@ export function Top3Modal({ bettingSites, casinoSites }: Top3ModalProps) {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsOpen(true)
-    }, 8000)
+    }, 2000)
 
     return () => clearTimeout(timer)
   }, [])
@@ -48,11 +48,10 @@ export function Top3Modal({ bettingSites, casinoSites }: Top3ModalProps) {
           {top3Sites.map((site: BettingSite, index: number) => (
             <div
               key={site.id}
-              className={`overflow-hidden ${
-                index === 1
+              className={`overflow-hidden ${index === 1
                   ? "w-[357px] h-[382px] border-4 border-green-500 shadow-2xl shadow-green-500/50 rounded-lg relative z-20"
                   : "w-[255px] h-[364px] border-4 border-white rounded-lg relative z-10"
-              }`}
+                }`}
             >
               {/* White header section */}
               <div
@@ -74,7 +73,7 @@ export function Top3Modal({ bettingSites, casinoSites }: Top3ModalProps) {
                 }}
               >
                 {/* Stars */}
-                <div className="flex justify-center gap-1 mb-2">
+                <div className="flex justify-center gap-1  mt-4">
                   {[...Array(index === 2 ? 4 : 5)].map((_, i) => (
                     <Star key={i} className="w-5 h-5 fill-yellow-400 text-yellow-400" />
                   ))}
@@ -82,28 +81,12 @@ export function Top3Modal({ bettingSites, casinoSites }: Top3ModalProps) {
 
                 {/* Offer text */}
                 <div className="flex-1 flex flex-col justify-center">
-                  {index === 0 && (
-                    <>
-                      <div className="text-lg font-bold mb-2">100% up to €100</div>
-                      <div className="text-base">+Up To €20 Risk-Free Bet</div>
-                    </>
-                  )}
-                  {index === 1 && (
-                    <>
-                      <div className="text-xl font-bold mb-2">Get Up To €50</div>
-                      <div className="text-lg">In Free Bets</div>
-                    </>
-                  )}
-                  {index === 2 && (
-                    <>
-                      <div className="text-lg font-bold mb-2">Bet €10 Get €20</div>
-                      <div className="text-base">+ €50 Free Spins</div>
-                    </>
-                  )}
+                  <div className="text-lg font-bold mb-2">{site.bonus}</div>
+                  <div className="text-base">{site.welcomeOffer}</div>
                 </div>
 
                 {/* Button */}
-                <Button className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-full text-sm w-full mb-3">
+                <Button className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-full text-sm w-full mb-6">
                   GET BONUS
                 </Button>
 
@@ -119,11 +102,10 @@ export function Top3Modal({ bettingSites, casinoSites }: Top3ModalProps) {
           {top3Sites.map((site: BettingSite, index: number) => (
             <div
               key={site.id}
-              className={`overflow-hidden ${
-                index === 1
+              className={`overflow-hidden ${index === 1
                   ? "w-[240px] h-[280px] border-3 border-green-500 shadow-2xl shadow-green-500/50 rounded-lg relative z-20"
                   : "w-[180px] h-[260px] border-3 border-white rounded-lg relative z-10"
-              }`}
+                }`}
             >
               {/* White header section */}
               <div
@@ -153,24 +135,8 @@ export function Top3Modal({ bettingSites, casinoSites }: Top3ModalProps) {
 
                 {/* Offer text */}
                 <div className="flex-1 flex flex-col justify-center">
-                  {index === 0 && (
-                    <>
-                      <div className="text-sm font-bold mb-1">100% up to €100</div>
-                      <div className="text-xs">+Up To €20 Risk-Free Bet</div>
-                    </>
-                  )}
-                  {index === 1 && (
-                    <>
-                      <div className="text-base font-bold mb-1">Get Up To €50</div>
-                      <div className="text-sm">In Free Bets</div>
-                    </>
-                  )}
-                  {index === 2 && (
-                    <>
-                      <div className="text-sm font-bold mb-1">Bet €10 Get €20</div>
-                      <div className="text-xs">+ €50 Free Spins</div>
-                    </>
-                  )}
+                  <div className="text-sm font-bold mb-1">{site.bonus}</div>
+                  <div className="text-xs">{site.welcomeOffer}</div>
                 </div>
 
                 {/* Button */}
@@ -191,11 +157,10 @@ export function Top3Modal({ bettingSites, casinoSites }: Top3ModalProps) {
             {top3Sites.map((site: BettingSite, index: number) => (
               <div
                 key={site.id}
-                className={`overflow-hidden w-full ${
-                  index === 1
+                className={`overflow-hidden w-full ${index === 1
                     ? "h-[120px] border-2 border-green-500 shadow-lg shadow-green-500/30 rounded-lg"
                     : "h-[110px] border-2 border-white rounded-lg"
-                }`}
+                  }`}
               >
                 <div className="flex h-full">
                   {/* Logo section */}
@@ -226,9 +191,9 @@ export function Top3Modal({ bettingSites, casinoSites }: Top3ModalProps) {
 
                     {/* Offer text */}
                     <div className="mb-2">
-                      {index === 0 && <div className="text-xs font-bold">100% up to €100 + €20 Risk-Free</div>}
-                      {index === 1 && <div className="text-sm font-bold">Get Up To €50 In Free Bets</div>}
-                      {index === 2 && <div className="text-xs font-bold">Bet €10 Get €20 + €50 Free Spins</div>}
+                      <div className="text-xs font-bold">
+                        {site.bonus} {site.welcomeOffer}
+                      </div>
                     </div>
 
                     {/* Button */}

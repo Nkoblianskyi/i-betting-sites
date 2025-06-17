@@ -61,12 +61,12 @@ export default function IrishBettingComparison() {
             <div className="w-full min-w-0 px-1">
               {/* Hero Section - Desktop - РОЗТЯГНУТИЙ КОНТЕНТ */}
               <div
-                className="hidden lg:block relative overflow-hidden text-white mb-2 w-full h-[200px] lg:h-[250px] xl:h-[250px] 2xl:h-[260px]"
+                className="hidden lg:block relative overflow-hidden text-white mb-2 w-full h-[200px] lg:h-[250px] xl:h-[270px] 2xl:h-[290px]"
                 style={{ background: "rgba(0, 0, 0, 0.70)" }}
               >
                 <div className="h-full flex flex-col justify-between text-center px-4 lg:px-6 xl:px-8 py-3 lg:py-4 gap-2">
                   {/* Верхня частина */}
-                  <div className="space-y-2 lg:space-y-2">
+                  <div className="space-y-2 lg:space-y-4">
                     {/* 1. Заголовок */}
                     <h1 className="text-lg lg:text-xl xl:text-2xl 2xl:text-3xl font-bold mb-2">
                       BEST <span className="text-green-400">IRELAND</span> BETTING SITES
