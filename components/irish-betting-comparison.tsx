@@ -81,11 +81,11 @@ export default function IrishBettingComparison() {
                   {/* Середня частина */}
                   <div className="space-y-2 lg:space-y-2 max-w-4xl mx-auto">
                     {/* 3. Опис */}
-                    <p className="text-xs lg:text-xs xl:text-xs 2xl:text-xs leading-tight">
+                    <p className="text-xs lg:text-xs xl:text-sm 2xl:text-sm leading-tight">
                       Finding betting sites can be hard if you don’t know where to look. Fortunately, you came to the right place as here we are aware of the need that punters are facing and know exactly how to help them.
                     </p>
 
-                    <p className="text-xs lg:text-xs xl:text-xs 2xl:text-xs leading-tight">
+                    <p className="text-xs lg:text-xs xl:text-sm 2xl:text-sm leading-tight">
                       Starting with the most suitable new customer offers for June, specifically hand-picked by us.
                     </p>
 
