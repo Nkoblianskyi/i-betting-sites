@@ -26,7 +26,7 @@ export function HorizontalBanner({ site, badgeText }: HorizontalBannerProps) {
       <div
         className={`relative rounded-lg overflow-hidden shadow-lg ${getHeight()} w-full cursor-pointer hover:shadow-2xl transition-all duration-300`}
         style={{
-          backgroundImage: "url(/banner-3.jpg)",
+          backgroundImage: `url(${site.backgroundImage || "/banner-3.jpg"})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}

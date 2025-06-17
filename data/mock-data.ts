@@ -10,10 +10,12 @@ export const bettingSites: BettingSite[] = [
     description: "Ireland's favourite betting site",
     features: ["Live Streaming", "Cash Out", "Best Odds"],
     welcomeOffer: "Bet €10 Get €50",
-    terms: "18+ New customers only. Opt in and place your first bet of €10 or more on any sports market within 7 days of registration. No cash out. Get up to a €60 match in Free Bets, and 50 Free Spins for Big Bass Splash. Free bets and free spins expire after 7 days. T&Cs Apply. gamblingcare.ie  | Please gamble responsibly",
+    terms:
+      "18+ New customers only. Opt in and place your first bet of €10 or more on any sports market within 7 days of registration. No cash out. Get up to a €60 match in Free Bets, and 50 Free Spins for Big Bass Splash. Free bets and free spins expire after 7 days. T&Cs Apply. gamblingcare.ie  | Please gamble responsibly",
     userRating: 5.0,
     votes: 29891,
     link: "https://www.paddypower.com",
+    backgroundImage: "/banner-3.jpg",
   },
   {
     id: 2,
@@ -28,6 +30,7 @@ export const bettingSites: BettingSite[] = [
     userRating: 5.0,
     votes: 28456,
     link: "https://www.betfair.com",
+    backgroundImage: "/banner-3.jpg",
   },
   {
     id: 3,
@@ -38,10 +41,12 @@ export const bettingSites: BettingSite[] = [
     description: "Irish owned and operated",
     features: ["Irish Focus", "Best Prices", "Mobile App"],
     welcomeOffer: "Bet €10 Get €25",
-    terms: "New Customers Only. Bet €10+ on any sportsbook market at odds of evens (2.00) or greater, within 7 days of registration. Each Way bets min €10 stake on win. Get 4x €10 in Free Bets, valid for 7 days. ROI 18+ T&Cs Apply. Gamble Responsibly.",
+    terms:
+      "New Customers Only. Bet €10+ on any sportsbook market at odds of evens (2.00) or greater, within 7 days of registration. Each Way bets min €10 stake on win. Get 4x €10 in Free Bets, valid for 7 days. ROI 18+ T&Cs Apply. Gamble Responsibly.",
     userRating: 4.9,
     votes: 27892,
     link: "https://www.boylesports.com",
+    backgroundImage: "/banner-10.jpg",
   },
   {
     id: 4,
@@ -52,10 +57,12 @@ export const bettingSites: BettingSite[] = [
     description: "Trusted worldwide brand",
     features: ["Live Streaming", "Acca Insurance", "Price Boost"],
     welcomeOffer: "Bet €5 Get €30",
-    terms: "18+, sign up, deposit €20 or more to receive a 100% Matched deposit bonus on selected games. 40x wagering, 7 day bonus expiry. Ends 30/6/24 at 23:59 GMT. Full T&Cs Apply. begambleaware.org.",
+    terms:
+      "18+, sign up, deposit €20 or more to receive a 100% Matched deposit bonus on selected games. 40x wagering, 7 day bonus expiry. Ends 30/6/24 at 23:59 GMT. Full T&Cs Apply. begambleaware.org.",
     userRating: 4.9,
     votes: 26543,
     link: "https://www.ladbrokes.com",
+    backgroundImage: "/banner-3.jpg",
   },
   {
     id: 5,
@@ -70,6 +77,7 @@ export const bettingSites: BettingSite[] = [
     userRating: 4.9,
     votes: 25234,
     link: "https://www.williamhill.com",
+    backgroundImage: "banner-3.jpg",
   },
   {
     id: 6,
@@ -84,6 +92,7 @@ export const bettingSites: BettingSite[] = [
     userRating: 4.8,
     votes: 24123,
     link: "https://www.bet365.com",
+    backgroundImage: "/banner-6.jpg",
   },
   {
     id: 7,
@@ -98,6 +107,7 @@ export const bettingSites: BettingSite[] = [
     userRating: 4.8,
     votes: 23012,
     link: "https://www.888sport.com",
+    backgroundImage: "/banner-4.jpg",
   },
   {
     id: 8,
@@ -112,6 +122,7 @@ export const bettingSites: BettingSite[] = [
     userRating: 4.7,
     votes: 22901,
     link: "https://www.unibet.com",
+    backgroundImage: "/banner-3.jpg",
   },
   {
     id: 9,
@@ -126,6 +137,7 @@ export const bettingSites: BettingSite[] = [
     userRating: 4.7,
     votes: 21890,
     link: "https://www.betway.com",
+    backgroundImage: "/banner.webp",
   },
 ]
 
@@ -134,14 +146,14 @@ export const banners: Banner[] = [
     id: 1,
     title: "Featured Site",
     subtitle: "BetVictor - Bet €10 → Get €30 in Free Bets",
-    image: "/placeholder.svg?height=400&width=300&text=BetVictor+Banner",
+    image: "/banner-3.jpg",
     link: "https://www.betvictor.com",
   },
   {
     id: 2,
     title: "Special Offer",
     subtitle: "Exclusive Welcome Bonus Available",
-    image: "/placeholder.svg?height=400&width=300&text=Special+Offer",
+    image: "/banner-5.jpg",
     link: "https://www.specialoffer.com",
   },
 ]

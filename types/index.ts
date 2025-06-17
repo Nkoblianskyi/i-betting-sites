@@ -11,6 +11,7 @@ export interface BettingSite {
   userRating: number
   votes: number
   link: string
+  backgroundImage?: string
 }
 
 export interface Banner {

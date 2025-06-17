@@ -23,7 +23,7 @@ export default function RootLayout({
         <div
           className="min-h-screen relative"
           style={{
-            backgroundImage: "url(/bg-3.jpg)",
+            backgroundImage: "url(/bg-7.jpg)",
             backgroundSize: "cover",
             backgroundPosition: "center",
             backgroundAttachment: "fixed",
