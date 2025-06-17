@@ -85,9 +85,10 @@ export function SiteCard({ site, rank }: SiteCardProps) {
         {/* Terms */}
         <div className="h-[32px] bg-gray-50 flex items-center justify-center 2xl:text-xs xl:text-[10px] lg:text-[9px] text-gray-500 px-2 lg:px-4 overflow-hidden">
           <div className="truncate text-center leading-tight">
-            {site.terms && site.terms.length > 100
+            {/* {site.terms && site.terms.length > 100
               ? `${site.terms.substring(0, 100)}...`
-              : site.terms || "18+ | Play responsibly | GambleAware.org | Safe gaming practices apply"}
+              : site.terms || "18+ | Play responsibly | GambleAware.org | Safe gaming practices apply"} */}
+              18+ | Play responsibly | GambleAware.org | Safe gaming practices apply
           </div>
         </div>
       </div>
