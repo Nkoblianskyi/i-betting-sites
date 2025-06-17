@@ -24,56 +24,71 @@ export function SiteCard({ site, rank }: SiteCardProps) {
       <div className="hidden lg:block bg-white rounded-lg border shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] h-[162px] relative overflow-hidden cursor-pointer">
         {/* Badge */}
         {rank <= 3 && (
-          <div className="absolute top-0 left-0 bg-green-500 text-white px-3 py-1 rounded-br-lg text-sm font-bold z-10">
+          <div className="absolute top-0 left-0 bg-green-500 text-white px-2 lg:px-3 py-1 rounded-br-lg text-xs lg:text-sm font-bold z-10">
             {rank === 1 ? "TOP BRAND" : rank === 2 ? "EXCLUSIVE OFFER" : "TRENDING"}
           </div>
         )}
 
-        {/* Main Content - значно зміщую USER RATING і SCORE лівіше */}
-        <div className="h-[130px] grid grid-cols-[200px_2fr_180px_120px_180px] gap-2 items-center px-4">
+        {/* Main Content - Адаптивна сітка */}
+        <div className="h-[130px] grid 2xl:grid-cols-[200px_2fr_180px_120px_180px] xl:grid-cols-[180px_2fr_160px_110px_160px] lg:grid-cols-[140px_2fr_130px_90px_130px] gap-1 lg:gap-2 items-center px-2 lg:px-4">
           {/* BOOKMAKER */}
           <div className="flex justify-center items-center h-full">
-            <img src={site.logo || "/placeholder.svg"} alt={site.name} className="h-24 w-auto object-contain mt-5 items-center" />
+            <img
+              src={site.logo || "/placeholder.svg"}
+              alt={site.name}
+              className="2xl:h-20 xl:h-16 lg:h-12 w-auto object-contain"
+            />
           </div>
 
           {/* BONUS OFFER */}
-          <div className="text-center flex flex-col justify-center h-full px-2">
-            <div className="text-xs text-gray-600 uppercase font-normal mb-1">Welcome Bonus</div>
-            <div className="text-xl font-bold text-gray-900 mb-1">{site.bonus}</div>
-            <div className="text-xl font-semibold text-gray-800">{site.welcomeOffer}</div>
+          <div className="text-center flex flex-col justify-center h-full px-1 lg:px-2">
+            <div className="text-[10px] lg:text-xs text-gray-600 uppercase font-normal mb-1">Welcome Bonus</div>
+            <div className="2xl:text-xl xl:text-lg lg:text-sm font-bold text-gray-900 mb-1 truncate">{site.bonus}</div>
+            <div className="2xl:text-lg xl:text-base lg:text-xs font-semibold text-gray-800 truncate">
+              {site.welcomeOffer}
+            </div>
           </div>
 
-          {/* USER RATING - тепер набагато лівіше */}
+          {/* USER RATING */}
           <div className="text-center flex flex-col justify-center h-full">
-            <div className="text-xs text-gray-600 mb-2">Rate it! ({formatVotes(site.votes)})</div>
-            <div className="flex justify-center gap-1">
+            <div className="text-[9px] lg:text-xs text-gray-600 mb-1 lg:mb-2 truncate">
+              Rate it! ({formatVotes(site.votes)})
+            </div>
+            <div className="flex justify-center gap-0.5 lg:gap-1">
               {[...Array(5)].map((_, i) => (
                 <Star
                   key={i}
-                  className={`w-6 h-6 ${i < Math.floor(site.rating) ? "fill-yellow-400 text-yellow-400" : "text-gray-300"
-                    }`}
+                  className={`2xl:w-5 2xl:h-5 xl:w-4 xl:h-4 lg:w-3 lg:h-3 ${
+                    i < Math.floor(site.rating) ? "fill-yellow-400 text-yellow-400" : "text-gray-300"
+                  }`}
                 />
               ))}
             </div>
           </div>
 
-          {/* SCORE - тепер набагато лівіше */}
+          {/* SCORE */}
           <div className="text-center flex flex-col justify-center h-full">
-            <div className="text-4xl font-bold text-green-600">{site.rating.toFixed(1)}</div>
+            <div className="2xl:text-4xl xl:text-3xl lg:text-2xl font-bold text-green-600">
+              {site.rating.toFixed(1)}
+            </div>
           </div>
 
           {/* VISIT SITE */}
           <div className="text-center flex flex-col justify-center h-full">
-            <Button className="bg-green-500 hover:bg-green-600 text-white font-bold px-4 py-2 rounded-full text-sm w-full mb-1 transition-colors">
+            <Button className="bg-green-500 hover:bg-green-600 text-white font-bold 2xl:px-4 xl:px-3 lg:px-2 py-1.5 lg:py-2 rounded-full 2xl:text-sm xl:text-xs lg:text-[10px] w-full mb-1 transition-colors">
               GET BONUS
             </Button>
-            <div className="text-xs text-gray-500">Visit {site.name}</div>
+            <div className="text-[9px] lg:text-xs text-gray-500 truncate">Visit {site.name}</div>
           </div>
         </div>
 
         {/* Terms */}
-        <div className="h-[32px] bg-gray-50 text-center flex items-center justify-center text-[10px] text-gray-500 px-4">
-          {site.terms}
+        <div className="h-[32px] bg-gray-50 flex items-center justify-center 2xl:text-xs xl:text-[10px] lg:text-[9px] text-gray-500 px-2 lg:px-4 overflow-hidden">
+          <div className="truncate text-center leading-tight">
+            {site.terms && site.terms.length > 100
+              ? `${site.terms.substring(0, 100)}...`
+              : site.terms || "18+ | Play responsibly | GambleAware.org | Safe gaming practices apply"}
+          </div>
         </div>
       </div>
 
@@ -97,21 +112,22 @@ export function SiteCard({ site, rank }: SiteCardProps) {
             {/* Bonus */}
             <div className="text-center">
               <div className="text-xs text-gray-600 uppercase font-normal mb-1">Welcome Bonus</div>
-              <div className="text-lg font-bold text-gray-900 mb-1">{site.bonus}</div>
-              <div className="text-sm font-semibold text-gray-800">{site.welcomeOffer}</div>
+              <div className="text-lg font-bold text-gray-900 mb-1 truncate">{site.bonus}</div>
+              <div className="text-sm font-semibold text-gray-800 truncate">{site.welcomeOffer}</div>
             </div>
 
             {/* Rating */}
             <div className="text-center">
-              <div className="text-xs text-gray-600 mb-1">({formatVotes(site.votes)})</div>
+              <div className="text-xs text-gray-600 mb-1 truncate">({formatVotes(site.votes)})</div>
               <div className="flex justify-center gap-0.5 mb-1">
                 {[...Array(5)].map((_, i) => (
                   <Star
                     key={i}
-                    className={`w-3 h-3 ${i < filledStars || (i === filledStars && hasHalfStar)
+                    className={`w-3 h-3 ${
+                      i < filledStars || (i === filledStars && hasHalfStar)
                         ? "fill-yellow-400 text-yellow-400"
                         : "text-gray-300"
-                      }`}
+                    }`}
                   />
                 ))}
               </div>
@@ -180,10 +196,11 @@ export function SiteCard({ site, rank }: SiteCardProps) {
                 {[...Array(5)].map((_, i) => (
                   <Star
                     key={i}
-                    className={`w-3 h-3 ${i < filledStars || (i === filledStars && hasHalfStar)
+                    className={`w-3 h-3 ${
+                      i < filledStars || (i === filledStars && hasHalfStar)
                         ? "fill-yellow-400 text-yellow-400"
                         : "text-gray-300"
-                      }`}
+                    }`}
                   />
                 ))}
               </div>
