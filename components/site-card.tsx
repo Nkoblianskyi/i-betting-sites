@@ -121,7 +121,7 @@ export function SiteCard({ site, rank }: SiteCardProps) {
                 {[...Array(5)].map((_, i) => (
                   <Star
                     key={i}
-                    className={`w-4 h-34${i < filledStars || (i === filledStars && hasHalfStar)
+                    className={`w-4 h-4 ${i < filledStars || (i === filledStars && hasHalfStar)
                         ? "fill-yellow-400 text-yellow-400"
                         : "text-gray-300"
                       }`}
@@ -196,7 +196,7 @@ export function SiteCard({ site, rank }: SiteCardProps) {
                 {[...Array(5)].map((_, i) => (
                   <Star
                     key={i}
-                    className={`w-3 h-3 ${i < filledStars || (i === filledStars && hasHalfStar)
+                    className={`w-4 h-4 ${i < filledStars || (i === filledStars && hasHalfStar)
                         ? "fill-yellow-400 text-yellow-400"
                         : "text-gray-300"
                       }`}
