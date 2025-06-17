@@ -33,7 +33,7 @@ export function SiteCard({ site, rank }: SiteCardProps) {
         <div className="h-[130px] grid lg:grid-cols-[200px_2fr_180px_120px_180px] gap-1 lg:gap-2 items-center px-2 lg:px-4">
           {/* BOOKMAKER */}
           <div className="flex justify-center items-center h-full">
-            <img src={site.logo || "/placeholder.svg"} alt={site.name} className="w-[200px] h-[100px] object-contain mt-4" />
+            <img src={site.logo || "/placeholder.svg"} alt={site.name} className="w-[200px] h-[100px] object-contain mt-2" />
           </div>
 
           {/* BONUS OFFER */}
@@ -81,7 +81,7 @@ export function SiteCard({ site, rank }: SiteCardProps) {
         <div className="h-[32px] bg-gray-50 flex items-center justify-center 2xl:text-xs xl:text-[10px] lg:text-[9px] text-gray-500 px-2 lg:px-4 overflow-hidden">
           <div className="truncate text-center leading-tight">
             {/* {site.terms || "18+ | Play responsibly | GambleAware.org | Safe gaming practices apply"} */}
-            18+ | Play responsibly | GambleAware.org | Safe gaming practices apply"
+            18+ | Play responsibly | GambleAware.org | Safe gaming practices apply
           </div>
         </div>
       </div>
@@ -95,19 +95,23 @@ export function SiteCard({ site, rank }: SiteCardProps) {
           </div>
         )}
 
-        <div className="p-3 pt-6">
+        <div className="p-3 pt-6 min-h-[140px]">
           {/* Grid Layout for Tablet */}
-          <div className="grid md:grid-cols-[100px_1fr_120px_80px_120px] gap-3 items-center mb-3">
+          <div className="grid md:grid-cols-[200px_1fr_120px_80px_120px] gap-3 items-center mb-3">
             {/* Logo */}
             <div className="flex justify-center items-center h-full">
-            <img src={site.logo || "/placeholder.svg"} alt={site.name} className="w-[200px] h-[100px] object-contain mt-4" />
-          </div>
+              <img
+                src={site.logo || "/placeholder.svg"}
+                alt={site.name}
+                className="w-[200px] h-[100px] object-contain flex-shrink-0 mt-2"
+              />
+            </div>
 
             {/* Bonus */}
             <div className="text-center">
               <div className="text-xs text-gray-600 uppercase font-normal mb-1">Welcome Bonus</div>
               <div className="text-lg font-bold text-gray-900 mb-1 truncate">{site.bonus}</div>
-              <div className="text-lg font-semibold text-gray-800 truncate">{site.welcomeOffer}</div>
+              <div className="text-sm font-semibold text-gray-800 truncate">{site.welcomeOffer}</div>
             </div>
 
             {/* Rating */}
@@ -117,7 +121,7 @@ export function SiteCard({ site, rank }: SiteCardProps) {
                 {[...Array(5)].map((_, i) => (
                   <Star
                     key={i}
-                    className={`w-4 h-4 ${i < filledStars || (i === filledStars && hasHalfStar)
+                    className={`w-3 h-3 ${i < filledStars || (i === filledStars && hasHalfStar)
                         ? "fill-yellow-400 text-yellow-400"
                         : "text-gray-300"
                       }`}
@@ -192,7 +196,7 @@ export function SiteCard({ site, rank }: SiteCardProps) {
                 {[...Array(5)].map((_, i) => (
                   <Star
                     key={i}
-                    className={`w-4 h-4 ${i < filledStars || (i === filledStars && hasHalfStar)
+                    className={`w-3 h-3 ${i < filledStars || (i === filledStars && hasHalfStar)
                         ? "fill-yellow-400 text-yellow-400"
                         : "text-gray-300"
                       }`}
@@ -218,9 +222,10 @@ export function SiteCard({ site, rank }: SiteCardProps) {
 
           {/* Terms */}
           <div className="mt-3 pt-3 border-t border-gray-100 text-gray-500 text-xs leading-3">
-            {site.terms && site.terms.length > 60
+            {/* {site.terms && site.terms.length > 60
               ? `${site.terms.substring(0, 60)}...`
-              : site.terms || "18+ | Play responsibly | GambleAware.org"}
+              : site.terms || "18+ | Play responsibly | GambleAware.org"} */}
+              18+ | Play responsibly | GambleAware.org
           </div>
         </div>
       </div>
