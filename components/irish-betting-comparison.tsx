@@ -296,7 +296,7 @@ export default function IrishBettingComparison() {
                 {bettingSites.map((site: BettingSite, index: number) => (
                   <div key={site.id} className="w-full">
                     <SiteCard site={site} rank={index + 1} />
-                    {(index + 1) % 3 === 0 && (
+                    {(index + 1) % 3 === 0 && index < bettingSites.length - 1 && (
                       <div className="my-3 w-full">
                         <HorizontalBanner
                           site={bettingSites[index % bettingSites.length]}
