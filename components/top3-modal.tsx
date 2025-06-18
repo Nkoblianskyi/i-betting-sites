@@ -81,8 +81,8 @@ export function Top3Modal({ bettingSites, casinoSites }: Top3ModalProps) {
 
                 {/* Offer text */}
                 <div className="flex-1 flex flex-col justify-center">
-                  <div className="text-lg font-bold mb-2">{site.bonus}</div>
-                  <div className="text-base">{site.welcomeOffer}</div>
+                  <div className="text-xl font-bold mb-2">{site.bonus}</div>
+                  <div className="text-xl">{site.welcomeOffer}</div>
                 </div>
 
                 {/* Button */}

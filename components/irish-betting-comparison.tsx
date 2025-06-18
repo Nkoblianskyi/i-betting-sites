@@ -14,6 +14,8 @@ import type { BettingSite } from "../types"
 import { TableHeader } from "./table-header"
 import { LiveTicker } from "./live-ticker"
 import { HorizontalBanner } from "./horizontal-banner"
+import Link from "next/link"
+import Image from "next/image"
 
 export default function IrishBettingComparison() {
   const [isAdvertiserModalOpen, setIsAdvertiserModalOpen] = useState(false)
@@ -88,8 +90,7 @@ export default function IrishBettingComparison() {
                     </p>
 
                     <p className="text-xs lg:text-sm xl:text-sm 2xl:text-sm leading-tight">
-                      Beginning with the most appropriate new player promotions, carefully selected by our
-                      experts.
+                      Beginning with the most appropriate new player promotions, carefully selected by our experts.
                     </p>
 
                     {/* 4. Дрібний текст про терміни */}
@@ -189,55 +190,82 @@ export default function IrishBettingComparison() {
                 </div>
               </div>
 
-              {/* Hero Section - Mobile - КОМПАКТНИЙ ДЛЯ 320-460px */}
+              {/* Hero Section - Mobile - COMBINED HEADER + HERO */}
               <div
-                className="md:hidden relative overflow-hidden text-white rounded-lg mb-2 w-full"
-                style={{ background: "rgba(0, 0, 0, 0.01)" }}
+                className="md:hidden relative overflow-hidden text-white rounded-lg mb-2 w-full h-[350px] xs:h-[380px] sm:h-[400px]"
+                style={{
+                  backgroundImage: "url(/bg.jpg)",
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                }}
               >
-                <div className="p-2 xs:p-3 sm:p-4 text-center">
-                  {/* Заголовки - компактні */}
-                  <h1 className="text-sm xs:text-base sm:text-lg font-bold mb-1">
-                    BEST <span className="text-green-primary">IRELAND</span> BETTING SITES
-                  </h1>
-                  <h2 className="text-xs xs:text-sm sm:text-base font-bold mb-2 xs:mb-3 sm:mb-4">
-                    UPDATED FOR {getCurrentMonthYear()}
-                  </h2>
+                {/* Dark overlay for better text readability */}
+                <div className="absolute inset-0 bg-black/70 rounded-lg"></div>
 
-                  {/* Feature badges - компактні */}
-                  <div className="flex justify-center gap-2 xs:gap-3 sm:gap-4 mb-2 xs:mb-3 sm:mb-4">
-                    <div className="flex flex-col items-center">
-                      <Shield className="w-4 h-4 xs:w-5 xs:h-5 sm:w-6 sm:h-6 mb-0.5 xs:mb-1" />
-                      <span className="text-[8px] xs:text-[9px] sm:text-xs font-bold leading-tight">100% Legal</span>
-                    </div>
-                    <div className="flex flex-col items-center">
-                      <div className="flex gap-0.5 mb-0.5 xs:mb-2 mt-0.5">
-                        <div className="w-1.5 h-2 xs:w-2 xs:h-3 sm:w-2 sm:h-4 bg-green-primary"></div>
-                        <div className="w-1.5 h-2 xs:w-2 xs:h-3 sm:w-2 sm:h-4 bg-white"></div>
-                        <div className="w-1.5 h-2 xs:w-2 xs:h-3 sm:w-2 sm:h-4 bg-orange-500"></div>
+                {/* Combined Header + Hero content */}
+                <div className="relative z-10 h-full flex flex-col">
+                  {/* Header section */}
+                  <div className="h-[83px] flex items-center justify-center px-4">
+                    <Link href="/" className="flex items-center gap-2">
+                      <div className="w-8 h-8 bg-transparent rounded-full flex items-center justify-center flex-shrink-0">
+                        <Image src="/logo.png" alt="Logo" width={32} height={32} className="w-8 h-8" />
                       </div>
-                      <span className="text-[8px] xs:text-[9px] sm:text-xs font-bold leading-tight mt-1.5">
-                        IE Regulated
-                      </span>
-                    </div>
-                    <div className="flex flex-col items-center">
-                      <Clock className="w-4 h-4 xs:w-5 xs:h-5 sm:w-6 sm:h-6 mb-0.5 xs:mb-1" />
-                      <span className="text-[8px] xs:text-[9px] sm:text-xs font-bold leading-tight">
-                        Fast Withdrawals
-                      </span>
-                    </div>
+                      <h1 className="text-sm xs:text-base font-bold whitespace-nowrap">
+                        <span className="text-green-primary">BEST </span>
+                        <span className="text-white">IRISH </span>
+                        <span className="text-orange-500">BETTING </span>
+                        <span className="text-green-primary">SITES</span>
+                      </h1>
+                    </Link>
                   </div>
 
-                  {/* Bottom text - дуже компактний */}
-                  <div className="text-[7px] xs:text-[8px] sm:text-[9px] leading-tight space-y-0.5 xs:space-y-1">
-                    <div>Play responsibly. Wagering and T&Cs apply.</div>
-                    <div>
-                      <button onClick={() => setIsAdvertiserModalOpen(true)} className="underline">
-                        Advertiser Disclosure
-                      </button>
-                      <span> | </span>
-                      <button onClick={() => setIsTermsModalOpen(true)} className="underline">
-                        18+ T&Cs Apply
-                      </button>
+                  {/* Hero content */}
+                  <div className="flex-1 px-4 py-6 text-center flex flex-col justify-center">
+                    {/* Main titles */}
+                    <div className="mb-6">
+                      <h1 className="text-lg xs:text-xl sm:text-2xl font-bold mb-2 drop-shadow-lg">
+                        BEST <span className="text-green-primary">IRELAND</span> BETTING SITES
+                      </h1>
+                      <h2 className="text-sm xs:text-base sm:text-lg font-bold drop-shadow-lg">
+                        UPDATED FOR {getCurrentMonthYear()}
+                      </h2>
+                    </div>
+
+                    {/* Feature badges */}
+                    <div className="flex justify-center gap-4 xs:gap-6 sm:gap-8 mb-6">
+                      <div className="flex flex-col items-center">
+                        <Shield className="w-6 h-6 xs:w-7 xs:h-7 sm:w-8 sm:h-8 mb-2" />
+                        <span className="text-xs xs:text-sm font-bold leading-tight">100% Legal</span>
+                      </div>
+                      <div className="flex flex-col items-center">
+                        <div className="flex gap-1 mb-2">
+                          <div className="w-2 h-4 xs:w-2.5 xs:h-5 sm:w-3 sm:h-6 bg-green-primary"></div>
+                          <div className="w-2 h-4 xs:w-2.5 xs:h-5 sm:w-3 sm:h-6 bg-white"></div>
+                          <div className="w-2 h-4 xs:w-2.5 xs:h-5 sm:w-3 sm:h-6 bg-orange-500"></div>
+                        </div>
+                        <span className="text-xs xs:text-sm font-bold leading-tight">IE Regulated</span>
+                      </div>
+                      <div className="flex flex-col items-center">
+                        <Clock className="w-6 h-6 xs:w-7 xs:h-7 sm:w-8 sm:h-8 mb-2" />
+                        <span className="text-xs xs:text-sm font-bold leading-tight">Fast Withdrawals</span>
+                      </div>
+                    </div>
+
+                    {/* Bottom text */}
+                    <div className="text-xs xs:text-sm leading-tight space-y-1">
+                      <div>Play responsibly. Wagering and T&Cs apply.</div>
+                      <div>
+                        <button
+                          onClick={() => setIsAdvertiserModalOpen(true)}
+                          className="underline hover:text-green-400"
+                        >
+                          Advertiser Disclosure
+                        </button>
+                        <span> | </span>
+                        <button onClick={() => setIsTermsModalOpen(true)} className="underline hover:text-green-400">
+                          18+ T&Cs Apply
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -253,7 +281,7 @@ export default function IrishBettingComparison() {
               </div>
 
               {/* Sites List */}
-              <div className="space-y-2 w-full">
+              <div className="space-y-1 w-full">
                 {bettingSites.map((site: BettingSite, index: number) => (
                   <div key={site.id} className="w-full">
                     <SiteCard site={site} rank={index + 1} />

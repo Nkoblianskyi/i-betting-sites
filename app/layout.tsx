@@ -30,7 +30,10 @@ export default function RootLayout({
           }}
         >
           <div className="relative z-10">
-            <Header />
+            {/* Header only shows on md+ screens */}
+            <div className="hidden md:block">
+              <Header />
+            </div>
             <main>{children}</main>
             <Footer />
           </div>

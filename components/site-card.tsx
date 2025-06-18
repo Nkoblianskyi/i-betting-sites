@@ -58,9 +58,8 @@ export function SiteCard({ site, rank }: SiteCardProps) {
               {[...Array(5)].map((_, i) => (
                 <Star
                   key={i}
-                  className={`w-4 xl:w-5 h-4 xl:h-5 ${
-                    i < Math.floor(site.rating) ? "fill-yellow-400 text-yellow-400" : "text-gray-300"
-                  }`}
+                  className={`w-4 xl:w-5 h-4 xl:h-5 ${i < Math.floor(site.rating) ? "fill-yellow-400 text-yellow-400" : "text-gray-300"
+                    }`}
                 />
               ))}
             </div>
@@ -131,11 +130,10 @@ export function SiteCard({ site, rank }: SiteCardProps) {
                 {[...Array(5)].map((_, i) => (
                   <Star
                     key={i}
-                    className={`w-4 h-4 ${
-                      i < filledStars || (i === filledStars && hasHalfStar)
+                    className={`w-4 h-4 ${i < filledStars || (i === filledStars && hasHalfStar)
                         ? "fill-yellow-400 text-yellow-400"
                         : "text-gray-300"
-                    }`}
+                      }`}
                   />
                 ))}
               </div>
@@ -169,91 +167,87 @@ export function SiteCard({ site, rank }: SiteCardProps) {
         </div>
       </div>
 
-      {/* Mobile Layout - БЕЗ ЗМІН */}
-      <div className="md:hidden bg-white rounded-lg border border-gray-200 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] relative overflow-hidden cursor-pointer mt-2">
+      {/* Mobile Layout - OPTIMIZED FOR 195px HEIGHT */}
+      <div className="md:hidden bg-white rounded-lg border border-gray-200 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] relative overflow-hidden cursor-pointer mt-2 h-[195px]">
         {/* Badge for top 3 positions */}
         {rank === 1 && (
-          <div className="absolute top-0 left-0 bg-green-primary text-white px-3 py-1 rounded-br-lg text-xs font-bold z-20">
+          <div className="absolute top-0 left-0 bg-green-primary text-white px-2 py-0.5 rounded-br-lg text-[10px] font-bold z-20">
             TOP BRAND
           </div>
         )}
         {rank === 2 && (
-          <div className="absolute top-0 left-0 bg-green-primary text-white px-3 py-1 rounded-br-lg text-xs font-bold z-20">
+          <div className="absolute top-0 left-0 bg-green-primary text-white px-2 py-0.5 rounded-br-lg text-[10px] font-bold z-20">
             EXCLUSIVE OFFER
           </div>
         )}
         {rank === 3 && (
-          <div className="absolute top-0 left-0 bg-green-primary text-white px-3 py-1 rounded-br-lg text-xs font-bold z-20">
+          <div className="absolute top-0 left-0 bg-green-primary text-white px-2 py-0.5 rounded-br-lg text-[10px] font-bold z-20">
             TRENDING
           </div>
         )}
 
-        {/* Main Content Container */}
-        <div className="grid grid-cols-2">
-          {/* Left Column: Gray background with logo and rating - FULL HEIGHT */}
-          <div className="bg-[rgb(242,242,242)] flex flex-col justify-center items-center pt-4 pb-2 rounded-l-lg">
+        {/* Main Content Container - FIXED HEIGHT SECTIONS */}
+        <div className="grid grid-cols-2 h-[175px]">
+          {/* Left Column: Gray background with logo and rating */}
+          <div className="bg-[rgb(242,242,242)] flex flex-col justify-between items-center py-2 px-2 rounded-l-lg">
             {/* Logo */}
-            <div className="mb-4">
-              <img
-                src={site.logo || "/placeholder.svg"}
-                alt={site.name}
-                className="h-18 w-auto sm:h-20 object-contain mt-5"
-              />
+            <div className="flex-1 flex items-center justify-center mt-3">
+              <img src={site.logo || "/placeholder.svg"} alt={site.name} className="h-18 w-auto object-contain" />
             </div>
 
             {/* Bottom section with stars and rating */}
-            <div className="grid grid-cols-2 gap-2 w-full pl-4">
+            <div className="grid grid-cols-2 gap-1 w-full">
               {/* Left column: Stars and Rate it */}
-              <div className="flex flex-col items-center justify-center mt-4">
+              <div className="flex flex-col items-center justify-center">
                 {/* Stars */}
                 <div className="flex gap-0.5 mb-1">
                   {[...Array(5)].map((_, i) => (
                     <Star
                       key={i}
-                      className={`w-4 h-4 sm:w-4 sm:h-4 ${
-                        i < filledStars || (i === filledStars && hasHalfStar)
+                      className={`w-4 h-4 ${i < filledStars || (i === filledStars && hasHalfStar)
                           ? "fill-yellow-400 text-yellow-400"
                           : "text-gray-300"
-                      }`}
+                        }`}
                     />
                   ))}
                 </div>
-
                 {/* Rate it text */}
-                <div className="text-[12px] sm:text-[12px] text-black mt-2">Rate it ({formatVotes(site.votes)})</div>
+                <div className="text-[12px] text-black text-center leading-tight">
+                  Rate it
+                  <br />({formatVotes(site.votes)})
+                </div>
               </div>
 
               {/* Right column: Score */}
-              <div className="flex flex-col items-center justify-center gap-2 mt-1">
-                <div className="text-3xl sm:text-4xl font-bold" style={{ color: "rgba(91, 152, 15, 1)" }}>
+              <div className="flex flex-col items-center justify-center">
+                <div className="text-3xl font-bold leading-none" style={{ color: "rgba(91, 152, 15, 1)" }}>
                   {site.rating.toFixed(1)}
                 </div>
-                <div className="text-[9px] sm:text-[10px] text-black font-bold">Our Score</div>
+                <div className="text-[10px] text-black font-bold mt-1">Our Score</div>
               </div>
             </div>
           </div>
 
           {/* Right Column: Bonus and Button */}
-          <div className="flex flex-col justify-between  pb-1 pt-6 px-3">
+          <div className="flex flex-col justify-between py-2 px-2">
             {/* Welcome Bonus */}
-            <div className="text-center mt-8 items-center">
-              <div className="text-[9px] sm:text-[10px] text-black uppercase font-normal">WELCOME BONUS</div>
-              <div className="text-xl sm:text-xl font-bold text-gray-900 leading-tight">{site.bonus}</div>
-              <div className="text-xl sm:text-xl font-bold text-gray-900 leading-tight">{site.welcomeOffer}</div>
+            <div className="text-center flex-1 flex flex-col justify-center">
+              <div className="text-[10px] text-black uppercase font-normal mb-1">WELCOME BONUS</div>
+              <div className="text-xl font-bold text-gray-900 leading-tight mb-1">{site.bonus}</div>
+              <div className="text-xl font-bold text-gray-900 leading-tight">{site.welcomeOffer}</div>
             </div>
 
             {/* Button */}
-            <div className="flex justify-center">
-              {/* Mobile Button */}
-              <Button className="bg-green-primary hover:bg-green-hover text-white font-bold px-4 sm:px-6 py-2 rounded-full text-base sm:text-lg transition-colors w-full">
+            <div className="flex justify-center mt-2">
+              <Button className="bg-green-primary hover:bg-green-hover text-white font-bold px-3 py-1.5 rounded-full text-sm transition-colors w-full">
                 GET BONUS
               </Button>
             </div>
           </div>
         </div>
 
-        {/* Terms */}
-        <div className="px-4 pt-3 pb-4 border-t border-gray-100 text-gray-500 text-[10px] sm:text-xs text-center leading-3">
+        {/* Terms - COMPACT */}
+        <div className="h-[25px] px-2 flex items-center justify-center border-t border-gray-100 text-gray-500 text-[8px] text-center leading-tight">
           18+ | Play responsibly | GambleAware.org
         </div>
       </div>
