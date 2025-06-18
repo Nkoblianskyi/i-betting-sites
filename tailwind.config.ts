@@ -58,18 +58,11 @@ module.exports = {
 					DEFAULT: "hsl(var(--card))",
 					foreground: "hsl(var(--card-foreground))",
 				},
-				green: {
-					50: "#f0fdf4",
-					100: "#dcfce7",
-					200: "#bbf7d0",
-					300: "#86efac",
-					400: "#4ade80", // Було світліше
-					500: "#16a34a", // Тепер темніше на 2 тони
-					600: "#15803d", // Тепер темніше на 2 тони
-					700: "#166534",
-					800: "#14532d",
-					900: "#052e16",
-				},
+				// Додаємо кастомні зелені кольори
+				"green-primary": "rgb(30, 188, 43)",
+				"green-hover": "rgb(25, 160, 37)",
+				"green-light": "rgb(35, 200, 48)",
+				"green-dark": "rgb(20, 140, 30)",
 			},
 			borderRadius: {
 				lg: "var(--radius)",

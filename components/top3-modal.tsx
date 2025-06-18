@@ -16,7 +16,7 @@ export function Top3Modal({ bettingSites, casinoSites }: Top3ModalProps) {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsOpen(true)
-    }, 2000)
+    }, 8000)
 
     return () => clearTimeout(timer)
   }, [])
@@ -50,7 +50,7 @@ export function Top3Modal({ bettingSites, casinoSites }: Top3ModalProps) {
               key={site.id}
               className={`overflow-hidden ${
                 index === 1
-                  ? "w-[357px] h-[382px] border-4 border-green-700 shadow-2xl shadow-green-700/50 rounded-lg relative z-20"
+                  ? "w-[357px] h-[382px] border-4 border-green-primary shadow-2xl shadow-green-primary/50 rounded-lg relative z-20"
                   : "w-[255px] h-[364px] border-4 border-white rounded-lg relative z-10"
               }`}
             >
@@ -87,7 +87,7 @@ export function Top3Modal({ bettingSites, casinoSites }: Top3ModalProps) {
                 </div>
 
                 {/* Button */}
-                <Button className="bg-green-700 hover:bg-green-800 text-white font-bold py-2 px-4 rounded-full text-sm w-full mb-6">
+                <Button className="bg-green-primary hover:bg-green-hover text-white font-bold py-2 px-4 rounded-full text-sm w-full mb-6">
                   GET BONUS
                 </Button>
 
@@ -105,7 +105,7 @@ export function Top3Modal({ bettingSites, casinoSites }: Top3ModalProps) {
               key={site.id}
               className={`overflow-hidden ${
                 index === 1
-                  ? "w-[240px] h-[280px] border-3 border-green-700 shadow-2xl shadow-green-700/50 rounded-lg relative z-20"
+                  ? "w-[240px] h-[280px] border-3 border-green-primary shadow-2xl shadow-green-primary/50 rounded-lg relative z-20"
                   : "w-[180px] h-[260px] border-3 border-white rounded-lg relative z-10"
               }`}
             >
@@ -142,7 +142,7 @@ export function Top3Modal({ bettingSites, casinoSites }: Top3ModalProps) {
                 </div>
 
                 {/* Button */}
-                <Button className="bg-green-700 hover:bg-green-800 text-white font-bold py-1.5 px-3 rounded-full text-xs w-full mb-2">
+                <Button className="bg-green-primary hover:bg-green-hover text-white font-bold py-1.5 px-3 rounded-full text-xs w-full mb-2">
                   GET BONUS
                 </Button>
 
@@ -161,7 +161,7 @@ export function Top3Modal({ bettingSites, casinoSites }: Top3ModalProps) {
                 key={site.id}
                 className={`overflow-hidden w-full ${
                   index === 1
-                    ? "h-[120px] border-2 border-green-700 shadow-lg shadow-green-700/30 rounded-lg"
+                    ? "h-[120px] border-2 border-green-primary shadow-lg shadow-green-primary/30 rounded-lg"
                     : "h-[110px] border-2 border-white rounded-lg"
                 }`}
               >
@@ -200,7 +200,7 @@ export function Top3Modal({ bettingSites, casinoSites }: Top3ModalProps) {
                     </div>
 
                     {/* Button */}
-                    <Button className="bg-green-700 hover:bg-green-800 text-white font-bold py-1 px-4 rounded-full text-xs w-full mb-1">
+                    <Button className="bg-green-primary hover:bg-green-hover text-white font-bold py-1 px-4 rounded-full text-xs w-full mb-1">
                       GET BONUS
                     </Button>
 

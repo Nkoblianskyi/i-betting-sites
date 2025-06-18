@@ -69,7 +69,7 @@ export default function IrishBettingComparison() {
                   <div className="space-y-1">
                     {/* 1. Заголовок */}
                     <h1 className="text-lg lg:text-[40px] xl:text-[40px] 2xl:text-[40px] font-bold">
-                      BEST <span className="text-green-600">IRELAND</span> BETTING SITES
+                      BEST <span className="text-green-primary">IRELAND</span> BETTING SITES
                     </h1>
 
                     {/* 2. Підзаголовок з датою */}
@@ -82,7 +82,7 @@ export default function IrishBettingComparison() {
                   <div className="space-y-2 lg:space-y-2 mx-auto">
                     {/* 3. Опис */}
                     <p className="text-xs lg:text-xs xl:text-sm 2xl:text-sm leading-tight">
-                      Finding betting sites can be hard if you don’t know where to look. Fortunately, you came to the
+                      Finding betting sites can be hard if you don't know where to look. Fortunately, you came to the
                       right place as here we are aware of the need that punters are facing and know exactly how to help
                       them.
                     </p>
@@ -107,7 +107,7 @@ export default function IrishBettingComparison() {
                       </div>
                       <div className="flex items-center gap-1 lg:gap-2">
                         <div className="flex gap-0.5">
-                          <div className="w-2 h-1.5 lg:w-3 lg:h-2 bg-green-700"></div>
+                          <div className="w-2 h-1.5 lg:w-3 lg:h-2 bg-green-primary"></div>
                           <div className="w-2 h-1.5 lg:w-3 lg:h-2 bg-white"></div>
                           <div className="w-2 h-1.5 lg:w-3 lg:h-2 bg-orange-500"></div>
                         </div>
@@ -149,7 +149,7 @@ export default function IrishBettingComparison() {
                   {/* Верхня частина */}
                   <div className="space-y-1">
                     <h1 className="text-xl md:text-2xl font-bold">
-                      BEST <span className="text-green-600">IRELAND</span> BETTING SITES
+                      BEST <span className="text-green-primary">IRELAND</span> BETTING SITES
                     </h1>
                     <h2 className="text-base md:text-lg font-bold">UPDATED FOR {getCurrentMonthYear()}</h2>
                   </div>
@@ -162,7 +162,7 @@ export default function IrishBettingComparison() {
                     </div>
                     <div className="flex items-center gap-1 md:gap-2">
                       <div className="flex gap-0.5 md:gap-1">
-                        <div className="w-2 h-1.5 md:w-3 md:h-2 bg-green-700"></div>
+                        <div className="w-2 h-1.5 md:w-3 md:h-2 bg-green-primary"></div>
                         <div className="w-2 h-1.5 md:w-3 md:h-2 bg-white"></div>
                         <div className="w-2 h-1.5 md:w-3 md:h-2 bg-orange-500"></div>
                       </div>
@@ -196,7 +196,7 @@ export default function IrishBettingComparison() {
                 <div className="p-2 xs:p-3 sm:p-4 text-center">
                   {/* Заголовки - компактні */}
                   <h1 className="text-sm xs:text-base sm:text-lg font-bold mb-1">
-                    BEST <span className="text-green-600">IRELAND</span> BETTING SITES
+                    BEST <span className="text-green-primary">IRELAND</span> BETTING SITES
                   </h1>
                   <h2 className="text-xs xs:text-sm sm:text-base font-bold mb-2 xs:mb-3 sm:mb-4">
                     UPDATED FOR {getCurrentMonthYear()}
@@ -210,7 +210,7 @@ export default function IrishBettingComparison() {
                     </div>
                     <div className="flex flex-col items-center">
                       <div className="flex gap-0.5 mb-0.5 xs:mb-2 mt-0.5">
-                        <div className="w-1.5 h-2 xs:w-2 xs:h-3 sm:w-2 sm:h-4 bg-green-700"></div>
+                        <div className="w-1.5 h-2 xs:w-2 xs:h-3 sm:w-2 sm:h-4 bg-green-primary"></div>
                         <div className="w-1.5 h-2 xs:w-2 xs:h-3 sm:w-2 sm:h-4 bg-white"></div>
                         <div className="w-1.5 h-2 xs:w-2 xs:h-3 sm:w-2 sm:h-4 bg-orange-500"></div>
                       </div>

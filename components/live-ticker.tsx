@@ -127,7 +127,7 @@ export function LiveTicker() {
   return (
     <div className="relative overflow-hidden bg-[#d3d3d3] border-t border-black h-[40px]">
       {/* Fixed green label */}
-      <div className="absolute left-0 top-0 bottom-0 bg-[#60c100] text-white font-bold px-4 py-2 text-sm rounded-r-full z-10 flex items-center">
+      <div className="absolute left-0 top-0 bottom-0 bg-green-primary text-white font-bold px-4 py-2 text-sm rounded-r-full z-10 flex items-center">
         <div className="text-center leading-tight">
           <div className="text-xs">Live</div>
           <div className="text-xs">Fixtures</div>

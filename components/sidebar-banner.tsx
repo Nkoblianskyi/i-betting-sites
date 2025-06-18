@@ -36,7 +36,7 @@ export function SidebarBanner({ position, site }: SidebarBannerProps) {
               {[...Array(6)].map((_, i) => (
                 <div
                   key={i}
-                  className={`w-2 h-2 rounded-full ${i < Math.floor(site.rating) ? "bg-green-600" : "bg-green-600"}`}
+                  className={`w-2 h-2 rounded-full ${i < Math.floor(site.rating) ? "bg-green-primary" : "bg-green-primary"}`}
                 />
               ))}
             </div>
