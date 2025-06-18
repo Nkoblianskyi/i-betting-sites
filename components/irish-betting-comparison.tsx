@@ -68,7 +68,7 @@ export default function IrishBettingComparison() {
                   {/* Верхня частина */}
                   <div className="space-y-1">
                     {/* 1. Заголовок */}
-                    <h1 className="text-lg lg:text-[40px] xl:text-[40px] 2xl:text-[40px] font-bold">
+                    <h1 className="text-lg lg:text-[40px] xl:text-[40px] 2xl:text-[40px] font-bold drop-shadow-lg">
                       BEST <span className="text-green-primary">IRELAND</span> BETTING SITES
                     </h1>
 
@@ -82,13 +82,14 @@ export default function IrishBettingComparison() {
                   <div className="space-y-2 lg:space-y-2 mx-auto">
                     {/* 3. Опис */}
                     <p className="text-xs lg:text-xs xl:text-sm 2xl:text-sm leading-tight">
-                      Finding betting sites can be hard if you don't know where to look. Fortunately, you came to the
-                      right place as here we are aware of the need that punters are facing and know exactly how to help
-                      them.
+                      Discovering quality betting platforms can be challenging without proper guidance. Luckily, you've
+                      found the perfect place as we understand the difficulties that bettors face and know precisely how
+                      to assist them.
                     </p>
 
                     <p className="text-xs lg:text-sm xl:text-sm 2xl:text-sm leading-tight">
-                      Starting with the most suitable new customer offers for June, specifically hand-picked by us.
+                      Beginning with the most appropriate new player promotions, carefully selected by our
+                      experts.
                     </p>
 
                     {/* 4. Дрібний текст про терміни */}

@@ -1,14 +1,14 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Nunito } from "next/font/google"
+import { Nunito_Sans } from "next/font/google"
 import "./globals.css"
 import { Header } from "../components/header"
 import { Footer } from "../components/footer"
 
-const inter = Nunito({ subsets: ["latin"] })
+const nunitoSans = Nunito_Sans({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "IE Best Betting Sites - Top Irish Betting Sites",
+  title: "IE Best Betting Sites - Top Irish Betting Sites 2025",
   description: "Find the best betting sites in Ireland. Compare bonuses, odds, and features of top Irish bookmakers.",
 }
 
@@ -19,11 +19,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={nunitoSans.className}>
         <div
           className="min-h-screen relative"
           style={{
-            backgroundImage: "url(/bg-7.jpg)",
+            backgroundImage: "url(/bg.jpg)",
             backgroundSize: "cover",
             backgroundPosition: "center",
             backgroundAttachment: "fixed",
