@@ -43,10 +43,10 @@ export function SiteCard({ site, rank }: SiteCardProps) {
           {/* BONUS OFFER - 22% */}
           <div className="flex-[0_0_22%] text-center flex flex-col justify-center h-full px-2 xl:px-4">
             <div className="text-xs text-gray-600 uppercase font-normal mb-1">Welcome Bonus</div>
-            <div className="text-lg xl:text-xl font-black text-gray-900 mb-0.5 leading-tight break-words">
+            <div className="text-lg xl:text-xl font-bold text-gray-900 mb-0.5 leading-tight break-words">
               {site.bonus}
             </div>
-            <div className="text-lg xl:text-xl font-black text-gray-900 leading-tight break-words">
+            <div className="text-lg xl:text-xl font-bold text-gray-900 leading-tight break-words">
               {site.welcomeOffer}
             </div>
           </div>
@@ -58,8 +58,9 @@ export function SiteCard({ site, rank }: SiteCardProps) {
               {[...Array(5)].map((_, i) => (
                 <Star
                   key={i}
-                  className={`w-4 xl:w-5 h-4 xl:h-5 ${i < Math.floor(site.rating) ? "fill-yellow-400 text-yellow-400" : "text-gray-300"
-                    }`}
+                  className={`w-4 xl:w-5 h-4 xl:h-5 ${
+                    i < Math.floor(site.rating) ? "fill-yellow-400 text-yellow-400" : "text-gray-300"
+                  }`}
                 />
               ))}
             </div>
@@ -119,8 +120,8 @@ export function SiteCard({ site, rank }: SiteCardProps) {
             {/* Bonus - 20% */}
             <div className="flex-[0_0_20%] text-center px-3">
               <div className="text-xs text-gray-600 uppercase font-normal mb-1">Welcome Bonus</div>
-              <div className="text-base font-black text-gray-900 mb-0.5 leading-tight break-words">{site.bonus}</div>
-              <div className="text-base font-black text-gray-900 leading-tight break-words">{site.welcomeOffer}</div>
+              <div className="text-base font-bold text-gray-900 mb-0.5 leading-tight break-words">{site.bonus}</div>
+              <div className="text-base font-bold text-gray-900 leading-tight break-words">{site.welcomeOffer}</div>
             </div>
 
             {/* Rating - 20% */}
@@ -130,10 +131,11 @@ export function SiteCard({ site, rank }: SiteCardProps) {
                 {[...Array(5)].map((_, i) => (
                   <Star
                     key={i}
-                    className={`w-4 h-4 ${i < filledStars || (i === filledStars && hasHalfStar)
+                    className={`w-4 h-4 ${
+                      i < filledStars || (i === filledStars && hasHalfStar)
                         ? "fill-yellow-400 text-yellow-400"
                         : "text-gray-300"
-                      }`}
+                    }`}
                   />
                 ))}
               </div>
@@ -208,10 +210,11 @@ export function SiteCard({ site, rank }: SiteCardProps) {
                   {[...Array(5)].map((_, i) => (
                     <Star
                       key={i}
-                      className={`w-4 h-4 sm:w-4 sm:h-4 ${i < filledStars || (i === filledStars && hasHalfStar)
+                      className={`w-4 h-4 sm:w-4 sm:h-4 ${
+                        i < filledStars || (i === filledStars && hasHalfStar)
                           ? "fill-yellow-400 text-yellow-400"
                           : "text-gray-300"
-                        }`}
+                      }`}
                     />
                   ))}
                 </div>
