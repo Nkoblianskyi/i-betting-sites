@@ -48,10 +48,11 @@ export function Top3Modal({ bettingSites, casinoSites }: Top3ModalProps) {
           {top3Sites.map((site: BettingSite, index: number) => (
             <div
               key={site.id}
-              className={`overflow-hidden ${index === 1
-                  ? "w-[357px] h-[382px] border-4 border-green-primary shadow-2xl shadow-green-primary/50 rounded-lg relative z-20"
+              className={`overflow-hidden ${
+                index === 1
+                  ? "w-[327px] h-[382px] border-4 border-green-primary shadow-2xl shadow-green-primary/50 rounded-lg relative z-20"
                   : "w-[255px] h-[364px] border-4 border-white rounded-lg relative z-10"
-                }`}
+              }`}
             >
               {/* White header section */}
               <div
@@ -81,8 +82,8 @@ export function Top3Modal({ bettingSites, casinoSites }: Top3ModalProps) {
 
                 {/* Offer text */}
                 <div className="flex-1 flex flex-col justify-center">
-                  <div className="text-xl font-bold mb-2">{site.bonus}</div>
-                  <div className="text-xl">{site.welcomeOffer}</div>
+                  <div className={` ${index === 1 ? "text-2xl" : "text-xl"} font-bold mb-2`}>{site.bonus}</div>
+                  <div className={` ${index === 1 ? "text-2xl" : "text-xl"}`}>{site.welcomeOffer}</div>
                 </div>
 
                 {/* Button */}
@@ -102,10 +103,11 @@ export function Top3Modal({ bettingSites, casinoSites }: Top3ModalProps) {
           {top3Sites.map((site: BettingSite, index: number) => (
             <div
               key={site.id}
-              className={`overflow-hidden ${index === 1
+              className={`overflow-hidden ${
+                index === 1
                   ? "w-[240px] h-[280px] border-4 border-green-primary shadow-2xl shadow-green-primary/50 rounded-lg relative z-20"
                   : "w-[180px] h-[260px] border-4 border-white rounded-lg relative z-10"
-                }`}
+              }`}
             >
               {/* White header section */}
               <div
@@ -135,8 +137,8 @@ export function Top3Modal({ bettingSites, casinoSites }: Top3ModalProps) {
 
                 {/* Offer text */}
                 <div className="flex-1 flex flex-col justify-center">
-                  <div className="text-sm font-bold mb-1">{site.bonus}</div>
-                  <div className="text-xs">{site.welcomeOffer}</div>
+                  <div className={` ${index === 1 ? "text-lg" : "text-base"} font-bold mb-1`}>{site.bonus}</div>
+                  <div className={` ${index === 1 ? "text-lg" : "text-base"}`}>{site.welcomeOffer}</div>
                 </div>
 
                 {/* Button */}
@@ -158,10 +160,11 @@ export function Top3Modal({ bettingSites, casinoSites }: Top3ModalProps) {
               {top3Sites.map((site: BettingSite, index: number) => (
                 <div
                   key={site.id}
-                  className={`flex-shrink-0 overflow-hidden ${index === 0
-                      ? "w-[300px] h-[380px] border-4 border-green-primary rounded-lg relative z-20"
+                  className={`flex-shrink-0 overflow-hidden ${
+                    index === 0
+                      ? "w-[280px] h-[360px] border-4 border-green-primary rounded-lg relative z-20"
                       : "w-[240px] h-[340px] border-4 border-white rounded-lg relative z-10"
-                    }`}
+                  }`}
                   style={{ scrollSnapAlign: "center" }}
                 >
                   {/* White header section */}
@@ -199,8 +202,8 @@ export function Top3Modal({ bettingSites, casinoSites }: Top3ModalProps) {
 
                     {/* Offer text */}
                     <div className="flex-1 flex flex-col justify-center">
-                      <div className={`${index === 0 ? "text-lg" : "text-base"} font-bold mb-2`}>{site.bonus}</div>
-                      <div className={`${index === 0 ? "text-base" : "text-sm"}`}>{site.welcomeOffer}</div>
+                      <div className={`${index === 0 ? "text-2xl" : "text-sm"} font-bold mb-2`}>{site.bonus}</div>
+                      <div className={`${index === 0 ? "text-2xl" : "text-xs"}`}>{site.welcomeOffer}</div>
                     </div>
 
                     {/* Button */}
@@ -221,9 +224,7 @@ export function Top3Modal({ bettingSites, casinoSites }: Top3ModalProps) {
           </div>
 
           {/* Swipe indicator */}
-          <div className="flex justify-center gap-2 mt-2">
-
-          </div>
+          <div className="flex justify-center gap-2 mt-2"></div>
         </div>
 
         {/* Footer text */}
