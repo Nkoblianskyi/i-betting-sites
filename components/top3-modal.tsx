@@ -16,7 +16,7 @@ export function Top3Modal({ bettingSites, casinoSites }: Top3ModalProps) {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsOpen(true)
-    }, 2000)
+    }, 8000)
 
     return () => clearTimeout(timer)
   }, [])
@@ -26,7 +26,8 @@ export function Top3Modal({ bettingSites, casinoSites }: Top3ModalProps) {
   const top3Sites = bettingSites.slice(0, 3)
 
   return (
-    <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+    // Fix centering by ensuring proper flex display
+    <div className="hidden md:flex fixed inset-0 bg-black/80 backdrop-blur-sm z-50 items-center justify-center p-4">
       {/* Close button */}
       <Button
         variant="ghost"
@@ -99,7 +100,7 @@ export function Top3Modal({ bettingSites, casinoSites }: Top3ModalProps) {
         </div>
 
         {/* Tablet Layout (768px - 1023px) - Same as desktop but scaled */}
-        <div className="hidden md:flex lg:hidden items-center justify-center gap-0 w-full px-2">
+        <div className="flex lg:hidden items-center justify-center gap-0 w-full px-2">
           {top3Sites.map((site: BettingSite, index: number) => (
             <div
               key={site.id}
@@ -153,95 +154,12 @@ export function Top3Modal({ bettingSites, casinoSites }: Top3ModalProps) {
           ))}
         </div>
 
-        {/* Mobile Layout (до 767px) - First card prominent, others swipeable */}
-        <div className="md:hidden w-full px-4">
-          <div className="overflow-x-auto scrollbar-hide" style={{ scrollSnapType: "x mandatory" }}>
-            <div className="flex gap-4 pb-4" style={{ width: "max-content" }}>
-              {top3Sites.map((site: BettingSite, index: number) => (
-                <div
-                  key={site.id}
-                  className={`flex-shrink-0 overflow-hidden ${
-                    index === 0
-                      ? "w-[280px] h-[360px] border-4 border-green-primary rounded-lg relative z-20"
-                      : "w-[240px] h-[340px] border-4 border-white rounded-lg relative z-10"
-                  }`}
-                  style={{ scrollSnapAlign: "center" }}
-                >
-                  {/* White header section */}
-                  <div
-                    className={`bg-white ${index === 0 ? "h-[110px]" : "h-[95px]"} flex items-center justify-center p-4`}
-                    style={{
-                      borderTopLeftRadius: "calc(0.5rem - 4px)",
-                      borderTopRightRadius: "calc(0.5rem - 4px)",
-                    }}
-                  >
-                    <img
-                      src={site.logo || "/placeholder.svg"}
-                      alt={site.name}
-                      className={`${index === 0 ? "h-16" : "h-12"} w-auto object-contain`}
-                    />
-                  </div>
-
-                  {/* Black content section */}
-                  <div
-                    className={`bg-black text-white ${index === 0 ? "h-[270px]" : "h-[245px]"} flex flex-col justify-between p-4 text-center`}
-                    style={{
-                      borderBottomLeftRadius: "calc(0.5rem - 4px)",
-                      borderBottomRightRadius: "calc(0.5rem - 4px)",
-                    }}
-                  >
-                    {/* Stars */}
-                    <div className="flex justify-center gap-1 mt-4">
-                      {[...Array(index === 2 ? 4 : 5)].map((_, i) => (
-                        <Star
-                          key={i}
-                          className={`${index === 0 ? "w-5 h-5" : "w-4 h-4"} fill-yellow-400 text-yellow-400`}
-                        />
-                      ))}
-                    </div>
-
-                    {/* Offer text */}
-                    <div className="flex-1 flex flex-col justify-center">
-                      <div className={`${index === 0 ? "text-2xl" : "text-sm"} font-bold mb-2`}>{site.bonus}</div>
-                      <div className={`${index === 0 ? "text-2xl" : "text-xs"}`}>{site.welcomeOffer}</div>
-                    </div>
-
-                    {/* Button */}
-                    <Button
-                      className={`bg-green-primary hover:bg-green-hover text-white font-bold ${index === 0 ? "py-2 px-4 text-sm" : "py-1.5 px-3 text-xs"} rounded-full w-full mb-6`}
-                    >
-                      GET BONUS
-                    </Button>
-
-                    {/* Terms - ONE LINE */}
-                    <div className={`${index === 0 ? "text-xs" : "text-[10px]"} text-gray-300 truncate px-1`}>
-                      18+ T&Cs apply. BeGambleAware.org
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Swipe indicator */}
-          <div className="flex justify-center gap-2 mt-2"></div>
-        </div>
-
         {/* Footer text */}
         <div className="text-center mt-4 md:mt-8">
           <p className="text-white text-xs md:text-sm">
             18+. T&C's apply. <span className="underline">Begambleaware.org</span>. Play responsibly.
           </p>
         </div>
-        <style jsx>{`
-        .scrollbar-hide {
-          -ms-overflow-style: none;
-          scrollbar-width: none;
-        }
-        .scrollbar-hide::-webkit-scrollbar {
-          display: none;
-        }
-      `}</style>
       </div>
     </div>
   )
