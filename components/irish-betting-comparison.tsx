@@ -16,6 +16,7 @@ import { LiveTicker } from "./live-ticker"
 import { HorizontalBanner } from "./horizontal-banner"
 import Link from "next/link"
 import Image from "next/image"
+import { Header } from "./header"
 
 export default function IrishBettingComparison() {
   const [isAdvertiserModalOpen, setIsAdvertiserModalOpen] = useState(false)
@@ -61,6 +62,11 @@ export default function IrishBettingComparison() {
 
             {/* Center Column - Hero + List */}
             <div className="w-full min-w-0 px-1">
+              {/* Add Header for desktop view */}
+              <div className="hidden lg:block mb-4">
+                <Header />
+              </div>
+
               {/* Hero Section - Desktop - РОЗТЯГНУТИЙ КОНТЕНТ */}
               <div
                 className="hidden lg:block relative overflow-hidden text-white mb-2 w-full h-[200px] lg:h-[290px] xl:h-[290px] 2xl:h-[290px]"
@@ -140,6 +146,11 @@ export default function IrishBettingComparison() {
                     </div>
                   </div>
                 </div>
+              </div>
+
+              {/* Add Header for tablet view */}
+              <div className="hidden md:block lg:hidden mb-4">
+                <Header />
               </div>
 
               {/* Hero Section - Tablet - РОЗТЯГНУТИЙ КОНТЕНТ */}
@@ -223,10 +234,10 @@ export default function IrishBettingComparison() {
                   <div className="flex-1 px-2 text-center flex flex-col justify-center">
                     {/* Main titles - COMPACT */}
                     <div className="mb-2">
-                      <h1 className="text-sm font-bold mb-1 drop-shadow-lg leading-tight">
+                      <h1 className="text-lg font-bold mb-1 drop-shadow-lg leading-tight">
                         BEST <span className="text-green-primary">IRELAND</span> BETTING SITES
                       </h1>
-                      <h2 className="text-[10px] font-bold drop-shadow-lg leading-tight">
+                      <h2 className="text-[12px] font-bold drop-shadow-lg leading-tight">
                         UPDATED FOR {getCurrentMonthYear()}
                       </h2>
                     </div>
@@ -238,7 +249,7 @@ export default function IrishBettingComparison() {
                         <span className="text-[8px] font-bold leading-tight">100% Legal</span>
                       </div>
                       <div className="flex flex-col items-center">
-                        <div className="flex gap-0.5 mb-1.5">
+                        <div className="flex gap-0.5 mb-0.5">
                           <div className="w-1 h-3 bg-green-primary"></div>
                           <div className="w-1 h-3 bg-white"></div>
                           <div className="w-1 h-3 bg-orange-500"></div>

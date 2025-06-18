@@ -50,7 +50,7 @@ export function Top3Modal({ bettingSites, casinoSites }: Top3ModalProps) {
               key={site.id}
               className={`overflow-hidden ${
                 index === 1
-                  ? "w-[327px] h-[382px] border-4 border-green-primary shadow-2xl shadow-green-primary/50 rounded-lg relative z-20"
+                  ? "w-[357px] h-[382px] border-4 border-green-primary shadow-2xl shadow-green-primary/50 rounded-lg relative z-20"
                   : "w-[255px] h-[364px] border-4 border-white rounded-lg relative z-10"
               }`}
             >

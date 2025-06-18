@@ -2,7 +2,6 @@ import type React from "react"
 import type { Metadata } from "next"
 import { Nunito_Sans } from "next/font/google"
 import "./globals.css"
-import { Header } from "../components/header"
 import { Footer } from "../components/footer"
 
 const nunitoSans = Nunito_Sans({ subsets: ["latin"] })
@@ -30,10 +29,7 @@ export default function RootLayout({
           }}
         >
           <div className="relative z-10">
-            {/* Header only shows on md+ screens */}
-            <div className="hidden md:block">
-              <Header />
-            </div>
+            {/* Remove the header from the layout completely */}
             <main>{children}</main>
             <Footer />
           </div>
