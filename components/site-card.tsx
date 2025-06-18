@@ -168,7 +168,7 @@ export function SiteCard({ site, rank }: SiteCardProps) {
       </div>
 
       {/* Mobile Layout - OPTIMIZED FOR 195px HEIGHT */}
-      <div className="md:hidden bg-white rounded-lg border border-gray-200 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] relative overflow-hidden cursor-pointer mt-2 h-[195px]">
+      <div className="md:hidden bg-white rounded-lg border border-gray-200 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] relative overflow-hidden cursor-pointer h-[195px]">
         {/* Badge for top 3 positions */}
         {rank === 1 && (
           <div className="absolute top-0 left-0 bg-green-primary text-white px-2 py-0.5 rounded-br-lg text-[10px] font-bold z-20">
@@ -233,8 +233,8 @@ export function SiteCard({ site, rank }: SiteCardProps) {
             {/* Welcome Bonus */}
             <div className="text-center flex-1 flex flex-col justify-center">
               <div className="text-[10px] text-black uppercase font-normal mb-1">WELCOME BONUS</div>
-              <div className="text-xl font-bold text-gray-900 leading-tight mb-1">{site.bonus}</div>
-              <div className="text-xl font-bold text-gray-900 leading-tight">{site.welcomeOffer}</div>
+              <div className="text-lg font-bold text-gray-900 leading-tight mb-1">{site.bonus}</div>
+              <div className="text-lg font-bold text-gray-900 leading-tight">{site.welcomeOffer}</div>
             </div>
 
             {/* Button */}

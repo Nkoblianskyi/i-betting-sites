@@ -190,11 +190,11 @@ export default function IrishBettingComparison() {
                 </div>
               </div>
 
-              {/* Hero Section - Mobile - COMBINED HEADER + HERO */}
+              {/* Hero Section - Mobile - ULTRA COMPACT 140px MAX */}
               <div
-                className="md:hidden relative overflow-hidden text-white rounded-lg mb-2 w-full h-[350px] xs:h-[380px] sm:h-[400px]"
+                className="md:hidden relative overflow-hidden text-white rounded-lg mb-2 w-full h-[140px]"
                 style={{
-                  backgroundImage: "url(/bg.jpg)",
+                  backgroundImage: "url(/bg-7.jpg)",
                   backgroundSize: "cover",
                   backgroundPosition: "center",
                 }}
@@ -202,15 +202,15 @@ export default function IrishBettingComparison() {
                 {/* Dark overlay for better text readability */}
                 <div className="absolute inset-0 bg-black/70 rounded-lg"></div>
 
-                {/* Combined Header + Hero content */}
+                {/* Combined Header + Hero content - ULTRA COMPACT */}
                 <div className="relative z-10 h-full flex flex-col">
-                  {/* Header section */}
-                  <div className="h-[83px] flex items-center justify-center px-4">
-                    <Link href="/" className="flex items-center gap-2">
-                      <div className="w-8 h-8 bg-transparent rounded-full flex items-center justify-center flex-shrink-0">
-                        <Image src="/logo.png" alt="Logo" width={32} height={32} className="w-8 h-8" />
+                  {/* Header section - COMPACT */}
+                  <div className="h-[35px] flex items-center justify-center px-2">
+                    <Link href="/" className="flex items-center gap-1">
+                      <div className="w-6 h-6 bg-transparent rounded-full flex items-center justify-center flex-shrink-0">
+                        <Image src="/logo.png" alt="Logo" width={24} height={24} className="w-6 h-6" />
                       </div>
-                      <h1 className="text-sm xs:text-base font-bold whitespace-nowrap">
+                      <h1 className="text-[10px] font-bold whitespace-nowrap">
                         <span className="text-green-primary">BEST </span>
                         <span className="text-white">IRISH </span>
                         <span className="text-orange-500">BETTING </span>
@@ -219,40 +219,40 @@ export default function IrishBettingComparison() {
                     </Link>
                   </div>
 
-                  {/* Hero content */}
-                  <div className="flex-1 px-4 py-6 text-center flex flex-col justify-center">
-                    {/* Main titles */}
-                    <div className="mb-6">
-                      <h1 className="text-lg xs:text-xl sm:text-2xl font-bold mb-2 drop-shadow-lg">
+                  {/* Hero content - ULTRA COMPACT */}
+                  <div className="flex-1 px-2 text-center flex flex-col justify-center">
+                    {/* Main titles - COMPACT */}
+                    <div className="mb-2">
+                      <h1 className="text-sm font-bold mb-1 drop-shadow-lg leading-tight">
                         BEST <span className="text-green-primary">IRELAND</span> BETTING SITES
                       </h1>
-                      <h2 className="text-sm xs:text-base sm:text-lg font-bold drop-shadow-lg">
+                      <h2 className="text-[10px] font-bold drop-shadow-lg leading-tight">
                         UPDATED FOR {getCurrentMonthYear()}
                       </h2>
                     </div>
 
-                    {/* Feature badges */}
-                    <div className="flex justify-center gap-4 xs:gap-6 sm:gap-8 mb-6">
+                    {/* Feature badges - ULTRA COMPACT */}
+                    <div className="flex justify-center gap-3 mb-2">
                       <div className="flex flex-col items-center">
-                        <Shield className="w-6 h-6 xs:w-7 xs:h-7 sm:w-8 sm:h-8 mb-2" />
-                        <span className="text-xs xs:text-sm font-bold leading-tight">100% Legal</span>
+                        <Shield className="w-4 h-4 mb-0.5" />
+                        <span className="text-[8px] font-bold leading-tight">100% Legal</span>
                       </div>
                       <div className="flex flex-col items-center">
-                        <div className="flex gap-1 mb-2">
-                          <div className="w-2 h-4 xs:w-2.5 xs:h-5 sm:w-3 sm:h-6 bg-green-primary"></div>
-                          <div className="w-2 h-4 xs:w-2.5 xs:h-5 sm:w-3 sm:h-6 bg-white"></div>
-                          <div className="w-2 h-4 xs:w-2.5 xs:h-5 sm:w-3 sm:h-6 bg-orange-500"></div>
+                        <div className="flex gap-0.5 mb-1.5">
+                          <div className="w-1 h-3 bg-green-primary"></div>
+                          <div className="w-1 h-3 bg-white"></div>
+                          <div className="w-1 h-3 bg-orange-500"></div>
                         </div>
-                        <span className="text-xs xs:text-sm font-bold leading-tight">IE Regulated</span>
+                        <span className="text-[8px] font-bold leading-tight">IE Regulated</span>
                       </div>
                       <div className="flex flex-col items-center">
-                        <Clock className="w-6 h-6 xs:w-7 xs:h-7 sm:w-8 sm:h-8 mb-2" />
-                        <span className="text-xs xs:text-sm font-bold leading-tight">Fast Withdrawals</span>
+                        <Clock className="w-4 h-4 mb-0.5" />
+                        <span className="text-[8px] font-bold leading-tight">Fast Withdrawals</span>
                       </div>
                     </div>
 
-                    {/* Bottom text */}
-                    <div className="text-xs xs:text-sm leading-tight space-y-1">
+                    {/* Bottom text - ULTRA COMPACT */}
+                    <div className="text-[7px] leading-tight">
                       <div>Play responsibly. Wagering and T&Cs apply.</div>
                       <div>
                         <button
@@ -281,7 +281,7 @@ export default function IrishBettingComparison() {
               </div>
 
               {/* Sites List */}
-              <div className="space-y-1 w-full">
+              <div className="space-y-2 w-full">
                 {bettingSites.map((site: BettingSite, index: number) => (
                   <div key={site.id} className="w-full">
                     <SiteCard site={site} rank={index + 1} />
