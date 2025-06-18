@@ -125,18 +125,10 @@ export function LiveTicker() {
   if (matches.length === 0) return null
 
   return (
-    <div className="relative overflow-hidden bg-[#d3d3d3] border-t border-black h-[40px] rounded-b-lg">
-      {/* Fixed green label */}
-      <div className="absolute left-0 top-0 bottom-0 bg-green-primary text-white font-bold px-4 py-2 text-sm rounded-r-full z-10 flex items-center">
-        <div className="text-center leading-tight">
-          <div className="text-xs">Live</div>
-          <div className="text-xs">Fixtures</div>
-        </div>
-      </div>
-
-      {/* Scrolling content */}
-      <div className="absolute left-32 top-0 bottom-0 right-0 overflow-hidden">
-        <div className="ticker-track h-full flex items-center">
+    <div className="relative overflow-hidden h-[40px]">
+      {/* Scrolling content - goes under the green label */}
+      <div className="absolute left-0 top-0 bottom-0 right-0 overflow-hidden bg-[#d3d3d3] border-t border-black rounded-br-lg">
+        <div className="ticker-track h-full flex items-center pl-32">
           {matches
             .concat(matches)
             .concat(matches)
@@ -153,6 +145,14 @@ export function LiveTicker() {
                 </div>
               </div>
             ))}
+        </div>
+      </div>
+
+      {/* Fixed green label - on top */}
+      <div className="absolute left-0 top-0 bottom-0 bg-green-primary text-white font-bold px-4 py-2 text-sm rounded-r-full z-10 flex items-center">
+        <div className="text-center leading-tight">
+          <div className="text-xs">Live</div>
+          <div className="text-xs">Fixtures</div>
         </div>
       </div>
 

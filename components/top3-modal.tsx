@@ -159,7 +159,7 @@ export function Top3Modal({ bettingSites, casinoSites }: Top3ModalProps) {
                 <div
                   key={site.id}
                   className={`flex-shrink-0 overflow-hidden ${index === 0
-                      ? "w-[300px] h-[380px] border-4 border-green-primary shadow-2xl shadow-green-primary/50 rounded-lg relative z-20"
+                      ? "w-[300px] h-[380px] border-4 border-green-primary rounded-lg relative z-20"
                       : "w-[240px] h-[340px] border-4 border-white rounded-lg relative z-10"
                     }`}
                   style={{ scrollSnapAlign: "center" }}
