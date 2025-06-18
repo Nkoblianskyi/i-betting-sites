@@ -313,6 +313,8 @@ export default function IrishBettingComparison() {
 
             {/* Right Column - Only on screens 1024px+ */}
             <div className="hidden lg:block w-full">
+              {/* Add spacing for header height */}
+              <div style={{ height: "64px" }}></div>
               {/* Right Sidebar at hero level */}
               <div className="w-full max-w-[160px]">
                 <SidebarBanner position="right" site={bettingSites[0]} />
