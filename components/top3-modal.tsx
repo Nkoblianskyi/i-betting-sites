@@ -16,7 +16,7 @@ export function Top3Modal({ bettingSites, casinoSites }: Top3ModalProps) {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsOpen(true)
-    }, 8000)
+    }, 2000)
 
     return () => clearTimeout(timer)
   }, [])
@@ -39,7 +39,7 @@ export function Top3Modal({ bettingSites, casinoSites }: Top3ModalProps) {
 
       <div className="w-full max-w-6xl">
         {/* Title */}
-        <div className="text-center mb-4 md:mb-6">
+        <div className="text-center mb-2 md:mb-2">
           <h2 className="text-xl md:text-2xl lg:text-4xl font-bold text-white">Best Betting Sites</h2>
         </div>
 
@@ -48,11 +48,10 @@ export function Top3Modal({ bettingSites, casinoSites }: Top3ModalProps) {
           {top3Sites.map((site: BettingSite, index: number) => (
             <div
               key={site.id}
-              className={`overflow-hidden ${
-                index === 1
+              className={`overflow-hidden ${index === 1
                   ? "w-[357px] h-[382px] border-4 border-green-primary shadow-2xl shadow-green-primary/50 rounded-lg relative z-20"
                   : "w-[255px] h-[364px] border-4 border-white rounded-lg relative z-10"
-              }`}
+                }`}
             >
               {/* White header section */}
               <div
@@ -62,7 +61,7 @@ export function Top3Modal({ bettingSites, casinoSites }: Top3ModalProps) {
                   borderTopRightRadius: "calc(0.5rem - 4px)",
                 }}
               >
-                <img src={site.logo || "/placeholder.svg"} alt={site.name} className="h-16 w-auto object-contain" />
+                <img src={site.logo || "/placeholder.svg"} alt={site.name} className="h-18 w-auto object-contain" />
               </div>
 
               {/* Black content section */}
@@ -103,11 +102,10 @@ export function Top3Modal({ bettingSites, casinoSites }: Top3ModalProps) {
           {top3Sites.map((site: BettingSite, index: number) => (
             <div
               key={site.id}
-              className={`overflow-hidden ${
-                index === 1
-                  ? "w-[240px] h-[280px] border-3 border-green-primary shadow-2xl shadow-green-primary/50 rounded-lg relative z-20"
-                  : "w-[180px] h-[260px] border-3 border-white rounded-lg relative z-10"
-              }`}
+              className={`overflow-hidden ${index === 1
+                  ? "w-[240px] h-[280px] border-4 border-green-primary shadow-2xl shadow-green-primary/50 rounded-lg relative z-20"
+                  : "w-[180px] h-[260px] border-4 border-white rounded-lg relative z-10"
+                }`}
             >
               {/* White header section */}
               <div
@@ -153,63 +151,78 @@ export function Top3Modal({ bettingSites, casinoSites }: Top3ModalProps) {
           ))}
         </div>
 
-        {/* Mobile Layout (до 767px) - Вертикальний стек */}
-        <div className="md:hidden w-full px-3 max-h-[70vh] overflow-y-auto">
-          <div className="space-y-3">
-            {top3Sites.map((site: BettingSite, index: number) => (
-              <div
-                key={site.id}
-                className={`overflow-hidden w-full ${
-                  index === 1
-                    ? "h-[120px] border-2 border-green-primary shadow-lg shadow-green-primary/30 rounded-lg"
-                    : "h-[110px] border-2 border-white rounded-lg"
-                }`}
-              >
-                <div className="flex h-full">
-                  {/* Logo section */}
+        {/* Mobile Layout (до 767px) - First card prominent, others swipeable */}
+        <div className="md:hidden w-full px-4">
+          <div className="overflow-x-auto scrollbar-hide" style={{ scrollSnapType: "x mandatory" }}>
+            <div className="flex gap-4 pb-4" style={{ width: "max-content" }}>
+              {top3Sites.map((site: BettingSite, index: number) => (
+                <div
+                  key={site.id}
+                  className={`flex-shrink-0 overflow-hidden ${index === 0
+                      ? "w-[300px] h-[380px] border-4 border-green-primary shadow-2xl shadow-green-primary/50 rounded-lg relative z-20"
+                      : "w-[240px] h-[340px] border-4 border-white rounded-lg relative z-10"
+                    }`}
+                  style={{ scrollSnapAlign: "center" }}
+                >
+                  {/* White header section */}
                   <div
-                    className={`bg-white ${index === 1 ? "w-[80px]" : "w-[70px]"} flex items-center justify-center p-2`}
+                    className={`bg-white ${index === 0 ? "h-[110px]" : "h-[95px]"} flex items-center justify-center p-4`}
                     style={{
-                      borderTopLeftRadius: "calc(0.5rem - 2px)",
-                      borderBottomLeftRadius: "calc(0.5rem - 2px)",
+                      borderTopLeftRadius: "calc(0.5rem - 4px)",
+                      borderTopRightRadius: "calc(0.5rem - 4px)",
                     }}
                   >
-                    <img src={site.logo || "/placeholder.svg"} alt={site.name} className="h-10 w-auto object-contain" />
+                    <img
+                      src={site.logo || "/placeholder.svg"}
+                      alt={site.name}
+                      className={`${index === 0 ? "h-16" : "h-12"} w-auto object-contain`}
+                    />
                   </div>
 
-                  {/* Content section */}
+                  {/* Black content section */}
                   <div
-                    className="bg-black text-white flex-1 flex flex-col justify-center p-3 text-center"
+                    className={`bg-black text-white ${index === 0 ? "h-[270px]" : "h-[245px]"} flex flex-col justify-between p-4 text-center`}
                     style={{
-                      borderTopRightRadius: "calc(0.5rem - 2px)",
-                      borderBottomRightRadius: "calc(0.5rem - 2px)",
+                      borderBottomLeftRadius: "calc(0.5rem - 4px)",
+                      borderBottomRightRadius: "calc(0.5rem - 4px)",
                     }}
                   >
                     {/* Stars */}
-                    <div className="flex justify-center gap-0.5 mb-1">
+                    <div className="flex justify-center gap-1 mt-4">
                       {[...Array(index === 2 ? 4 : 5)].map((_, i) => (
-                        <Star key={i} className="w-2.5 h-2.5 fill-yellow-400 text-yellow-400" />
+                        <Star
+                          key={i}
+                          className={`${index === 0 ? "w-5 h-5" : "w-4 h-4"} fill-yellow-400 text-yellow-400`}
+                        />
                       ))}
                     </div>
 
                     {/* Offer text */}
-                    <div className="mb-2">
-                      <div className="text-xs font-bold">
-                        {site.bonus} {site.welcomeOffer}
-                      </div>
+                    <div className="flex-1 flex flex-col justify-center">
+                      <div className={`${index === 0 ? "text-lg" : "text-base"} font-bold mb-2`}>{site.bonus}</div>
+                      <div className={`${index === 0 ? "text-base" : "text-sm"}`}>{site.welcomeOffer}</div>
                     </div>
 
                     {/* Button */}
-                    <Button className="bg-green-primary hover:bg-green-hover text-white font-bold py-1 px-4 rounded-full text-xs w-full mb-1">
+                    <Button
+                      className={`bg-green-primary hover:bg-green-hover text-white font-bold ${index === 0 ? "py-2 px-4 text-sm" : "py-1.5 px-3 text-xs"} rounded-full w-full mb-6`}
+                    >
                       GET BONUS
                     </Button>
 
-                    {/* Terms */}
-                    <div className="text-[9px] text-gray-300 truncate">18+ T&Cs apply</div>
+                    {/* Terms - ONE LINE */}
+                    <div className={`${index === 0 ? "text-xs" : "text-[10px]"} text-gray-300 truncate px-1`}>
+                      18+ T&Cs apply. BeGambleAware.org
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
+          </div>
+
+          {/* Swipe indicator */}
+          <div className="flex justify-center gap-2 mt-2">
+
           </div>
         </div>
 
@@ -219,6 +232,15 @@ export function Top3Modal({ bettingSites, casinoSites }: Top3ModalProps) {
             18+. T&C's apply. <span className="underline">Begambleaware.org</span>. Play responsibly.
           </p>
         </div>
+        <style jsx>{`
+        .scrollbar-hide {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+        }
+        .scrollbar-hide::-webkit-scrollbar {
+          display: none;
+        }
+      `}</style>
       </div>
     </div>
   )

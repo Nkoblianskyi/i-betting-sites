@@ -27,13 +27,13 @@ export function CookieBanner() {
   if (!isVisible) return null
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 bg-gray-900 text-white p-4 z-50 shadow-lg">
-      <div className="container mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+    <div className="fixed bottom-0 left-0 right-0 text-white p-4 z-50 shadow-lg bg-gray-900">
+      <div className="container mx-auto flex flex-col md:flex-row items-center justify-between gap-4 bg-gray-900">
         <div className="flex-1">
           <p className="text-sm">
             We use cookies to enhance your experience on our site. By continuing to browse, you agree to our use of
             cookies.
-            <Link href="/privacy-policy" className="text-emerald-400 hover:underline ml-1">
+            <Link href="/privacy-policy" className="text-green-primary hover:underline ml-1">
               Learn more about our Privacy Policy
             </Link>
           </p>
@@ -46,7 +46,7 @@ export function CookieBanner() {
           >
             Decline
           </Button>
-          <Button onClick={handleAccept} className="bg-emerald-600 hover:bg-emerald-700">
+          <Button onClick={handleAccept} className="bg-green-primary hover:bg-green-hover text-slate-900">
             Accept Cookies
           </Button>
         </div>
