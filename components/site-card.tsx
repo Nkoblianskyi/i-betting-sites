@@ -195,7 +195,7 @@ export function SiteCard({ site, rank }: SiteCardProps) {
               <img
                 src={site.logo || "/placeholder.svg"}
                 alt={site.name}
-                className="h-16 w-auto sm:h-20 object-contain mt-5"
+                className="h-18 w-auto sm:h-20 object-contain mt-5"
               />
             </div>
 
@@ -208,7 +208,7 @@ export function SiteCard({ site, rank }: SiteCardProps) {
                   {[...Array(5)].map((_, i) => (
                     <Star
                       key={i}
-                      className={`w-3 h-3 sm:w-4 sm:h-4 ${i < filledStars || (i === filledStars && hasHalfStar)
+                      className={`w-4 h-4 sm:w-4 sm:h-4 ${i < filledStars || (i === filledStars && hasHalfStar)
                           ? "fill-yellow-400 text-yellow-400"
                           : "text-gray-300"
                         }`}
@@ -217,15 +217,15 @@ export function SiteCard({ site, rank }: SiteCardProps) {
                 </div>
 
                 {/* Rate it text */}
-                <div className="text-[9px] sm:text-[10px] text-black">Rate it ({formatVotes(site.votes)})</div>
+                <div className="text-[12px] sm:text-[12px] text-black mt-2">Rate it ({formatVotes(site.votes)})</div>
               </div>
 
               {/* Right column: Score */}
-              <div className="flex flex-col items-center">
+              <div className="flex flex-col items-center justify-center gap-2 mt-1">
                 <div className="text-3xl sm:text-4xl font-bold" style={{ color: "rgba(91, 152, 15, 1)" }}>
                   {site.rating.toFixed(1)}
                 </div>
-                <div className="text-[9px] sm:text-[10px] text-black">Our Score</div>
+                <div className="text-[9px] sm:text-[10px] text-black font-bold">Our Score</div>
               </div>
             </div>
           </div>
@@ -233,10 +233,10 @@ export function SiteCard({ site, rank }: SiteCardProps) {
           {/* Right Column: Bonus and Button */}
           <div className="flex flex-col justify-between  pb-1 pt-6 px-3">
             {/* Welcome Bonus */}
-            <div className="text-center mt-4">
+            <div className="text-center mt-8 items-center">
               <div className="text-[9px] sm:text-[10px] text-black uppercase font-normal">WELCOME BONUS</div>
-              <div className="text-lg sm:text-xl font-bold text-gray-900 leading-tight">{site.bonus}</div>
-              <div className="text-lg sm:text-xl font-bold text-gray-900 leading-tight">{site.welcomeOffer}</div>
+              <div className="text-xl sm:text-xl font-bold text-gray-900 leading-tight">{site.bonus}</div>
+              <div className="text-xl sm:text-xl font-bold text-gray-900 leading-tight">{site.welcomeOffer}</div>
             </div>
 
             {/* Button */}
